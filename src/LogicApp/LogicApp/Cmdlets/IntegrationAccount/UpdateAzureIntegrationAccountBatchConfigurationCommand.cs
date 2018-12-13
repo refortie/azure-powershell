@@ -130,11 +130,11 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                 batchConfiguration.Properties = this.IntegrationAccountClient.GetIntegrationAccountBatchConfiguration(this.ResourceGroupName, this.ParentName, parsedResourceId.ResourceName).Properties;
             }
 
-            if (ParameterSetName == ParameterSet.ByJson)
+            if (this.ParameterSetName == ParameterSet.ByJson)
             {
                 batchConfiguration.Properties = CmdletHelper.ConvertToBatchConfigurationProperties(this.BatchConfigurationDefinition);
             }
-            else if (ParameterSetName == ParameterSet.ByFilePath)
+            else if (this.ParameterSetName == ParameterSet.ByFilePath)
             {
                 batchConfiguration.Properties = CmdletHelper.ConvertToBatchConfigurationProperties(CmdletHelper.GetStringContentFromFile(this.TryResolvePath(this.BatchConfigurationFilePath)));
             }
@@ -168,7 +168,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                     ReleaseCriteria = releaseCriteria
                 };
 
-                if (!IsValidReleaseCriteria(releaseCriteria))
+                if (!this.IsValidReleaseCriteria(releaseCriteria))
                 {
                     throw new PSArgumentException(string.Format(CultureInfo.InvariantCulture, Properties.Resource.BatchConfigurationParameterNeedsToBeSpecified));
                 }

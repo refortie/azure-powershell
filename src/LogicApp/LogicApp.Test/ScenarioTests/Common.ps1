@@ -28,40 +28,19 @@ function TestSetup-CreateResourceGroup
 {
     $resourceGroupName = "RG-" + (getAssetname)
 	$location = Get-Location "Microsoft.Resources" "resourceGroups" "West US"
-    $resourceGroup = New-AzureRmResourceGroup -Name $resourceGroupName -location $location
+    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -location $location
 
 	return $resourceGroup
 }
 
 <#
 .SYNOPSIS
-Creates an App Service Plan
-#>
-function TestSetup-CreateAppServicePlan ([string]$resourceGroupName, [string]$AppServicePlan)
-{	
-	if(Test-Path Env:AZURE_TEST_MODE)
-	{
-		$AZURE_TEST_MODE = Get-ChildItem Env:AZURE_TEST_MODE
-		if($AZURE_TEST_MODE.Value.ToLowerInvariant() -eq 'record')
-		{
-			$PropertiesObject = @{}
-			$Sku = @{Name='S1'; Tier='Standard'; Size='S1'; Family='S'; Capacity=1}
-			$Plan = New-AzureRmResource -Name $AppServicePlan -Location "West US" -ResourceGroupName $resourceGroupName -ResourceType "Microsoft.Web/serverfarms" -ApiVersion 2015-08-01 -SkuObject $Sku -PropertyObject $PropertiesObject -Force	
-			return $Plan
-		}
-	}
-	return $null	
-}
-
-
-<#
-.SYNOPSIS
 Creates a new Integration account
 #>
 function TestSetup-CreateIntegrationAccount ([string]$resourceGroupName, [string]$integrationAccountName)
-{		
+{
 	$location = Get-Location "Microsoft.Logic" "integrationAccounts" "West US"
-	$integrationAccount = New-AzureRmIntegrationAccount -ResourceGroupName $resourceGroupName -IntegrationAccountName $integrationAccountName -Location $location -Sku "Standard"
+	$integrationAccount = New-AzIntegrationAccount -ResourceGroupName $resourceGroupName -IntegrationAccountName $integrationAccountName -Location $location -Sku "Standard"
 	return $integrationAccount
 }
 
@@ -70,15 +49,13 @@ function TestSetup-CreateIntegrationAccount ([string]$resourceGroupName, [string
 Creates a new workflow
 #>
 function TestSetup-CreateWorkflow ([string]$resourceGroupName, [string]$workflowName, [string]$AppServicePlan)
-{		
+{
 	$location = Get-Location "Microsoft.Logic" "workflows" "West US"
-    $resourceGroup = New-AzureRmResourceGroup -Name $resourceGroupName -location $rglocation -Force
-
-	TestSetup-CreateAppServicePlan $resourceGroupName $AppServicePlan
+    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -location $rglocation -Force
 
 	$definitionFilePath = Join-Path "Resources" "TestSimpleWorkflowDefinition.json"
 	$parameterFilePath = Join-Path "Resources" "TestSimpleWorkflowParameter.json"
-	$workflow = $resourceGroup | New-AzureRmLogicApp -Name $workflowName -Location $WORKFLOW_LOCATION -DefinitionFilePath $definitionFilePath -ParameterFilePath $parameterFilePath
+	$workflow = $resourceGroup | New-AzLogicApp -Name $workflowName -Location $location -DefinitionFilePath $definitionFilePath -ParameterFilePath $parameterFilePath
     return $workflow
 }
 
@@ -90,7 +67,7 @@ function SleepInRecordMode ([int]$SleepIntervalInMillisec)
 {
 	$mode = $env:AZURE_TEST_MODE
 	if ( $mode -ne $null -and $mode.ToUpperInvariant() -eq "RECORD")
-	{	
+	{
 		Sleep -Milliseconds $SleepIntervalInMillisec 
-	}		
+	}
 }

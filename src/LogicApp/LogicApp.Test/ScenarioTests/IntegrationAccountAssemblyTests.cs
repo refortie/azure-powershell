@@ -13,9 +13,9 @@
 // ----------------------------------------------------------------------------------
 namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
 {
+    using Microsoft.Azure.ServiceManagement.Common.Models;
     using Microsoft.WindowsAzure.Commands.ScenarioTest;
     using Microsoft.WindowsAzure.Commands.Test.Utilities.Common;
-    using ServiceManagemenet.Common.Models;
     using Xunit;
 
     /// <summary>
@@ -31,51 +31,51 @@ namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
         }
 
         /// <summary>
-        /// Test New-AzureRmIntegrationAccountAssembly command to create a new integration account assembly.
+        /// Test New-AzIntegrationAccountAssembly command to create a new integration account assembly.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestCreateIntegrationAccountAssembly()
+        public void TestCreateAssembly()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-CreateIntegrationAccountAssembly");
         }
 
         /// <summary>
-        /// Test Get-AzureRmIntegrationAccountAssembly command to get the integration account assembly.
+        /// Test Get-AzIntegrationAccountAssembly command to get the integration account assembly.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestGetIntegrationAccountAssembly()
+        public void TestGetAssembly()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-GetIntegrationAccountAssembly");
         }
 
         /// <summary>
-        /// Test Remove-AzureRmIntegrationAccountAssembly command to remove the integration account assembly.
+        /// Test Remove-AzIntegrationAccountAssembly command to remove the integration account assembly.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestRemoveIntegrationAccountAssembly()
+        public void TestRemoveAssembly()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-RemoveIntegrationAccountAssembly");
         }
 
         /// <summary>
-        /// Test Set-AzureRmIntegrationAccountAssembly command to update the integration account assembly.
+        /// Test Set-AzIntegrationAccountAssembly command to update the integration account assembly.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestUpdateIntegrationAccountAssembly()
+        public void TestUpdateAssembly()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-UpdateIntegrationAccountAssembly");
         }
 
         /// <summary>
-        /// Test Get-AzureRmIntegrationAccountAssembly command to get all the integration account assembly.
+        /// Test Get-AzIntegrationAccountAssembly command to get all the integration account assembly.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestListIntegrationAccountAssembly()
+        public void TestListAssembly()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-ListIntegrationAccountAssembly");
         }

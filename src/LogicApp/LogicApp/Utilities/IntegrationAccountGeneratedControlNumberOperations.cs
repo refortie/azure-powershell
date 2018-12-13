@@ -49,8 +49,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Utilities
             }
 
             return IntegrationAccountClient.SessionContentToIntegrationAccountControlNumber(
-                sessionContent: this.LogicManagementClient.IntegrationAccountSessions
-                    .CreateOrUpdate(
+                sessionContent: this.LogicManagementClient.IntegrationAccountSessions.CreateOrUpdate(
                         resourceGroupName: resourceGroupName,
                         integrationAccountName: integrationAccountName,
                         sessionName: IntegrationAccountClient.SessionNameForGeneratedIcn(integrationAccountAgreementName),

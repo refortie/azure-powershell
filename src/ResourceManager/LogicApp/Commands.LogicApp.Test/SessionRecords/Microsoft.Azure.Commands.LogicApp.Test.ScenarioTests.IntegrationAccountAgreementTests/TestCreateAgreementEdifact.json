@@ -1,0 +1,1394 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Resources?api-version=2016-09-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Byb3ZpZGVycy9NaWNyb3NvZnQuUmVzb3VyY2VzP2FwaS12ZXJzaW9uPTIwMTYtMDktMDE=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "9d4539e2-dfb9-4e99-a022-52ca7737c057"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient/1.1.11"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11975"
+        ],
+        "x-ms-request-id": [
+          "561cbfbf-81a7-4ecd-85c4-3783fa14733a"
+        ],
+        "x-ms-correlation-request-id": [
+          "561cbfbf-81a7-4ecd-85c4-3783fa14733a"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232022Z:561cbfbf-81a7-4ecd-85c4-3783fa14733a"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:22 GMT"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Content-Length": [
+          "7108"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Resources\",\r\n  \"namespace\": \"Microsoft.Resources\",\r\n  \"resourceTypes\": [\r\n    {\r\n      \"resourceType\": \"tenants\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"locations\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"notifyResourceJobs\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-02-01\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"checkPolicyCompliance\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"providers\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"checkresourcename\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"resources\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"subscriptions\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"subscriptions/resources\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"subscriptions/providers\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"subscriptions/operationresults\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"resourceGroups\",\r\n      \"locations\": [\r\n        \"Central US\",\r\n        \"East Asia\",\r\n        \"Southeast Asia\",\r\n        \"East US\",\r\n        \"East US 2\",\r\n        \"West US\",\r\n        \"West US 2\",\r\n        \"North Central US\",\r\n        \"South Central US\",\r\n        \"West Central US\",\r\n        \"North Europe\",\r\n        \"West Europe\",\r\n        \"Japan East\",\r\n        \"Japan West\",\r\n        \"Brazil South\",\r\n        \"Australia Southeast\",\r\n        \"Australia East\",\r\n        \"West India\",\r\n        \"South India\",\r\n        \"Central India\",\r\n        \"Canada Central\",\r\n        \"Canada East\",\r\n        \"UK South\",\r\n        \"UK West\",\r\n        \"Korea Central\",\r\n        \"Korea South\",\r\n        \"France Central\",\r\n        \"East US 2 EUAP\",\r\n        \"Central US EUAP\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"subscriptions/resourceGroups\",\r\n      \"locations\": [\r\n        \"Central US\",\r\n        \"East Asia\",\r\n        \"Southeast Asia\",\r\n        \"East US\",\r\n        \"East US 2\",\r\n        \"West US\",\r\n        \"West US 2\",\r\n        \"North Central US\",\r\n        \"South Central US\",\r\n        \"West Central US\",\r\n        \"North Europe\",\r\n        \"West Europe\",\r\n        \"Japan East\",\r\n        \"Japan West\",\r\n        \"Brazil South\",\r\n        \"Australia Southeast\",\r\n        \"Australia East\",\r\n        \"West India\",\r\n        \"South India\",\r\n        \"Central India\",\r\n        \"Canada Central\",\r\n        \"Canada East\",\r\n        \"UK South\",\r\n        \"UK West\",\r\n        \"Korea Central\",\r\n        \"Korea South\",\r\n        \"France Central\",\r\n        \"East US 2 EUAP\",\r\n        \"Central US EUAP\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"subscriptions/resourcegroups/resources\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"subscriptions/locations\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"subscriptions/tagnames\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"subscriptions/tagNames/tagValues\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"deployments\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"deployments/operations\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"links\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2018-09-01\",\r\n        \"2018-08-01\",\r\n        \"2018-07-01\",\r\n        \"2018-05-01\",\r\n        \"2018-02-01\",\r\n        \"2018-01-01\",\r\n        \"2017-08-01\",\r\n        \"2017-06-01\",\r\n        \"2017-05-10\",\r\n        \"2017-05-01\",\r\n        \"2017-03-01\",\r\n        \"2016-09-01\",\r\n        \"2016-07-01\",\r\n        \"2016-06-01\",\r\n        \"2016-02-01\",\r\n        \"2015-11-01\",\r\n        \"2015-01-01\",\r\n        \"2014-04-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"operations\",\r\n      \"locations\": [],\r\n      \"apiVersions\": [\r\n        \"2015-01-01\"\r\n      ]\r\n    }\r\n  ],\r\n  \"registrationState\": \"Registered\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourcegroups/RG-ps5710?api-version=2016-09-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlZ3JvdXBzL1JHLXBzNTcxMD9hcGktdmVyc2lvbj0yMDE2LTA5LTAx",
+      "RequestMethod": "PUT",
+      "RequestBody": "{\r\n  \"location\": \"West US\"\r\n}",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "1f29b751-e154-4dbd-89c1-81fc6a9d7698"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient/1.1.11"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "29"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1188"
+        ],
+        "x-ms-request-id": [
+          "da443d2c-19f3-4191-8c01-267094767f35"
+        ],
+        "x-ms-correlation-request-id": [
+          "da443d2c-19f3-4191-8c01-267094767f35"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232023Z:da443d2c-19f3-4191-8c01-267094767f35"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:23 GMT"
+        ],
+        "Content-Length": [
+          "171"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710\",\r\n  \"name\": \"RG-ps5710\",\r\n  \"location\": \"westus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\"\r\n  }\r\n}",
+      "StatusCode": 201
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Logic?api-version=2016-09-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Byb3ZpZGVycy9NaWNyb3NvZnQuTG9naWM/YXBpLXZlcnNpb249MjAxNi0wOS0wMQ==",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "afc5170f-4898-4929-beee-f530436e1801"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient/1.1.11"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11974"
+        ],
+        "x-ms-request-id": [
+          "6ee56512-6450-4f4f-b9a6-4e091c127c14"
+        ],
+        "x-ms-correlation-request-id": [
+          "6ee56512-6450-4f4f-b9a6-4e091c127c14"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232023Z:6ee56512-6450-4f4f-b9a6-4e091c127c14"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:23 GMT"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Content-Length": [
+          "3710"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Logic\",\r\n  \"namespace\": \"Microsoft.Logic\",\r\n  \"authorization\": {\r\n    \"applicationId\": \"7cd684f4-8a78-49b0-91ec-6a35d38739ba\",\r\n    \"roleDefinitionId\": \"cb3ef1fb-6e31-49e2-9d87-ed821053fe58\"\r\n  },\r\n  \"resourceTypes\": [\r\n    {\r\n      \"resourceType\": \"workflows\",\r\n      \"locations\": [\r\n        \"North Central US\",\r\n        \"Central US\",\r\n        \"South Central US\",\r\n        \"North Europe\",\r\n        \"West Europe\",\r\n        \"East Asia\",\r\n        \"Southeast Asia\",\r\n        \"West US\",\r\n        \"East US\",\r\n        \"East US 2\",\r\n        \"Japan West\",\r\n        \"Japan East\",\r\n        \"Australia East\",\r\n        \"Australia Southeast\",\r\n        \"South India\",\r\n        \"Central India\",\r\n        \"West India\",\r\n        \"Canada Central\",\r\n        \"Canada East\",\r\n        \"West US 2\",\r\n        \"West Central US\",\r\n        \"UK South\",\r\n        \"UK West\",\r\n        \"Brazil South\",\r\n        \"Central US EUAP\",\r\n        \"East US 2 EUAP\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-07-01-preview\",\r\n        \"2017-07-01\",\r\n        \"2016-10-01\",\r\n        \"2016-06-01\",\r\n        \"2015-08-01-preview\",\r\n        \"2015-02-01-preview\"\r\n      ],\r\n      \"capabilities\": \"CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity\"\r\n    },\r\n    {\r\n      \"resourceType\": \"locations/workflows\",\r\n      \"locations\": [\r\n        \"North Central US\",\r\n        \"Central US\",\r\n        \"South Central US\",\r\n        \"North Europe\",\r\n        \"West Europe\",\r\n        \"East Asia\",\r\n        \"Southeast Asia\",\r\n        \"West US\",\r\n        \"East US\",\r\n        \"East US 2\",\r\n        \"Japan West\",\r\n        \"Japan East\",\r\n        \"Australia East\",\r\n        \"Australia Southeast\",\r\n        \"South India\",\r\n        \"Central India\",\r\n        \"West India\",\r\n        \"Canada Central\",\r\n        \"Canada East\",\r\n        \"West US 2\",\r\n        \"West Central US\",\r\n        \"UK South\",\r\n        \"UK West\",\r\n        \"Brazil South\",\r\n        \"Central US EUAP\",\r\n        \"East US 2 EUAP\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-07-01-preview\",\r\n        \"2017-07-01\",\r\n        \"2016-10-01\",\r\n        \"2016-06-01\",\r\n        \"2015-08-01-preview\",\r\n        \"2015-02-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"locations\",\r\n      \"locations\": [\r\n        \"North Central US\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-07-01-preview\",\r\n        \"2017-07-01\",\r\n        \"2016-10-01\",\r\n        \"2016-06-01\",\r\n        \"2015-08-01-preview\",\r\n        \"2015-02-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"operations\",\r\n      \"locations\": [\r\n        \"North Central US\",\r\n        \"Central US\",\r\n        \"South Central US\",\r\n        \"North Europe\",\r\n        \"West Europe\",\r\n        \"East Asia\",\r\n        \"Southeast Asia\",\r\n        \"West US\",\r\n        \"East US\",\r\n        \"East US 2\",\r\n        \"Japan West\",\r\n        \"Japan East\",\r\n        \"Brazil South\",\r\n        \"Australia East\",\r\n        \"Australia Southeast\",\r\n        \"South India\",\r\n        \"Central India\",\r\n        \"West India\",\r\n        \"Canada Central\",\r\n        \"Canada East\",\r\n        \"West US 2\",\r\n        \"West Central US\",\r\n        \"UK South\",\r\n        \"UK West\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-07-01-preview\",\r\n        \"2017-07-01\",\r\n        \"2016-10-01\",\r\n        \"2016-06-01\",\r\n        \"2015-08-01-preview\",\r\n        \"2015-02-01-preview\"\r\n      ]\r\n    },\r\n    {\r\n      \"resourceType\": \"integrationAccounts\",\r\n      \"locations\": [\r\n        \"North Central US\",\r\n        \"Central US\",\r\n        \"South Central US\",\r\n        \"North Europe\",\r\n        \"West Europe\",\r\n        \"East Asia\",\r\n        \"Southeast Asia\",\r\n        \"West US\",\r\n        \"East US\",\r\n        \"East US 2\",\r\n        \"Japan West\",\r\n        \"Japan East\",\r\n        \"Australia East\",\r\n        \"Australia Southeast\",\r\n        \"South India\",\r\n        \"Central India\",\r\n        \"West India\",\r\n        \"Canada Central\",\r\n        \"Canada East\",\r\n        \"West US 2\",\r\n        \"West Central US\",\r\n        \"UK South\",\r\n        \"UK West\",\r\n        \"Brazil South\",\r\n        \"Central US EUAP\",\r\n        \"East US 2 EUAP\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-07-01-preview\",\r\n        \"2016-06-01\",\r\n        \"2015-08-01-preview\"\r\n      ],\r\n      \"capabilities\": \"CrossResourceGroupResourceMove, CrossSubscriptionResourceMove\"\r\n    },\r\n    {\r\n      \"resourceType\": \"hostingEnvironments\",\r\n      \"locations\": [\r\n        \"Brazil South\",\r\n        \"Central US EUAP\",\r\n        \"East US 2 EUAP\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-04-01-privatepreview\"\r\n      ],\r\n      \"capabilities\": \"CrossResourceGroupResourceMove, CrossSubscriptionResourceMove\"\r\n    },\r\n    {\r\n      \"resourceType\": \"isolatedEnvironments\",\r\n      \"locations\": [\r\n        \"Brazil South\",\r\n        \"Central US EUAP\",\r\n        \"East US 2 EUAP\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-07-01-preview\",\r\n        \"2018-03-01-preview\"\r\n      ],\r\n      \"capabilities\": \"None\"\r\n    },\r\n    {\r\n      \"resourceType\": \"integrationServiceEnvironments\",\r\n      \"locations\": [\r\n        \"North Central US\",\r\n        \"Central US\",\r\n        \"South Central US\",\r\n        \"North Europe\",\r\n        \"West Europe\",\r\n        \"East Asia\",\r\n        \"Southeast Asia\",\r\n        \"West US\",\r\n        \"East US\",\r\n        \"East US 2\",\r\n        \"Japan West\",\r\n        \"Japan East\",\r\n        \"Brazil South\",\r\n        \"Central US EUAP\",\r\n        \"East US 2 EUAP\",\r\n        \"Australia East\",\r\n        \"Australia Southeast\",\r\n        \"South India\",\r\n        \"Central India\",\r\n        \"West India\",\r\n        \"Canada Central\",\r\n        \"Canada East\",\r\n        \"West US 2\",\r\n        \"West Central US\",\r\n        \"UK South\",\r\n        \"UK West\"\r\n      ],\r\n      \"apiVersions\": [\r\n        \"2018-07-01-preview\",\r\n        \"2018-03-01-preview\"\r\n      ],\r\n      \"capabilities\": \"None\"\r\n    }\r\n  ],\r\n  \"registrationState\": \"Registered\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "3cdc83b7-ad4f-4db2-b35b-338521dc7ad5"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-failure-cause": [
+          "gateway"
+        ],
+        "x-ms-request-id": [
+          "534f36b2-3b84-4b34-a324-b5ec30b1ecad"
+        ],
+        "x-ms-correlation-request-id": [
+          "534f36b2-3b84-4b34-a324-b5ec30b1ecad"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232023Z:534f36b2-3b84-4b34-a324-b5ec30b1ecad"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:22 GMT"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Content-Length": [
+          "156"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"ResourceNotFound\",\r\n    \"message\": \"The Resource 'Microsoft.Logic/integrationAccounts/IA-ps88' under resource group 'RG-ps5710' was not found.\"\r\n  }\r\n}",
+      "StatusCode": 404
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "c1aec097-ddde-48e2-bdd4-d7e92d17ad7a"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "x-ms-request-id": [
+          "westus:5d51e2b7-e80d-4674-8661-d3596dccbcdb"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11985"
+        ],
+        "x-ms-correlation-request-id": [
+          "c33dd4f7-894c-41f8-ae8b-5c73a90be489"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232024Z:c33dd4f7-894c-41f8-ae8b-5c73a90be489"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:23 GMT"
+        ],
+        "Content-Length": [
+          "281"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"state\": \"Enabled\"\r\n  },\r\n  \"sku\": {\r\n    \"name\": \"Standard\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88\",\r\n  \"name\": \"IA-ps88\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts\",\r\n  \"location\": \"West US\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "c62e3686-bc2a-42fe-9315-266fe37219af"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "x-ms-request-id": [
+          "westus:0a478374-926b-4cc3-9e29-cf330862ff75"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11983"
+        ],
+        "x-ms-correlation-request-id": [
+          "111be834-3d5a-4b56-8aa2-7a760eb9c19b"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232024Z:111be834-3d5a-4b56-8aa2-7a760eb9c19b"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:24 GMT"
+        ],
+        "Content-Length": [
+          "281"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"state\": \"Enabled\"\r\n  },\r\n  \"sku\": {\r\n    \"name\": \"Standard\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88\",\r\n  \"name\": \"IA-ps88\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts\",\r\n  \"location\": \"West US\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "40b71f8e-35d0-40bd-9603-69cb852c507f"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "x-ms-request-id": [
+          "westus:3aa2b461-6667-4711-9144-93e7abccba0d"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11981"
+        ],
+        "x-ms-correlation-request-id": [
+          "5df22a22-876c-43dc-ae81-bd3f0945a8a5"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232024Z:5df22a22-876c-43dc-ae81-bd3f0945a8a5"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:24 GMT"
+        ],
+        "Content-Length": [
+          "281"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"state\": \"Enabled\"\r\n  },\r\n  \"sku\": {\r\n    \"name\": \"Standard\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88\",\r\n  \"name\": \"IA-ps88\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts\",\r\n  \"location\": \"West US\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "0c8d3f65-b328-46e0-9287-f98bd2b828ad"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "x-ms-request-id": [
+          "westus:04356aab-f597-4f32-bb89-f5ec0350ae9c"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11977"
+        ],
+        "x-ms-correlation-request-id": [
+          "e631d1e5-3bab-48da-8152-51c63cd40d77"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232025Z:e631d1e5-3bab-48da-8152-51c63cd40d77"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:25 GMT"
+        ],
+        "Content-Length": [
+          "281"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"state\": \"Enabled\"\r\n  },\r\n  \"sku\": {\r\n    \"name\": \"Standard\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88\",\r\n  \"name\": \"IA-ps88\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts\",\r\n  \"location\": \"West US\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "PUT",
+      "RequestBody": "{\r\n  \"properties\": {},\r\n  \"sku\": {\r\n    \"name\": \"Standard\"\r\n  },\r\n  \"location\": \"West US\"\r\n}",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "a538d334-2d92-4304-88ea-0a8f3a9c0755"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "92"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:da035307-2623-42c6-82a8-f4c4b40c88e8"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1193"
+        ],
+        "x-ms-correlation-request-id": [
+          "ea14491a-7081-4c82-9c07-bf924ef66bc6"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232024Z:ea14491a-7081-4c82-9c07-bf924ef66bc6"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:23 GMT"
+        ],
+        "Content-Length": [
+          "281"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"state\": \"Enabled\"\r\n  },\r\n  \"sku\": {\r\n    \"name\": \"Standard\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88\",\r\n  \"name\": \"IA-ps88\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts\",\r\n  \"location\": \"West US\"\r\n}",
+      "StatusCode": 201
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps1785?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9wYXJ0bmVycy9wczE3ODU/YXBpLXZlcnNpb249MjAxOC0wNy0wMS1wcmV2aWV3",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "e2e1acf9-061d-4ea8-b71b-e42f242e6ca0"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:6820d3ad-35d8-468a-b19f-76d906fb6a37"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11984"
+        ],
+        "x-ms-correlation-request-id": [
+          "55f74f3d-8ff0-4f9e-9747-1ddc5900ba03"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232024Z:55f74f3d-8ff0-4f9e-9747-1ddc5900ba03"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:23 GMT"
+        ],
+        "Content-Length": [
+          "122"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"PartnerNotFound\",\r\n    \"message\": \"The partner 'ps1785' could not be found in integration account 'IA-ps88'.\"\r\n  }\r\n}",
+      "StatusCode": 404
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps1785?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9wYXJ0bmVycy9wczE3ODU/YXBpLXZlcnNpb249MjAxOC0wNy0wMS1wcmV2aWV3",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "8a5e17ee-7c1f-4470-9b25-20873ba1cc0b"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "x-ms-request-id": [
+          "westus:260ecd0a-e8c0-41ed-8e8a-80942e92e946"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11980"
+        ],
+        "x-ms-correlation-request-id": [
+          "1139f7bd-3eb4-4937-8093-1ffe3993d5b0"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232024Z:1139f7bd-3eb4-4937-8093-1ffe3993d5b0"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:24 GMT"
+        ],
+        "Content-Length": [
+          "455"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"partnerType\": \"B2B\",\r\n    \"content\": {\r\n      \"b2b\": {\r\n        \"businessIdentities\": [\r\n          {\r\n            \"qualifier\": \"AA\",\r\n            \"value\": \"AA\"\r\n          },\r\n          {\r\n            \"qualifier\": \"BB\",\r\n            \"value\": \"BB\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    \"createdTime\": \"2018-12-13T23:20:24.488198Z\",\r\n    \"changedTime\": \"2018-12-13T23:20:24.489144Z\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps1785\",\r\n  \"name\": \"ps1785\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts/partners\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps1785?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9wYXJ0bmVycy9wczE3ODU/YXBpLXZlcnNpb249MjAxOC0wNy0wMS1wcmV2aWV3",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "388cbb58-d2dc-478c-b992-e580f1fa43eb"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "x-ms-request-id": [
+          "westus:a87bab07-4bc5-47ed-886d-052133c29fdd"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11976"
+        ],
+        "x-ms-correlation-request-id": [
+          "8f3734d1-f912-4b5e-98f7-aee15f20ef00"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232025Z:8f3734d1-f912-4b5e-98f7-aee15f20ef00"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:25 GMT"
+        ],
+        "Content-Length": [
+          "455"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"partnerType\": \"B2B\",\r\n    \"content\": {\r\n      \"b2b\": {\r\n        \"businessIdentities\": [\r\n          {\r\n            \"qualifier\": \"AA\",\r\n            \"value\": \"AA\"\r\n          },\r\n          {\r\n            \"qualifier\": \"BB\",\r\n            \"value\": \"BB\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    \"createdTime\": \"2018-12-13T23:20:24.488198Z\",\r\n    \"changedTime\": \"2018-12-13T23:20:24.489144Z\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps1785\",\r\n  \"name\": \"ps1785\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts/partners\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps1785?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9wYXJ0bmVycy9wczE3ODU/YXBpLXZlcnNpb249MjAxOC0wNy0wMS1wcmV2aWV3",
+      "RequestMethod": "PUT",
+      "RequestBody": "{\r\n  \"properties\": {\r\n    \"partnerType\": \"B2B\",\r\n    \"content\": {\r\n      \"b2b\": {\r\n        \"businessIdentities\": [\r\n          {\r\n            \"qualifier\": \"AA\",\r\n            \"value\": \"AA\"\r\n          },\r\n          {\r\n            \"qualifier\": \"BB\",\r\n            \"value\": \"BB\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  }\r\n}",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "fc588c90-b0d8-46fd-b328-eec96208c113"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "320"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:0e7c335f-5aae-499a-afc2-e0f94cfbe80a"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1192"
+        ],
+        "x-ms-correlation-request-id": [
+          "3ceedd47-6b5a-44fb-9bdd-3b7bb8fb628c"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232024Z:3ceedd47-6b5a-44fb-9bdd-3b7bb8fb628c"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:24 GMT"
+        ],
+        "Content-Length": [
+          "455"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"partnerType\": \"B2B\",\r\n    \"content\": {\r\n      \"b2b\": {\r\n        \"businessIdentities\": [\r\n          {\r\n            \"qualifier\": \"AA\",\r\n            \"value\": \"AA\"\r\n          },\r\n          {\r\n            \"qualifier\": \"BB\",\r\n            \"value\": \"BB\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    \"createdTime\": \"2018-12-13T23:20:24.488198Z\",\r\n    \"changedTime\": \"2018-12-13T23:20:24.489144Z\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps1785\",\r\n  \"name\": \"ps1785\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts/partners\"\r\n}",
+      "StatusCode": 201
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps652?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9wYXJ0bmVycy9wczY1Mj9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "90acd82e-4a65-41e5-b6b5-696d700dbcf1"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:234525a1-cd85-47f3-bf1a-4a50a52fda6f"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11982"
+        ],
+        "x-ms-correlation-request-id": [
+          "24997696-7fa6-4f0a-81cf-9da7e6acffc2"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232024Z:24997696-7fa6-4f0a-81cf-9da7e6acffc2"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:24 GMT"
+        ],
+        "Content-Length": [
+          "121"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"PartnerNotFound\",\r\n    \"message\": \"The partner 'ps652' could not be found in integration account 'IA-ps88'.\"\r\n  }\r\n}",
+      "StatusCode": 404
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps652?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9wYXJ0bmVycy9wczY1Mj9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "0e9e3b1b-fc46-49ed-884e-207d8ce1a634"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "x-ms-request-id": [
+          "westus:74534974-3303-408f-a132-2f10aaed2d7a"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11979"
+        ],
+        "x-ms-correlation-request-id": [
+          "e6bf3596-05d5-44a3-9a33-dc349eebb428"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232025Z:e6bf3596-05d5-44a3-9a33-dc349eebb428"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:24 GMT"
+        ],
+        "Content-Length": [
+          "453"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"partnerType\": \"B2B\",\r\n    \"content\": {\r\n      \"b2b\": {\r\n        \"businessIdentities\": [\r\n          {\r\n            \"qualifier\": \"ZZ\",\r\n            \"value\": \"ZZ\"\r\n          },\r\n          {\r\n            \"qualifier\": \"XX\",\r\n            \"value\": \"XX\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    \"createdTime\": \"2018-12-13T23:20:24.8401813Z\",\r\n    \"changedTime\": \"2018-12-13T23:20:24.84062Z\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps652\",\r\n  \"name\": \"ps652\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts/partners\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps652?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9wYXJ0bmVycy9wczY1Mj9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "94ccdab5-7e4d-4118-bdf5-abfe8fe5c71d"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "x-ms-request-id": [
+          "westus:d5bd80d6-b7c6-4e9c-8111-984693a0bd79"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11975"
+        ],
+        "x-ms-correlation-request-id": [
+          "7567125e-e9b4-4901-a963-5560097ec8b8"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232025Z:7567125e-e9b4-4901-a963-5560097ec8b8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:25 GMT"
+        ],
+        "Content-Length": [
+          "453"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"partnerType\": \"B2B\",\r\n    \"content\": {\r\n      \"b2b\": {\r\n        \"businessIdentities\": [\r\n          {\r\n            \"qualifier\": \"ZZ\",\r\n            \"value\": \"ZZ\"\r\n          },\r\n          {\r\n            \"qualifier\": \"XX\",\r\n            \"value\": \"XX\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    \"createdTime\": \"2018-12-13T23:20:24.8401813Z\",\r\n    \"changedTime\": \"2018-12-13T23:20:24.84062Z\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps652\",\r\n  \"name\": \"ps652\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts/partners\"\r\n}",
+      "StatusCode": 200
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps652?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9wYXJ0bmVycy9wczY1Mj9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "PUT",
+      "RequestBody": "{\r\n  \"properties\": {\r\n    \"partnerType\": \"B2B\",\r\n    \"content\": {\r\n      \"b2b\": {\r\n        \"businessIdentities\": [\r\n          {\r\n            \"qualifier\": \"ZZ\",\r\n            \"value\": \"ZZ\"\r\n          },\r\n          {\r\n            \"qualifier\": \"XX\",\r\n            \"value\": \"XX\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  }\r\n}",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "c571fd37-824b-4818-b7f4-77139dc617e4"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "320"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:7a9775c1-a41e-453c-a458-a918111adf0c"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1191"
+        ],
+        "x-ms-correlation-request-id": [
+          "b24e43c6-e4d3-4028-88fb-f3d0a033931f"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232024Z:b24e43c6-e4d3-4028-88fb-f3d0a033931f"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:24 GMT"
+        ],
+        "Content-Length": [
+          "453"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"partnerType\": \"B2B\",\r\n    \"content\": {\r\n      \"b2b\": {\r\n        \"businessIdentities\": [\r\n          {\r\n            \"qualifier\": \"ZZ\",\r\n            \"value\": \"ZZ\"\r\n          },\r\n          {\r\n            \"qualifier\": \"XX\",\r\n            \"value\": \"XX\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    \"createdTime\": \"2018-12-13T23:20:24.8401813Z\",\r\n    \"changedTime\": \"2018-12-13T23:20:24.84062Z\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/partners/ps652\",\r\n  \"name\": \"ps652\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts/partners\"\r\n}",
+      "StatusCode": 201
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/agreements/ps5370?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9hZ3JlZW1lbnRzL3BzNTM3MD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "00f72045-ecb9-47fa-b0ca-bea9d33d4515"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:5f945554-547d-43b7-93fc-4e2a0f3c5f8e"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11978"
+        ],
+        "x-ms-correlation-request-id": [
+          "ad3d2618-6e8c-4a23-a028-3ab6d5287637"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232025Z:ad3d2618-6e8c-4a23-a028-3ab6d5287637"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:24 GMT"
+        ],
+        "Content-Length": [
+          "126"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"AgreementNotFound\",\r\n    \"message\": \"The agreement 'ps5370' could not be found in integration account 'IA-ps88'.\"\r\n  }\r\n}",
+      "StatusCode": 404
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/agreements/ps5370?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9hZ3JlZW1lbnRzL3BzNTM3MD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "PUT",
+      "RequestBody": "{\r\n  \"properties\": {\r\n    \"agreementType\": \"Edifact\",\r\n    \"hostPartner\": \"ps1785\",\r\n    \"guestPartner\": \"ps652\",\r\n    \"hostIdentity\": {\r\n      \"qualifier\": \"AA\",\r\n      \"value\": \"AA\"\r\n    },\r\n    \"guestIdentity\": {\r\n      \"qualifier\": \"ZZ\",\r\n      \"value\": \"ZZ\"\r\n    },\r\n    \"content\": {\r\n      \"edifact\": {\r\n        \"receiveAgreement\": {\r\n          \"senderBusinessIdentity\": {\r\n            \"qualifier\": \"AAA\",\r\n            \"value\": \"AAA\"\r\n          },\r\n          \"receiverBusinessIdentity\": {\r\n            \"qualifier\": \"ZZZ\",\r\n            \"value\": \"ZZZ\"\r\n          },\r\n          \"protocolSettings\": {\r\n            \"validationSettings\": {\r\n              \"validateCharacterSet\": true,\r\n              \"checkDuplicateInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberValidityDays\": 100,\r\n              \"checkDuplicateGroupControlNumber\": true,\r\n              \"checkDuplicateTransactionSetControlNumber\": true,\r\n              \"validateEdiTypes\": true,\r\n              \"validateXsdTypes\": true,\r\n              \"allowLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trimLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trailingSeparatorPolicy\": \"Mandatory\"\r\n            },\r\n            \"framingSettings\": {\r\n              \"characterEncoding\": \"UTF\",\r\n              \"protocolVersion\": 4,\r\n              \"dataElementSeparator\": 53,\r\n              \"componentSeparator\": 58,\r\n              \"segmentTerminator\": 39,\r\n              \"releaseIndicator\": 63,\r\n              \"repetitionSeparator\": 42,\r\n              \"characterSet\": \"UNOC\",\r\n              \"decimalPointIndicator\": \"Comma\",\r\n              \"segmentTerminatorSuffix\": \"None\"\r\n            },\r\n            \"envelopeSettings\": {\r\n              \"groupAssociationAssignedCode\": \"0\",\r\n              \"communicationAgreementId\": \"0\",\r\n              \"applyDelimiterStringAdvice\": true,\r\n              \"createGroupingSegments\": true,\r\n              \"enableDefaultGroupHeaders\": true,\r\n              \"recipientReferencePasswordValue\": \"AAA\",\r\n              \"recipientReferencePasswordQualifier\": \"ZZ\",\r\n              \"applicationReferenceId\": \"0\",\r\n              \"processingPriorityCode\": \"0\",\r\n              \"interchangeControlNumberLowerBound\": 1,\r\n              \"interchangeControlNumberUpperBound\": 2147483647,\r\n              \"rolloverInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberPrefix\": \"CU\",\r\n              \"interchangeControlNumberSuffix\": \"NUM\",\r\n              \"functionalGroupId\": \"0\",\r\n              \"groupControllingAgencyCode\": \"0\",\r\n              \"groupMessageVersion\": \"0.0\",\r\n              \"groupMessageRelease\": \"0.0\",\r\n              \"groupControlNumberLowerBound\": 1,\r\n              \"groupControlNumberUpperBound\": 2147483647,\r\n              \"rolloverGroupControlNumber\": true,\r\n              \"groupControlNumberPrefix\": \"CU\",\r\n              \"groupControlNumberSuffix\": \"NUM\",\r\n              \"groupApplicationReceiverQualifier\": \"ZZZ\",\r\n              \"groupApplicationReceiverId\": \"0\",\r\n              \"groupApplicationSenderQualifier\": \"ZZZ\",\r\n              \"groupApplicationSenderId\": \"AAA\",\r\n              \"groupApplicationPassword\": \"0\",\r\n              \"overwriteExistingTransactionSetControlNumber\": true,\r\n              \"transactionSetControlNumberPrefix\": \"CN\",\r\n              \"transactionSetControlNumberSuffix\": \"NU\",\r\n              \"transactionSetControlNumberLowerBound\": 1,\r\n              \"transactionSetControlNumberUpperBound\": 2147483647,\r\n              \"rolloverTransactionSetControlNumber\": true,\r\n              \"isTestInterchange\": true,\r\n              \"senderInternalIdentification\": \"AAA\",\r\n              \"senderInternalSubIdentification\": \"AAA\",\r\n              \"receiverInternalIdentification\": \"0\",\r\n              \"receiverInternalSubIdentification\": \"0\"\r\n            },\r\n            \"acknowledgementSettings\": {\r\n              \"needTechnicalAcknowledgement\": true,\r\n              \"batchTechnicalAcknowledgements\": true,\r\n              \"needFunctionalAcknowledgement\": true,\r\n              \"batchFunctionalAcknowledgements\": true,\r\n              \"needLoopForValidMessages\": true,\r\n              \"sendSynchronousAcknowledgement\": true,\r\n              \"acknowledgementControlNumberPrefix\": \"CN\",\r\n              \"acknowledgementControlNumberSuffix\": \"NU\",\r\n              \"acknowledgementControlNumberLowerBound\": 1,\r\n              \"acknowledgementControlNumberUpperBound\": 2147483647,\r\n              \"rolloverAcknowledgementControlNumber\": true\r\n            },\r\n            \"messageFilter\": {\r\n              \"messageFilterType\": \"Exclude\"\r\n            },\r\n            \"processingSettings\": {\r\n              \"maskSecurityInfo\": true,\r\n              \"preserveInterchange\": true,\r\n              \"suspendInterchangeOnError\": true,\r\n              \"createEmptyXmlTagsForTrailingSeparators\": true,\r\n              \"useDotAsDecimalSeparator\": true\r\n            },\r\n            \"schemaReferences\": []\r\n          }\r\n        },\r\n        \"sendAgreement\": {\r\n          \"senderBusinessIdentity\": {\r\n            \"qualifier\": \"AAA\",\r\n            \"value\": \"AAA\"\r\n          },\r\n          \"receiverBusinessIdentity\": {\r\n            \"qualifier\": \"ZZZ\",\r\n            \"value\": \"ZZZ\"\r\n          },\r\n          \"protocolSettings\": {\r\n            \"validationSettings\": {\r\n              \"validateCharacterSet\": true,\r\n              \"checkDuplicateInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberValidityDays\": 100,\r\n              \"checkDuplicateGroupControlNumber\": true,\r\n              \"checkDuplicateTransactionSetControlNumber\": true,\r\n              \"validateEdiTypes\": true,\r\n              \"validateXsdTypes\": true,\r\n              \"allowLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trimLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trailingSeparatorPolicy\": \"Mandatory\"\r\n            },\r\n            \"framingSettings\": {\r\n              \"characterEncoding\": \"UTF\",\r\n              \"protocolVersion\": 4,\r\n              \"dataElementSeparator\": 53,\r\n              \"componentSeparator\": 58,\r\n              \"segmentTerminator\": 39,\r\n              \"releaseIndicator\": 63,\r\n              \"repetitionSeparator\": 42,\r\n              \"characterSet\": \"UNOC\",\r\n              \"decimalPointIndicator\": \"Comma\",\r\n              \"segmentTerminatorSuffix\": \"None\"\r\n            },\r\n            \"envelopeSettings\": {\r\n              \"groupAssociationAssignedCode\": \"0\",\r\n              \"communicationAgreementId\": \"0\",\r\n              \"applyDelimiterStringAdvice\": true,\r\n              \"createGroupingSegments\": true,\r\n              \"enableDefaultGroupHeaders\": true,\r\n              \"recipientReferencePasswordValue\": \"AAA\",\r\n              \"recipientReferencePasswordQualifier\": \"ZZ\",\r\n              \"applicationReferenceId\": \"0\",\r\n              \"processingPriorityCode\": \"0\",\r\n              \"interchangeControlNumberLowerBound\": 1,\r\n              \"interchangeControlNumberUpperBound\": 2147483647,\r\n              \"rolloverInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberPrefix\": \"CU\",\r\n              \"interchangeControlNumberSuffix\": \"NUM\",\r\n              \"functionalGroupId\": \"0\",\r\n              \"groupControllingAgencyCode\": \"0\",\r\n              \"groupMessageVersion\": \"0.0\",\r\n              \"groupMessageRelease\": \"0.0\",\r\n              \"groupControlNumberLowerBound\": 1,\r\n              \"groupControlNumberUpperBound\": 2147483647,\r\n              \"rolloverGroupControlNumber\": true,\r\n              \"groupControlNumberPrefix\": \"CU\",\r\n              \"groupControlNumberSuffix\": \"NUM\",\r\n              \"groupApplicationReceiverQualifier\": \"ZZZ\",\r\n              \"groupApplicationReceiverId\": \"0\",\r\n              \"groupApplicationSenderQualifier\": \"ZZZ\",\r\n              \"groupApplicationSenderId\": \"AAA\",\r\n              \"groupApplicationPassword\": \"0\",\r\n              \"overwriteExistingTransactionSetControlNumber\": true,\r\n              \"transactionSetControlNumberPrefix\": \"CN\",\r\n              \"transactionSetControlNumberSuffix\": \"NU\",\r\n              \"transactionSetControlNumberLowerBound\": 1,\r\n              \"transactionSetControlNumberUpperBound\": 2147483647,\r\n              \"rolloverTransactionSetControlNumber\": true,\r\n              \"isTestInterchange\": true,\r\n              \"senderInternalIdentification\": \"AAA\",\r\n              \"senderInternalSubIdentification\": \"AAA\",\r\n              \"receiverInternalIdentification\": \"0\",\r\n              \"receiverInternalSubIdentification\": \"0\"\r\n            },\r\n            \"acknowledgementSettings\": {\r\n              \"needTechnicalAcknowledgement\": true,\r\n              \"batchTechnicalAcknowledgements\": true,\r\n              \"needFunctionalAcknowledgement\": true,\r\n              \"batchFunctionalAcknowledgements\": true,\r\n              \"needLoopForValidMessages\": true,\r\n              \"sendSynchronousAcknowledgement\": true,\r\n              \"acknowledgementControlNumberPrefix\": \"CN\",\r\n              \"acknowledgementControlNumberSuffix\": \"NU\",\r\n              \"acknowledgementControlNumberLowerBound\": 1,\r\n              \"acknowledgementControlNumberUpperBound\": 2147483647,\r\n              \"rolloverAcknowledgementControlNumber\": true\r\n            },\r\n            \"messageFilter\": {\r\n              \"messageFilterType\": \"Exclude\"\r\n            },\r\n            \"processingSettings\": {\r\n              \"maskSecurityInfo\": true,\r\n              \"preserveInterchange\": true,\r\n              \"suspendInterchangeOnError\": true,\r\n              \"createEmptyXmlTagsForTrailingSeparators\": true,\r\n              \"useDotAsDecimalSeparator\": true\r\n            },\r\n            \"schemaReferences\": []\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "fdbaf81c-6fa8-44d8-a7a2-394dce3fa8f1"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "9626"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:5f8ec070-60c4-4f93-8dc8-677f6cb3b67e"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1190"
+        ],
+        "x-ms-correlation-request-id": [
+          "b5325003-0833-4a62-ac3e-4aeeca826705"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232025Z:b5325003-0833-4a62-ac3e-4aeeca826705"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:24 GMT"
+        ],
+        "Content-Length": [
+          "6546"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"hostPartner\": \"ps1785\",\r\n    \"guestPartner\": \"ps652\",\r\n    \"hostIdentity\": {\r\n      \"qualifier\": \"AA\",\r\n      \"value\": \"AA\"\r\n    },\r\n    \"guestIdentity\": {\r\n      \"qualifier\": \"ZZ\",\r\n      \"value\": \"ZZ\"\r\n    },\r\n    \"agreementType\": \"EDIFACT\",\r\n    \"content\": {\r\n      \"edifact\": {\r\n        \"receiveAgreement\": {\r\n          \"protocolSettings\": {\r\n            \"validationSettings\": {\r\n              \"validateCharacterSet\": true,\r\n              \"checkDuplicateInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberValidityDays\": 100,\r\n              \"checkDuplicateGroupControlNumber\": true,\r\n              \"checkDuplicateTransactionSetControlNumber\": true,\r\n              \"validateEDITypes\": true,\r\n              \"validateXSDTypes\": true,\r\n              \"trimLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"allowLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trailingSeparatorPolicy\": \"Mandatory\"\r\n            },\r\n            \"framingSettings\": {\r\n              \"characterEncoding\": \"UTF\",\r\n              \"protocolVersion\": 4,\r\n              \"dataElementSeparator\": 53,\r\n              \"componentSeparator\": 58,\r\n              \"segmentTerminator\": 39,\r\n              \"releaseIndicator\": 63,\r\n              \"repetitionSeparator\": 42,\r\n              \"characterSet\": \"UNOC\",\r\n              \"decimalPointIndicator\": \"Comma\",\r\n              \"segmentTerminatorSuffix\": \"None\"\r\n            },\r\n            \"envelopeSettings\": {\r\n              \"groupAssociationAssignedCode\": \"0\",\r\n              \"communicationAgreementId\": \"0\",\r\n              \"applyDelimiterStringAdvice\": true,\r\n              \"createGroupingSegments\": true,\r\n              \"enableDefaultGroupHeaders\": true,\r\n              \"recipientReferencePasswordValue\": \"AAA\",\r\n              \"recipientReferencePasswordQualifier\": \"ZZ\",\r\n              \"applicationReferenceId\": \"0\",\r\n              \"processingPriorityCode\": \"0\",\r\n              \"interchangeControlNumberLowerBound\": 1,\r\n              \"interchangeControlNumberUpperBound\": 2147483647,\r\n              \"rolloverInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberPrefix\": \"CU\",\r\n              \"interchangeControlNumberSuffix\": \"NUM\",\r\n              \"functionalGroupId\": \"0\",\r\n              \"groupControllingAgencyCode\": \"0\",\r\n              \"groupMessageVersion\": \"0.0\",\r\n              \"groupMessageRelease\": \"0.0\",\r\n              \"groupControlNumberLowerBound\": 1,\r\n              \"groupControlNumberUpperBound\": 2147483647,\r\n              \"rolloverGroupControlNumber\": true,\r\n              \"groupControlNumberPrefix\": \"CU\",\r\n              \"groupControlNumberSuffix\": \"NUM\",\r\n              \"groupApplicationReceiverQualifier\": \"ZZZ\",\r\n              \"groupApplicationReceiverId\": \"0\",\r\n              \"groupApplicationSenderQualifier\": \"ZZZ\",\r\n              \"groupApplicationSenderId\": \"AAA\",\r\n              \"groupApplicationPassword\": \"0\",\r\n              \"overwriteExistingTransactionSetControlNumber\": true,\r\n              \"transactionSetControlNumberPrefix\": \"CN\",\r\n              \"transactionSetControlNumberSuffix\": \"NU\",\r\n              \"transactionSetControlNumberLowerBound\": 1,\r\n              \"transactionSetControlNumberUpperBound\": 2147483647,\r\n              \"rolloverTransactionSetControlNumber\": true,\r\n              \"isTestInterchange\": true,\r\n              \"senderInternalIdentification\": \"AAA\",\r\n              \"senderInternalSubIdentification\": \"AAA\",\r\n              \"receiverInternalIdentification\": \"0\",\r\n              \"receiverInternalSubIdentification\": \"0\"\r\n            },\r\n            \"acknowledgementSettings\": {\r\n              \"needTechnicalAcknowledgement\": true,\r\n              \"batchTechnicalAcknowledgements\": true,\r\n              \"needFunctionalAcknowledgement\": true,\r\n              \"batchFunctionalAcknowledgements\": true,\r\n              \"needLoopForValidMessages\": true,\r\n              \"sendSynchronousAcknowledgement\": true,\r\n              \"acknowledgementControlNumberPrefix\": \"CN\",\r\n              \"acknowledgementControlNumberSuffix\": \"NU\",\r\n              \"acknowledgementControlNumberLowerBound\": 1,\r\n              \"acknowledgementControlNumberUpperBound\": 2147483647,\r\n              \"rolloverAcknowledgementControlNumber\": true\r\n            },\r\n            \"messageFilter\": {\r\n              \"messageFilterType\": \"Exclude\"\r\n            },\r\n            \"processingSettings\": {\r\n              \"maskSecurityInfo\": true,\r\n              \"preserveInterchange\": true,\r\n              \"suspendInterchangeOnError\": true,\r\n              \"createEmptyXmlTagsForTrailingSeparators\": true,\r\n              \"useDotAsDecimalSeparator\": true\r\n            },\r\n            \"schemaReferences\": []\r\n          },\r\n          \"senderBusinessIdentity\": {\r\n            \"qualifier\": \"AAA\",\r\n            \"value\": \"AAA\"\r\n          },\r\n          \"receiverBusinessIdentity\": {\r\n            \"qualifier\": \"ZZZ\",\r\n            \"value\": \"ZZZ\"\r\n          }\r\n        },\r\n        \"sendAgreement\": {\r\n          \"protocolSettings\": {\r\n            \"validationSettings\": {\r\n              \"validateCharacterSet\": true,\r\n              \"checkDuplicateInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberValidityDays\": 100,\r\n              \"checkDuplicateGroupControlNumber\": true,\r\n              \"checkDuplicateTransactionSetControlNumber\": true,\r\n              \"validateEDITypes\": true,\r\n              \"validateXSDTypes\": true,\r\n              \"trimLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"allowLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trailingSeparatorPolicy\": \"Mandatory\"\r\n            },\r\n            \"framingSettings\": {\r\n              \"characterEncoding\": \"UTF\",\r\n              \"protocolVersion\": 4,\r\n              \"dataElementSeparator\": 53,\r\n              \"componentSeparator\": 58,\r\n              \"segmentTerminator\": 39,\r\n              \"releaseIndicator\": 63,\r\n              \"repetitionSeparator\": 42,\r\n              \"characterSet\": \"UNOC\",\r\n              \"decimalPointIndicator\": \"Comma\",\r\n              \"segmentTerminatorSuffix\": \"None\"\r\n            },\r\n            \"envelopeSettings\": {\r\n              \"groupAssociationAssignedCode\": \"0\",\r\n              \"communicationAgreementId\": \"0\",\r\n              \"applyDelimiterStringAdvice\": true,\r\n              \"createGroupingSegments\": true,\r\n              \"enableDefaultGroupHeaders\": true,\r\n              \"recipientReferencePasswordValue\": \"AAA\",\r\n              \"recipientReferencePasswordQualifier\": \"ZZ\",\r\n              \"applicationReferenceId\": \"0\",\r\n              \"processingPriorityCode\": \"0\",\r\n              \"interchangeControlNumberLowerBound\": 1,\r\n              \"interchangeControlNumberUpperBound\": 2147483647,\r\n              \"rolloverInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberPrefix\": \"CU\",\r\n              \"interchangeControlNumberSuffix\": \"NUM\",\r\n              \"functionalGroupId\": \"0\",\r\n              \"groupControllingAgencyCode\": \"0\",\r\n              \"groupMessageVersion\": \"0.0\",\r\n              \"groupMessageRelease\": \"0.0\",\r\n              \"groupControlNumberLowerBound\": 1,\r\n              \"groupControlNumberUpperBound\": 2147483647,\r\n              \"rolloverGroupControlNumber\": true,\r\n              \"groupControlNumberPrefix\": \"CU\",\r\n              \"groupControlNumberSuffix\": \"NUM\",\r\n              \"groupApplicationReceiverQualifier\": \"ZZZ\",\r\n              \"groupApplicationReceiverId\": \"0\",\r\n              \"groupApplicationSenderQualifier\": \"ZZZ\",\r\n              \"groupApplicationSenderId\": \"AAA\",\r\n              \"groupApplicationPassword\": \"0\",\r\n              \"overwriteExistingTransactionSetControlNumber\": true,\r\n              \"transactionSetControlNumberPrefix\": \"CN\",\r\n              \"transactionSetControlNumberSuffix\": \"NU\",\r\n              \"transactionSetControlNumberLowerBound\": 1,\r\n              \"transactionSetControlNumberUpperBound\": 2147483647,\r\n              \"rolloverTransactionSetControlNumber\": true,\r\n              \"isTestInterchange\": true,\r\n              \"senderInternalIdentification\": \"AAA\",\r\n              \"senderInternalSubIdentification\": \"AAA\",\r\n              \"receiverInternalIdentification\": \"0\",\r\n              \"receiverInternalSubIdentification\": \"0\"\r\n            },\r\n            \"acknowledgementSettings\": {\r\n              \"needTechnicalAcknowledgement\": true,\r\n              \"batchTechnicalAcknowledgements\": true,\r\n              \"needFunctionalAcknowledgement\": true,\r\n              \"batchFunctionalAcknowledgements\": true,\r\n              \"needLoopForValidMessages\": true,\r\n              \"sendSynchronousAcknowledgement\": true,\r\n              \"acknowledgementControlNumberPrefix\": \"CN\",\r\n              \"acknowledgementControlNumberSuffix\": \"NU\",\r\n              \"acknowledgementControlNumberLowerBound\": 1,\r\n              \"acknowledgementControlNumberUpperBound\": 2147483647,\r\n              \"rolloverAcknowledgementControlNumber\": true\r\n            },\r\n            \"messageFilter\": {\r\n              \"messageFilterType\": \"Exclude\"\r\n            },\r\n            \"processingSettings\": {\r\n              \"maskSecurityInfo\": true,\r\n              \"preserveInterchange\": true,\r\n              \"suspendInterchangeOnError\": true,\r\n              \"createEmptyXmlTagsForTrailingSeparators\": true,\r\n              \"useDotAsDecimalSeparator\": true\r\n            },\r\n            \"schemaReferences\": []\r\n          },\r\n          \"senderBusinessIdentity\": {\r\n            \"qualifier\": \"AAA\",\r\n            \"value\": \"AAA\"\r\n          },\r\n          \"receiverBusinessIdentity\": {\r\n            \"qualifier\": \"ZZZ\",\r\n            \"value\": \"ZZZ\"\r\n          }\r\n        }\r\n      }\r\n    },\r\n    \"createdTime\": \"2018-12-13T23:20:25.4947031Z\",\r\n    \"changedTime\": \"2018-12-13T23:20:25.4951064Z\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/agreements/ps5370\",\r\n  \"name\": \"ps5370\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts/agreements\"\r\n}",
+      "StatusCode": 201
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/agreements/ps7944?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9hZ3JlZW1lbnRzL3BzNzk0ND9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "de6a8b91-bf0c-4943-996f-5e6968542ad7"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:37191c0a-b906-4f63-8e25-34eb7d1ce57d"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "11974"
+        ],
+        "x-ms-correlation-request-id": [
+          "d313f1ec-2d5b-470e-9451-a0fde8140dd8"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232025Z:d313f1ec-2d5b-470e-9451-a0fde8140dd8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:25 GMT"
+        ],
+        "Content-Length": [
+          "126"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"AgreementNotFound\",\r\n    \"message\": \"The agreement 'ps7944' could not be found in integration account 'IA-ps88'.\"\r\n  }\r\n}",
+      "StatusCode": 404
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/agreements/ps7944?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OC9hZ3JlZW1lbnRzL3BzNzk0ND9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "PUT",
+      "RequestBody": "{\r\n  \"properties\": {\r\n    \"agreementType\": \"Edifact\",\r\n    \"hostPartner\": \"ps1785\",\r\n    \"guestPartner\": \"ps652\",\r\n    \"hostIdentity\": {\r\n      \"qualifier\": \"AA\",\r\n      \"value\": \"AA\"\r\n    },\r\n    \"guestIdentity\": {\r\n      \"qualifier\": \"ZZ\",\r\n      \"value\": \"ZZ\"\r\n    },\r\n    \"content\": {\r\n      \"edifact\": {\r\n        \"receiveAgreement\": {\r\n          \"senderBusinessIdentity\": {\r\n            \"qualifier\": \"AAA\",\r\n            \"value\": \"AAA\"\r\n          },\r\n          \"receiverBusinessIdentity\": {\r\n            \"qualifier\": \"ZZZ\",\r\n            \"value\": \"ZZZ\"\r\n          },\r\n          \"protocolSettings\": {\r\n            \"validationSettings\": {\r\n              \"validateCharacterSet\": true,\r\n              \"checkDuplicateInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberValidityDays\": 100,\r\n              \"checkDuplicateGroupControlNumber\": true,\r\n              \"checkDuplicateTransactionSetControlNumber\": true,\r\n              \"validateEdiTypes\": true,\r\n              \"validateXsdTypes\": true,\r\n              \"allowLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trimLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trailingSeparatorPolicy\": \"Mandatory\"\r\n            },\r\n            \"framingSettings\": {\r\n              \"characterEncoding\": \"UTF\",\r\n              \"protocolVersion\": 4,\r\n              \"dataElementSeparator\": 53,\r\n              \"componentSeparator\": 58,\r\n              \"segmentTerminator\": 39,\r\n              \"releaseIndicator\": 63,\r\n              \"repetitionSeparator\": 42,\r\n              \"characterSet\": \"UNOC\",\r\n              \"decimalPointIndicator\": \"Comma\",\r\n              \"segmentTerminatorSuffix\": \"None\"\r\n            },\r\n            \"envelopeSettings\": {\r\n              \"groupAssociationAssignedCode\": \"0\",\r\n              \"communicationAgreementId\": \"0\",\r\n              \"applyDelimiterStringAdvice\": true,\r\n              \"createGroupingSegments\": true,\r\n              \"enableDefaultGroupHeaders\": true,\r\n              \"recipientReferencePasswordValue\": \"AAA\",\r\n              \"recipientReferencePasswordQualifier\": \"ZZ\",\r\n              \"applicationReferenceId\": \"0\",\r\n              \"processingPriorityCode\": \"0\",\r\n              \"interchangeControlNumberLowerBound\": 1,\r\n              \"interchangeControlNumberUpperBound\": 2147483647,\r\n              \"rolloverInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberPrefix\": \"CU\",\r\n              \"interchangeControlNumberSuffix\": \"NUM\",\r\n              \"functionalGroupId\": \"0\",\r\n              \"groupControllingAgencyCode\": \"0\",\r\n              \"groupMessageVersion\": \"0.0\",\r\n              \"groupMessageRelease\": \"0.0\",\r\n              \"groupControlNumberLowerBound\": 1,\r\n              \"groupControlNumberUpperBound\": 2147483647,\r\n              \"rolloverGroupControlNumber\": true,\r\n              \"groupControlNumberPrefix\": \"CU\",\r\n              \"groupControlNumberSuffix\": \"NUM\",\r\n              \"groupApplicationReceiverQualifier\": \"ZZZ\",\r\n              \"groupApplicationReceiverId\": \"0\",\r\n              \"groupApplicationSenderQualifier\": \"ZZZ\",\r\n              \"groupApplicationSenderId\": \"AAA\",\r\n              \"groupApplicationPassword\": \"0\",\r\n              \"overwriteExistingTransactionSetControlNumber\": true,\r\n              \"transactionSetControlNumberPrefix\": \"CN\",\r\n              \"transactionSetControlNumberSuffix\": \"NU\",\r\n              \"transactionSetControlNumberLowerBound\": 1,\r\n              \"transactionSetControlNumberUpperBound\": 2147483647,\r\n              \"rolloverTransactionSetControlNumber\": true,\r\n              \"isTestInterchange\": true,\r\n              \"senderInternalIdentification\": \"AAA\",\r\n              \"senderInternalSubIdentification\": \"AAA\",\r\n              \"receiverInternalIdentification\": \"0\",\r\n              \"receiverInternalSubIdentification\": \"0\"\r\n            },\r\n            \"acknowledgementSettings\": {\r\n              \"needTechnicalAcknowledgement\": true,\r\n              \"batchTechnicalAcknowledgements\": true,\r\n              \"needFunctionalAcknowledgement\": true,\r\n              \"batchFunctionalAcknowledgements\": true,\r\n              \"needLoopForValidMessages\": true,\r\n              \"sendSynchronousAcknowledgement\": true,\r\n              \"acknowledgementControlNumberPrefix\": \"CN\",\r\n              \"acknowledgementControlNumberSuffix\": \"NU\",\r\n              \"acknowledgementControlNumberLowerBound\": 1,\r\n              \"acknowledgementControlNumberUpperBound\": 2147483647,\r\n              \"rolloverAcknowledgementControlNumber\": true\r\n            },\r\n            \"messageFilter\": {\r\n              \"messageFilterType\": \"Exclude\"\r\n            },\r\n            \"processingSettings\": {\r\n              \"maskSecurityInfo\": true,\r\n              \"preserveInterchange\": true,\r\n              \"suspendInterchangeOnError\": true,\r\n              \"createEmptyXmlTagsForTrailingSeparators\": true,\r\n              \"useDotAsDecimalSeparator\": true\r\n            },\r\n            \"schemaReferences\": []\r\n          }\r\n        },\r\n        \"sendAgreement\": {\r\n          \"senderBusinessIdentity\": {\r\n            \"qualifier\": \"AAA\",\r\n            \"value\": \"AAA\"\r\n          },\r\n          \"receiverBusinessIdentity\": {\r\n            \"qualifier\": \"ZZZ\",\r\n            \"value\": \"ZZZ\"\r\n          },\r\n          \"protocolSettings\": {\r\n            \"validationSettings\": {\r\n              \"validateCharacterSet\": true,\r\n              \"checkDuplicateInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberValidityDays\": 100,\r\n              \"checkDuplicateGroupControlNumber\": true,\r\n              \"checkDuplicateTransactionSetControlNumber\": true,\r\n              \"validateEdiTypes\": true,\r\n              \"validateXsdTypes\": true,\r\n              \"allowLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trimLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trailingSeparatorPolicy\": \"Mandatory\"\r\n            },\r\n            \"framingSettings\": {\r\n              \"characterEncoding\": \"UTF\",\r\n              \"protocolVersion\": 4,\r\n              \"dataElementSeparator\": 53,\r\n              \"componentSeparator\": 58,\r\n              \"segmentTerminator\": 39,\r\n              \"releaseIndicator\": 63,\r\n              \"repetitionSeparator\": 42,\r\n              \"characterSet\": \"UNOC\",\r\n              \"decimalPointIndicator\": \"Comma\",\r\n              \"segmentTerminatorSuffix\": \"None\"\r\n            },\r\n            \"envelopeSettings\": {\r\n              \"groupAssociationAssignedCode\": \"0\",\r\n              \"communicationAgreementId\": \"0\",\r\n              \"applyDelimiterStringAdvice\": true,\r\n              \"createGroupingSegments\": true,\r\n              \"enableDefaultGroupHeaders\": true,\r\n              \"recipientReferencePasswordValue\": \"AAA\",\r\n              \"recipientReferencePasswordQualifier\": \"ZZ\",\r\n              \"applicationReferenceId\": \"0\",\r\n              \"processingPriorityCode\": \"0\",\r\n              \"interchangeControlNumberLowerBound\": 1,\r\n              \"interchangeControlNumberUpperBound\": 2147483647,\r\n              \"rolloverInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberPrefix\": \"CU\",\r\n              \"interchangeControlNumberSuffix\": \"NUM\",\r\n              \"functionalGroupId\": \"0\",\r\n              \"groupControllingAgencyCode\": \"0\",\r\n              \"groupMessageVersion\": \"0.0\",\r\n              \"groupMessageRelease\": \"0.0\",\r\n              \"groupControlNumberLowerBound\": 1,\r\n              \"groupControlNumberUpperBound\": 2147483647,\r\n              \"rolloverGroupControlNumber\": true,\r\n              \"groupControlNumberPrefix\": \"CU\",\r\n              \"groupControlNumberSuffix\": \"NUM\",\r\n              \"groupApplicationReceiverQualifier\": \"ZZZ\",\r\n              \"groupApplicationReceiverId\": \"0\",\r\n              \"groupApplicationSenderQualifier\": \"ZZZ\",\r\n              \"groupApplicationSenderId\": \"AAA\",\r\n              \"groupApplicationPassword\": \"0\",\r\n              \"overwriteExistingTransactionSetControlNumber\": true,\r\n              \"transactionSetControlNumberPrefix\": \"CN\",\r\n              \"transactionSetControlNumberSuffix\": \"NU\",\r\n              \"transactionSetControlNumberLowerBound\": 1,\r\n              \"transactionSetControlNumberUpperBound\": 2147483647,\r\n              \"rolloverTransactionSetControlNumber\": true,\r\n              \"isTestInterchange\": true,\r\n              \"senderInternalIdentification\": \"AAA\",\r\n              \"senderInternalSubIdentification\": \"AAA\",\r\n              \"receiverInternalIdentification\": \"0\",\r\n              \"receiverInternalSubIdentification\": \"0\"\r\n            },\r\n            \"acknowledgementSettings\": {\r\n              \"needTechnicalAcknowledgement\": true,\r\n              \"batchTechnicalAcknowledgements\": true,\r\n              \"needFunctionalAcknowledgement\": true,\r\n              \"batchFunctionalAcknowledgements\": true,\r\n              \"needLoopForValidMessages\": true,\r\n              \"sendSynchronousAcknowledgement\": true,\r\n              \"acknowledgementControlNumberPrefix\": \"CN\",\r\n              \"acknowledgementControlNumberSuffix\": \"NU\",\r\n              \"acknowledgementControlNumberLowerBound\": 1,\r\n              \"acknowledgementControlNumberUpperBound\": 2147483647,\r\n              \"rolloverAcknowledgementControlNumber\": true\r\n            },\r\n            \"messageFilter\": {\r\n              \"messageFilterType\": \"Exclude\"\r\n            },\r\n            \"processingSettings\": {\r\n              \"maskSecurityInfo\": true,\r\n              \"preserveInterchange\": true,\r\n              \"suspendInterchangeOnError\": true,\r\n              \"createEmptyXmlTagsForTrailingSeparators\": true,\r\n              \"useDotAsDecimalSeparator\": true\r\n            },\r\n            \"schemaReferences\": []\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "766a3e60-282c-4749-9e2d-64ed4dd99dbe"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "9626"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:edcb74d2-c004-4889-822b-8946df86a14a"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1189"
+        ],
+        "x-ms-correlation-request-id": [
+          "a1ec7a02-d0a6-46e9-a966-b41a976dc401"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232026Z:a1ec7a02-d0a6-46e9-a966-b41a976dc401"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:25 GMT"
+        ],
+        "Content-Length": [
+          "6546"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"properties\": {\r\n    \"hostPartner\": \"ps1785\",\r\n    \"guestPartner\": \"ps652\",\r\n    \"hostIdentity\": {\r\n      \"qualifier\": \"AA\",\r\n      \"value\": \"AA\"\r\n    },\r\n    \"guestIdentity\": {\r\n      \"qualifier\": \"ZZ\",\r\n      \"value\": \"ZZ\"\r\n    },\r\n    \"agreementType\": \"EDIFACT\",\r\n    \"content\": {\r\n      \"edifact\": {\r\n        \"receiveAgreement\": {\r\n          \"protocolSettings\": {\r\n            \"validationSettings\": {\r\n              \"validateCharacterSet\": true,\r\n              \"checkDuplicateInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberValidityDays\": 100,\r\n              \"checkDuplicateGroupControlNumber\": true,\r\n              \"checkDuplicateTransactionSetControlNumber\": true,\r\n              \"validateEDITypes\": true,\r\n              \"validateXSDTypes\": true,\r\n              \"trimLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"allowLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trailingSeparatorPolicy\": \"Mandatory\"\r\n            },\r\n            \"framingSettings\": {\r\n              \"characterEncoding\": \"UTF\",\r\n              \"protocolVersion\": 4,\r\n              \"dataElementSeparator\": 53,\r\n              \"componentSeparator\": 58,\r\n              \"segmentTerminator\": 39,\r\n              \"releaseIndicator\": 63,\r\n              \"repetitionSeparator\": 42,\r\n              \"characterSet\": \"UNOC\",\r\n              \"decimalPointIndicator\": \"Comma\",\r\n              \"segmentTerminatorSuffix\": \"None\"\r\n            },\r\n            \"envelopeSettings\": {\r\n              \"groupAssociationAssignedCode\": \"0\",\r\n              \"communicationAgreementId\": \"0\",\r\n              \"applyDelimiterStringAdvice\": true,\r\n              \"createGroupingSegments\": true,\r\n              \"enableDefaultGroupHeaders\": true,\r\n              \"recipientReferencePasswordValue\": \"AAA\",\r\n              \"recipientReferencePasswordQualifier\": \"ZZ\",\r\n              \"applicationReferenceId\": \"0\",\r\n              \"processingPriorityCode\": \"0\",\r\n              \"interchangeControlNumberLowerBound\": 1,\r\n              \"interchangeControlNumberUpperBound\": 2147483647,\r\n              \"rolloverInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberPrefix\": \"CU\",\r\n              \"interchangeControlNumberSuffix\": \"NUM\",\r\n              \"functionalGroupId\": \"0\",\r\n              \"groupControllingAgencyCode\": \"0\",\r\n              \"groupMessageVersion\": \"0.0\",\r\n              \"groupMessageRelease\": \"0.0\",\r\n              \"groupControlNumberLowerBound\": 1,\r\n              \"groupControlNumberUpperBound\": 2147483647,\r\n              \"rolloverGroupControlNumber\": true,\r\n              \"groupControlNumberPrefix\": \"CU\",\r\n              \"groupControlNumberSuffix\": \"NUM\",\r\n              \"groupApplicationReceiverQualifier\": \"ZZZ\",\r\n              \"groupApplicationReceiverId\": \"0\",\r\n              \"groupApplicationSenderQualifier\": \"ZZZ\",\r\n              \"groupApplicationSenderId\": \"AAA\",\r\n              \"groupApplicationPassword\": \"0\",\r\n              \"overwriteExistingTransactionSetControlNumber\": true,\r\n              \"transactionSetControlNumberPrefix\": \"CN\",\r\n              \"transactionSetControlNumberSuffix\": \"NU\",\r\n              \"transactionSetControlNumberLowerBound\": 1,\r\n              \"transactionSetControlNumberUpperBound\": 2147483647,\r\n              \"rolloverTransactionSetControlNumber\": true,\r\n              \"isTestInterchange\": true,\r\n              \"senderInternalIdentification\": \"AAA\",\r\n              \"senderInternalSubIdentification\": \"AAA\",\r\n              \"receiverInternalIdentification\": \"0\",\r\n              \"receiverInternalSubIdentification\": \"0\"\r\n            },\r\n            \"acknowledgementSettings\": {\r\n              \"needTechnicalAcknowledgement\": true,\r\n              \"batchTechnicalAcknowledgements\": true,\r\n              \"needFunctionalAcknowledgement\": true,\r\n              \"batchFunctionalAcknowledgements\": true,\r\n              \"needLoopForValidMessages\": true,\r\n              \"sendSynchronousAcknowledgement\": true,\r\n              \"acknowledgementControlNumberPrefix\": \"CN\",\r\n              \"acknowledgementControlNumberSuffix\": \"NU\",\r\n              \"acknowledgementControlNumberLowerBound\": 1,\r\n              \"acknowledgementControlNumberUpperBound\": 2147483647,\r\n              \"rolloverAcknowledgementControlNumber\": true\r\n            },\r\n            \"messageFilter\": {\r\n              \"messageFilterType\": \"Exclude\"\r\n            },\r\n            \"processingSettings\": {\r\n              \"maskSecurityInfo\": true,\r\n              \"preserveInterchange\": true,\r\n              \"suspendInterchangeOnError\": true,\r\n              \"createEmptyXmlTagsForTrailingSeparators\": true,\r\n              \"useDotAsDecimalSeparator\": true\r\n            },\r\n            \"schemaReferences\": []\r\n          },\r\n          \"senderBusinessIdentity\": {\r\n            \"qualifier\": \"AAA\",\r\n            \"value\": \"AAA\"\r\n          },\r\n          \"receiverBusinessIdentity\": {\r\n            \"qualifier\": \"ZZZ\",\r\n            \"value\": \"ZZZ\"\r\n          }\r\n        },\r\n        \"sendAgreement\": {\r\n          \"protocolSettings\": {\r\n            \"validationSettings\": {\r\n              \"validateCharacterSet\": true,\r\n              \"checkDuplicateInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberValidityDays\": 100,\r\n              \"checkDuplicateGroupControlNumber\": true,\r\n              \"checkDuplicateTransactionSetControlNumber\": true,\r\n              \"validateEDITypes\": true,\r\n              \"validateXSDTypes\": true,\r\n              \"trimLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"allowLeadingAndTrailingSpacesAndZeroes\": true,\r\n              \"trailingSeparatorPolicy\": \"Mandatory\"\r\n            },\r\n            \"framingSettings\": {\r\n              \"characterEncoding\": \"UTF\",\r\n              \"protocolVersion\": 4,\r\n              \"dataElementSeparator\": 53,\r\n              \"componentSeparator\": 58,\r\n              \"segmentTerminator\": 39,\r\n              \"releaseIndicator\": 63,\r\n              \"repetitionSeparator\": 42,\r\n              \"characterSet\": \"UNOC\",\r\n              \"decimalPointIndicator\": \"Comma\",\r\n              \"segmentTerminatorSuffix\": \"None\"\r\n            },\r\n            \"envelopeSettings\": {\r\n              \"groupAssociationAssignedCode\": \"0\",\r\n              \"communicationAgreementId\": \"0\",\r\n              \"applyDelimiterStringAdvice\": true,\r\n              \"createGroupingSegments\": true,\r\n              \"enableDefaultGroupHeaders\": true,\r\n              \"recipientReferencePasswordValue\": \"AAA\",\r\n              \"recipientReferencePasswordQualifier\": \"ZZ\",\r\n              \"applicationReferenceId\": \"0\",\r\n              \"processingPriorityCode\": \"0\",\r\n              \"interchangeControlNumberLowerBound\": 1,\r\n              \"interchangeControlNumberUpperBound\": 2147483647,\r\n              \"rolloverInterchangeControlNumber\": true,\r\n              \"interchangeControlNumberPrefix\": \"CU\",\r\n              \"interchangeControlNumberSuffix\": \"NUM\",\r\n              \"functionalGroupId\": \"0\",\r\n              \"groupControllingAgencyCode\": \"0\",\r\n              \"groupMessageVersion\": \"0.0\",\r\n              \"groupMessageRelease\": \"0.0\",\r\n              \"groupControlNumberLowerBound\": 1,\r\n              \"groupControlNumberUpperBound\": 2147483647,\r\n              \"rolloverGroupControlNumber\": true,\r\n              \"groupControlNumberPrefix\": \"CU\",\r\n              \"groupControlNumberSuffix\": \"NUM\",\r\n              \"groupApplicationReceiverQualifier\": \"ZZZ\",\r\n              \"groupApplicationReceiverId\": \"0\",\r\n              \"groupApplicationSenderQualifier\": \"ZZZ\",\r\n              \"groupApplicationSenderId\": \"AAA\",\r\n              \"groupApplicationPassword\": \"0\",\r\n              \"overwriteExistingTransactionSetControlNumber\": true,\r\n              \"transactionSetControlNumberPrefix\": \"CN\",\r\n              \"transactionSetControlNumberSuffix\": \"NU\",\r\n              \"transactionSetControlNumberLowerBound\": 1,\r\n              \"transactionSetControlNumberUpperBound\": 2147483647,\r\n              \"rolloverTransactionSetControlNumber\": true,\r\n              \"isTestInterchange\": true,\r\n              \"senderInternalIdentification\": \"AAA\",\r\n              \"senderInternalSubIdentification\": \"AAA\",\r\n              \"receiverInternalIdentification\": \"0\",\r\n              \"receiverInternalSubIdentification\": \"0\"\r\n            },\r\n            \"acknowledgementSettings\": {\r\n              \"needTechnicalAcknowledgement\": true,\r\n              \"batchTechnicalAcknowledgements\": true,\r\n              \"needFunctionalAcknowledgement\": true,\r\n              \"batchFunctionalAcknowledgements\": true,\r\n              \"needLoopForValidMessages\": true,\r\n              \"sendSynchronousAcknowledgement\": true,\r\n              \"acknowledgementControlNumberPrefix\": \"CN\",\r\n              \"acknowledgementControlNumberSuffix\": \"NU\",\r\n              \"acknowledgementControlNumberLowerBound\": 1,\r\n              \"acknowledgementControlNumberUpperBound\": 2147483647,\r\n              \"rolloverAcknowledgementControlNumber\": true\r\n            },\r\n            \"messageFilter\": {\r\n              \"messageFilterType\": \"Exclude\"\r\n            },\r\n            \"processingSettings\": {\r\n              \"maskSecurityInfo\": true,\r\n              \"preserveInterchange\": true,\r\n              \"suspendInterchangeOnError\": true,\r\n              \"createEmptyXmlTagsForTrailingSeparators\": true,\r\n              \"useDotAsDecimalSeparator\": true\r\n            },\r\n            \"schemaReferences\": []\r\n          },\r\n          \"senderBusinessIdentity\": {\r\n            \"qualifier\": \"AAA\",\r\n            \"value\": \"AAA\"\r\n          },\r\n          \"receiverBusinessIdentity\": {\r\n            \"qualifier\": \"ZZZ\",\r\n            \"value\": \"ZZZ\"\r\n          }\r\n        }\r\n      }\r\n    },\r\n    \"createdTime\": \"2018-12-13T23:20:25.9797848Z\",\r\n    \"changedTime\": \"2018-12-13T23:20:25.9801462Z\"\r\n  },\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88/agreements/ps7944\",\r\n  \"name\": \"ps7944\",\r\n  \"type\": \"Microsoft.Logic/integrationAccounts/agreements\"\r\n}",
+      "StatusCode": 201
+    },
+    {
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps5710/providers/Microsoft.Logic/integrationAccounts/IA-ps88?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTcxMC9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL2ludGVncmF0aW9uQWNjb3VudHMvSUEtcHM4OD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
+      "RequestMethod": "DELETE",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "x-ms-client-request-id": [
+          "09e1c499-cd40-415f-b690-9928ed5eb195"
+        ],
+        "Accept-Language": [
+          "en-US"
+        ],
+        "User-Agent": [
+          "FxVersion/4.6.27019.06",
+          "OSName/Windows",
+          "OSVersion/Microsoft.Windows.10.0.17763.",
+          "Microsoft.Azure.Management.Logic.LogicManagementClient/4.0.0.0"
+        ]
+      },
+      "ResponseHeaders": {
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "westus:1e28c18f-ba22-41e3-945d-362bbfca5f39"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "x-ms-ratelimit-remaining-subscription-deletes": [
+          "14996"
+        ],
+        "x-ms-correlation-request-id": [
+          "a67285b1-fd74-4811-8530-8dcb2a069e1b"
+        ],
+        "x-ms-routing-request-id": [
+          "WESTUS2:20181213T232026Z:a67285b1-fd74-4811-8530-8dcb2a069e1b"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Date": [
+          "Thu, 13 Dec 2018 23:20:26 GMT"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Content-Length": [
+          "0"
+        ]
+      },
+      "ResponseBody": "",
+      "StatusCode": 200
+    }
+  ],
+  "Names": {
+    "Test-CreateIntegrationAccountAgreementEdifact": [
+      "ps5710",
+      "ps88",
+      "ps5370",
+      "ps7944",
+      "ps1785",
+      "ps652"
+    ]
+  },
+  "Variables": {
+    "SubscriptionId": "f34b22a3-2202-4fb1-b040-1332bd928c84"
+  }
+}

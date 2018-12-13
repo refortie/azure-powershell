@@ -14,7 +14,7 @@
 
 <#
 .SYNOPSIS
-Test New-AzureRmIntegrationAccountBatchConfiguration command
+Test New-AzIntegrationAccountBatchConfiguration command
 #>
 function Test-CreateIntegrationAccountBatchConfiguration
 {
@@ -25,31 +25,31 @@ function Test-CreateIntegrationAccountBatchConfiguration
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$batchConfigurationName = "BCJson"
-	$integrationAccountBatchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCJsonInOb"
-	$integrationAccountBatchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -InputObject $integrationAccountBatchConfiguration -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -InputObject $integrationAccountBatchConfiguration -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCJsonId"
-	$integrationAccountBatchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceId $integrationAccountBatchConfiguration.Id -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceId $integrationAccountBatchConfiguration.Id -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCFilePath"
-	$integrationAccountBatchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCFilePathInOb"
-	$integrationAccountBatchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -InputObject $integrationAccountBatchConfiguration -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -InputObject $integrationAccountBatchConfiguration -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCFilePathId"
-	$integrationAccountBatchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceId $integrationAccountBatchConfiguration.Id -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceId $integrationAccountBatchConfiguration.Id -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCParameters"
-	$integrationAccountBatchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -MessageCount 199 -BatchSize 5 -ScheduleInterval 1 -ScheduleFrequency "Month"
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -MessageCount 199 -BatchSize 5 -ScheduleInterval 1 -ScheduleFrequency "Month"
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 	Assert-AreEqual 199 $integrationAccountBatchConfiguration.Properties.ReleaseCriteria.MessageCount
 	Assert-AreEqual 5 $integrationAccountBatchConfiguration.Properties.ReleaseCriteria.BatchSize
@@ -57,14 +57,14 @@ function Test-CreateIntegrationAccountBatchConfiguration
 	Assert-AreEqual "Month" $integrationAccountBatchConfiguration.Properties.ReleaseCriteria.Recurrence.Frequency
 
 	$batchConfigurationName = "BCNoParameters"
-	Assert-ThrowsContains { New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName } "At least one release criteria must be provided."
+	Assert-ThrowsContains { New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName } "At least one release criteria must be provided."
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
 <#
 .SYNOPSIS
-Test Get-AzureRmIntegrationAccountBatchConfiguration command
+Test Get-AzIntegrationAccountBatchConfiguration command
 #>
 function Test-GetIntegrationAccountBatchConfiguration
 {
@@ -74,30 +74,30 @@ function Test-GetIntegrationAccountBatchConfiguration
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$batchConfigurationName = "BC" + (getAssetname)
-	$integrationAccountBatchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
-	$resultByName = Get-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $integrationAccountBatchConfiguration.Name
+	$resultByName = Get-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $integrationAccountBatchConfiguration.Name
 	Assert-AreEqual $batchConfigurationName $resultByName.Name
 
-	$resultByResourceId = Get-AzureRmIntegrationAccountBatchConfiguration -ResourceId $resultByName.Id
+	$resultByResourceId = Get-AzIntegrationAccountBatchConfiguration -ResourceId $resultByName.Id
 	Assert-AreEqual $batchConfigurationName $resultByResourceId.Name
 
-	$resultByPipingResourceId = Get-AzureRmIntegrationAccountBatchConfiguration -ResourceId $resultByName.Id | Get-AzureRmIntegrationAccountBatchConfiguration
+	$resultByPipingResourceId = Get-AzIntegrationAccountBatchConfiguration -ResourceId $resultByName.Id | Get-AzIntegrationAccountBatchConfiguration
 	Assert-AreEqual $batchConfigurationName $resultByPipingResourceId.Name
 
-	$resultByInputObject = Get-AzureRmIntegrationAccountBatchConfiguration -InputObject $resultByName
+	$resultByInputObject = Get-AzIntegrationAccountBatchConfiguration -InputObject $resultByName
 	Assert-AreEqual $batchConfigurationName $resultByInputObject.Name
 
-	$resultByPipingInputObject = $resultByName | Get-AzureRmIntegrationAccountBatchConfiguration
+	$resultByPipingInputObject = $resultByName | Get-AzIntegrationAccountBatchConfiguration
 	Assert-AreEqual $batchConfigurationName $resultByPipingInputObject.Name
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
 <#
 .SYNOPSIS
-Test Remove-AzureRmIntegrationAccountBatchConfiguration command
+Test Remove-AzIntegrationAccountBatchConfiguration command
 #>
 function Test-RemoveIntegrationAccountBatchConfiguration
 {
@@ -107,27 +107,27 @@ function Test-RemoveIntegrationAccountBatchConfiguration
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$batchConfigurationName = "BC" + (getAssetname)	
-	$batchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
-	Remove-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName
+	$batchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	Remove-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName
 
-	$batchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
-	Remove-AzureRmIntegrationAccountBatchConfiguration -ResourceId $batchConfiguration.Id
+	$batchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	Remove-AzIntegrationAccountBatchConfiguration -ResourceId $batchConfiguration.Id
 
-	$batchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
-	Remove-AzureRmIntegrationAccountBatchConfiguration -InputObject $batchConfiguration
+	$batchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	Remove-AzIntegrationAccountBatchConfiguration -InputObject $batchConfiguration
 
-	$batchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
-	Remove-AzureRmIntegrationAccountBatchConfiguration  -InputObject $batchConfiguration
+	$batchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	Remove-AzIntegrationAccountBatchConfiguration  -InputObject $batchConfiguration
 
-	$batchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
-	$batchConfiguration | Remove-AzureRmIntegrationAccountBatchConfiguration
+	$batchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	$batchConfiguration | Remove-AzIntegrationAccountBatchConfiguration
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
 <#
 .SYNOPSIS
-Test Set-AzureRmIntegrationAccountBatchConfiguration command
+Test Set-AzIntegrationAccountBatchConfiguration command
 #>
 function Test-UpdateIntegrationAccountBatchConfiguration
 {
@@ -138,30 +138,30 @@ function Test-UpdateIntegrationAccountBatchConfiguration
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$batchConfigurationName = "OriginalBC"
-	$batchConfiguration =  New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
+	$batchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
 	Assert-AreEqual $batchConfigurationName $batchConfiguration.Name
 
-	$edittedBatchConfiguration =  Set-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
+	$edittedBatchConfiguration =  Set-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
 	Assert-AreEqual $batchConfigurationName $edittedBatchConfiguration.Name
 
-	$edittedBatchConfiguration =  Set-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	$edittedBatchConfiguration =  Set-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
 	Assert-AreEqual $batchConfigurationName $edittedBatchConfiguration.Name
 
-	$edittedBatchConfiguration =  Set-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -MessageCount 199 -BatchSize 5 -ScheduleInterval 1 -ScheduleFrequency "Month"
+	$edittedBatchConfiguration =  Set-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -MessageCount 199 -BatchSize 5 -ScheduleInterval 1 -ScheduleFrequency "Month"
 	Assert-AreEqual $batchConfigurationName $edittedBatchConfiguration.Name
 	Assert-AreEqual 199 $edittedBatchConfiguration.Properties.ReleaseCriteria.MessageCount
 	Assert-AreEqual 5 $edittedBatchConfiguration.Properties.ReleaseCriteria.BatchSize
 	Assert-AreEqual 1 $edittedBatchConfiguration.Properties.ReleaseCriteria.Recurrence.Interval
 	Assert-AreEqual "Month" $edittedBatchConfiguration.Properties.ReleaseCriteria.Recurrence.Frequency
 
-	Assert-ThrowsContains { Set-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName } "At least one release criteria must be provided."
+	Assert-ThrowsContains { Set-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName } "At least one release criteria must be provided."
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
 <#
 .SYNOPSIS
-Test Get-AzureRmIntegrationAccountBatchConfiguration command : Paging test
+Test Get-AzIntegrationAccountBatchConfiguration command : Paging test
 #>
 function Test-ListIntegrationAccountBatchConfiguration
 {
@@ -175,13 +175,13 @@ function Test-ListIntegrationAccountBatchConfiguration
 	{
 		$val++;
 		$batchConfigurationName = "BC$val" + (getAssetname)
-		New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+		New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
 	}
 
-	$result =  Get-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
+	$result =  Get-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
 	Assert-True { $result.Count -eq 3 }
 
- 	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+ 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
 <#
@@ -196,7 +196,7 @@ function Test-EndToEndBatchConfigurationPiping
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$batchConfigurationName = "BC" + (getAssetname)
-	New-AzureRmIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Name $batchConfigurationName  -BatchConfigurationFilePath $batchConfigurationFilePath | Get-AzureRmIntegrationAccountBatchConfiguration | Set-AzureRmIntegrationAccountBatchConfiguration | Remove-AzureRmIntegrationAccountBatchConfiguration
+	New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Name $batchConfigurationName  -BatchConfigurationFilePath $batchConfigurationFilePath | Get-AzIntegrationAccountBatchConfiguration | Set-AzIntegrationAccountBatchConfiguration | Remove-AzIntegrationAccountBatchConfiguration
 
- 	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+ 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }

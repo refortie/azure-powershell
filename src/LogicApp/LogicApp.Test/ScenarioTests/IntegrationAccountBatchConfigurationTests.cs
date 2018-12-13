@@ -11,65 +11,72 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // ----------------------------------------------------------------------------------
- namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
+
+namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
 {
+    using Microsoft.Azure.ServiceManagement.Common.Models;
     using Microsoft.WindowsAzure.Commands.ScenarioTest;
     using Microsoft.WindowsAzure.Commands.Test.Utilities.Common;
-    using ServiceManagemenet.Common.Models;
     using Xunit;
-     /// <summary>
+
+    /// <summary>
     /// Scenario tests for integration account batch configuration commands.
     /// </summary>
     public class IntegrationAccountBatchConfigurationTests : RMTestBase
     {
         public XunitTracingInterceptor _logger;
-         public IntegrationAccountBatchConfigurationTests(Xunit.Abstractions.ITestOutputHelper output)
+        public IntegrationAccountBatchConfigurationTests(Xunit.Abstractions.ITestOutputHelper output)
         {
             this._logger = new XunitTracingInterceptor(output);
             XunitTracingInterceptor.AddToContext(this._logger);
         }
-         /// <summary>
-        /// Test New-AzureRmIntegrationAccountBatchConfiguration command to create a new integration account batch configuration.
+
+        /// <summary>
+        /// Test New-AzIntegrationAccountBatchConfiguration command to create a new integration account batch configuration.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestCreateIntegrationAccountBatchConfiguration()
+        public void TestCreateBatchConfiguration()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-CreateIntegrationAccountBatchConfiguration");
         }
-         /// <summary>
-        /// Test Get-AzureRmIntegrationAccountBatchConfiguration command to get the integration account batch configuration.
+
+        /// <summary>
+        /// Test Get-AzIntegrationAccountBatchConfiguration command to get the integration account batch configuration.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestGetIntegrationAccountBatchConfiguration()
+        public void TestGetBatchConfiguration()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-GetIntegrationAccountBatchConfiguration");
         }
-         /// <summary>
-        /// Test Remove-AzureRmIntegrationAccountBatchConfiguration command to remove the integration account batch configuration.
+
+        /// <summary>
+        /// Test Remove-AzIntegrationAccountBatchConfiguration command to remove the integration account batch configuration.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestRemoveIntegrationAccountBatchConfiguration()
+        public void TestRemoveBatchConfiguration()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-RemoveIntegrationAccountBatchConfiguration");
-        }        
-         /// <summary>
-        /// Test Set-AzureRmIntegrationAccountBatchConfiguration command to update the integration account batch configuration.
+        }
+
+        /// <summary>
+        /// Test Set-AzIntegrationAccountBatchConfiguration command to update the integration account batch configuration.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestUpdateIntegrationAccountBatchConfiguration()
+        public void TestUpdateBatchConfiguration()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-UpdateIntegrationAccountBatchConfiguration");
         }
-         /// <summary>
-        /// Test Get-AzureRmIntegrationAccountBatchConfiguration command to get all the integration account batch configuration.
+
+        /// <summary>
+        /// Test Get-AzIntegrationAccountBatchConfiguration command to get all the integration account batch configuration.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestListIntegrationAccountBatchConfiguration()
+        public void TestListBatchConfiguration()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-ListIntegrationAccountBatchConfiguration");
         }

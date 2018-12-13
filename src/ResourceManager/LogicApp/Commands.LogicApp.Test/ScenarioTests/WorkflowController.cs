@@ -88,7 +88,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
                     "ScenarioTests\\Common.ps1",
                     "ScenarioTests\\" + callingClassName + ".ps1",
                     this._helper.RMProfileModule,
-                    this._helper.GetRMModulePath(@"AzureRM.LogicApp.psd1"),
+                    this._helper.GetRMModulePath(@"Az.LogicApp.psd1"),
                     "AzureRM.Resources.ps1");
 
                 try
@@ -110,7 +110,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
         {
             this.ResourceManagementClient = GetResourceManagementClient(context);
             this.LogicManagementClient = GetLogicManagementClient(context);
-            _helper.SetupManagementClients(ResourceManagementClient, LogicManagementClient);
+            this._helper.SetupManagementClients(this.ResourceManagementClient, this.LogicManagementClient);
         }
 
         private static ResourceManagementClient GetResourceManagementClient(MockContext context)

@@ -121,9 +121,9 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
             newAssembly.Properties.ContentType = "application/octet-stream";
 
             // If we have been given content use that
-            if (ParameterSetName != ParameterSet.ByIntegrationAccount)
+            if (this.ParameterSetName != ParameterSet.ByIntegrationAccount)
             {
-                if (ParameterSetName == ParameterSet.ByContentLink)
+                if (this.ParameterSetName == ParameterSet.ByContentLink)
                 {
                     newAssembly.Properties.ContentLink = new ContentLink
                     {
@@ -133,7 +133,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                 }
                 else
                 {
-                    if (ParameterSetName == ParameterSet.ByFilePath)
+                    if (this.ParameterSetName == ParameterSet.ByFilePath)
                     {
                         this.AssemblyData = CmdletHelper.GetBinaryContentFromFile(this.TryResolvePath(this.AssemblyFilePath));
                     }

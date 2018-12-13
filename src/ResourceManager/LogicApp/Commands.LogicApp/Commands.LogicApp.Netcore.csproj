@@ -62,4 +62,8 @@
     <Content Include="help\**\*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
 </Project>

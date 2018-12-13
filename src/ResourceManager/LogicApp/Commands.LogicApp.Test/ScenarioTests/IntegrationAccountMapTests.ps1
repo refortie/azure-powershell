@@ -14,7 +14,7 @@
 
 <#
 .SYNOPSIS
-Test New-AzureRmIntegrationAccountMap command
+Test New-AzIntegrationAccountMap command
 #>
 function Test-CreateIntegrationAccountMap
 {
@@ -37,30 +37,30 @@ function Test-CreateIntegrationAccountMap
 
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
-	$integrationAccountMap1 =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName1 -MapDefinition $xslt1MapContent
+	$integrationAccountMap1 =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName1 -MapDefinition $xslt1MapContent
 	Assert-AreEqual $integrationAccountMapName1 $integrationAccountMap1.Name
 
-	$integrationAccountMap2 =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName2 -MapFilePath $xslt1FilePath
+	$integrationAccountMap2 =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName2 -MapFilePath $xslt1FilePath
 	Assert-AreEqual $integrationAccountMapName2 $integrationAccountMap2.Name
 
-	$integrationAccountMap3 =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName3 -MapFilePath $xslt1FilePath -MapType "Xslt" -ContentType "application/xml"
+	$integrationAccountMap3 =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName3 -MapFilePath $xslt1FilePath -MapType "Xslt" -ContentType "application/xml"
 	Assert-AreEqual $integrationAccountMapName3 $integrationAccountMap3.Name
 	
-	$integrationAccountXslt2Map =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountXslt2MapName -MapDefinition $xslt2MapContent -MapType "Xslt20"
+	$integrationAccountXslt2Map =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountXslt2MapName -MapDefinition $xslt2MapContent -MapType "Xslt20"
 	Assert-AreEqual $integrationAccountXslt2MapName $integrationAccountXslt2Map.Name
- 	$integrationAccountXslt3Map =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountXslt3MapName -MapDefinition $xslt3MapContent -MapType "Xslt30"
+ 	$integrationAccountXslt3Map =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountXslt3MapName -MapDefinition $xslt3MapContent -MapType "Xslt30"
 	Assert-AreEqual $integrationAccountXslt3MapName $integrationAccountXslt3Map.Name
- 	$integrationAccountLiquidMap =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountLiquidMapName -MapDefinition $liquidMapContent -MapType "Liquid"
+ 	$integrationAccountLiquidMap =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountLiquidMapName -MapDefinition $liquidMapContent -MapType "Liquid"
 	Assert-AreEqual $integrationAccountLiquidMapName $integrationAccountLiquidMap.Name
- 	$integrationAccountLiquidMap2 =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountLiquidMapName2 -MapDefinition $liquidMapContent -MapType "liquid"
+ 	$integrationAccountLiquidMap2 =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountLiquidMapName2 -MapDefinition $liquidMapContent -MapType "liquid"
 	Assert-AreEqual $integrationAccountLiquidMapName2 $integrationAccountLiquidMap2.Name
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
 <#
 .SYNOPSIS
-Test Get-AzureRmIntegrationAccountMap command
+Test Get-AzIntegrationAccountMap command
 #>
 function Test-GetIntegrationAccountMap
 {
@@ -74,22 +74,22 @@ function Test-GetIntegrationAccountMap
 
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 
-	$integrationAccountMap =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent
+	$integrationAccountMap =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent
 	Assert-AreEqual $integrationAccountMapName $integrationAccountMap.Name
 
-	$result =  Get-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName
+	$result =  Get-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName
 	Assert-AreEqual $integrationAccountMapName $result.Name
 
-	$result1 =  Get-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
+	$result1 =  Get-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
 	Assert-AreEqual $integrationAccountMapName $result1.Name
 	Assert-True { $result1.Count -gt 0 }	
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
 <#
 .SYNOPSIS
-Test Remove-AzureRmIntegrationAccountMap command
+Test Remove-AzIntegrationAccountMap command
 #>
 function Test-RemoveIntegrationAccountMap
 {
@@ -103,17 +103,17 @@ function Test-RemoveIntegrationAccountMap
 
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 
-	$integrationAccountMap =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent
+	$integrationAccountMap =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent
 	Assert-AreEqual $integrationAccountMapName $integrationAccountMap.Name
 
-	Remove-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -Force	
+	Remove-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -Force	
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
 <#
 .SYNOPSIS
-Test Set-AzureRmIntegrationAccountMap command
+Test Set-AzIntegrationAccountMap command
 #>
 function Test-UpdateIntegrationAccountMap
 {
@@ -127,21 +127,21 @@ function Test-UpdateIntegrationAccountMap
 
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 
-	$integrationAccountMap =  New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent
+	$integrationAccountMap =  New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent
 	Assert-AreEqual $integrationAccountMapName $integrationAccountMap.Name
 
-	$integrationAccountMapUpdated =  Set-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent -Force
+	$integrationAccountMapUpdated =  Set-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent -Force
 	Assert-AreEqual $integrationAccountMapName $integrationAccountMap.Name
 
-	$integrationAccountMapUpdated =  Set-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent -Force
+	$integrationAccountMapUpdated =  Set-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent -Force
 	Assert-AreEqual $integrationAccountMapName $integrationAccountMap.Name
 	
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
 <#
 .SYNOPSIS
-Test Get-AzureRmIntegrationAccountMap command : Paging test
+Test Get-AzIntegrationAccountMap command : Paging test
 #>
 function Test-ListIntegrationAccountMap
 {
@@ -158,11 +158,11 @@ function Test-ListIntegrationAccountMap
 	{
 		$val++ ;
 		$integrationAccountMapName = "XSLT-$val-" + (getAssetname)
-		New-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent
+		New-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -MapName $integrationAccountMapName -MapDefinition $mapContent
 	}
 
-	$result =  Get-AzureRmIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
+	$result =  Get-AzIntegrationAccountMap -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
 	Assert-True { $result.Count -eq 1 }
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }

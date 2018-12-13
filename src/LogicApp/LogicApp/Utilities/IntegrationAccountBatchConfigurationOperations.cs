@@ -11,14 +11,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // ----------------------------------------------------------------------------------
- namespace Microsoft.Azure.Commands.LogicApp.Utilities
+
+namespace Microsoft.Azure.Commands.LogicApp.Utilities
 {
-    using Microsoft.Azure.Management.Logic.Models;
     using Microsoft.Azure.Management.Logic;
-    using System.Management.Automation;
-    using System.Globalization;
+    using Microsoft.Azure.Management.Logic.Models;
     using System.Collections.Generic;
-     /// <summary>
+    using System.Globalization;
+    using System.Management.Automation;
+
+    /// <summary>
     /// LogicApp client partial class for integration account batch configuration operations.
     /// </summary>
     public partial class IntegrationAccountClient
@@ -33,7 +35,7 @@
         /// <returns>Newly created integration account batch configuration object.</returns>
         public BatchConfiguration CreateIntegrationAccountBatchConfiguration(string resourceGroupName, string integrationAccountName, string integrationAccountBatchConfigurationName, BatchConfiguration integrationAccountBatchConfiguration)
         {
-            if (!this.DoesIntegrationAccountBatchConfigurationExist(resourceGroupName, integrationAccountName,integrationAccountBatchConfigurationName))
+            if (!this.DoesIntegrationAccountBatchConfigurationExist(resourceGroupName, integrationAccountName, integrationAccountBatchConfigurationName))
             {
                 return this.LogicManagementClient.IntegrationAccountBatchConfigurations.CreateOrUpdate(resourceGroupName, integrationAccountName, integrationAccountBatchConfigurationName, integrationAccountBatchConfiguration);
             }
@@ -43,7 +45,8 @@
                     Properties.Resource.ResourceAlreadyExists, integrationAccountBatchConfigurationName, resourceGroupName));
             }
         }
-         /// <summary>
+
+        /// <summary>
         /// Checks whether the integration account batch configuration exists or not. 
         /// </summary>
         /// <param name="resourceGroupName">The integration account resource group name.</param>
@@ -63,8 +66,9 @@
                 result = false;
             }
             return result;
-        }        
-         /// <summary>
+        }
+
+        /// <summary>
         /// Updates the integration account.
         /// </summary>
         /// <param name="resourceGroupName">The integration account batch configuration resource group.</param>
@@ -76,7 +80,8 @@
         {
             return this.LogicManagementClient.IntegrationAccountBatchConfigurations.CreateOrUpdate(resourceGroupName, integrationAccountName, integrationAccountBatchConfigurationName, integrationAccountBatchConfiguration);
         }
-         /// <summary>
+
+        /// <summary>
         /// Gets the integration account batch configuration by name.
         /// </summary>
         /// <param name="resourceGroupName">The integration account resource group name.</param>
@@ -87,7 +92,8 @@
         {
             return this.LogicManagementClient.IntegrationAccountBatchConfigurations.Get(resourceGroupName, integrationAccountName, integrationAccountBatchConfigurationName);
         }
-         /// <summary>
+
+        /// <summary>
         /// Gets the integration account assemblies by resource group name.
         /// </summary>
         /// <param name="resourceGroupName">The integration account resource group name.</param>
@@ -97,7 +103,8 @@
         {
             return this.LogicManagementClient.IntegrationAccountBatchConfigurations.List(resourceGroupName, integrationAccountName);
         }
-         /// <summary>
+
+        /// <summary>
         /// Removes the specified integration account batch configuration.
         /// </summary>
         /// <param name="resourceGroupName">The integration account resource group name.</param>

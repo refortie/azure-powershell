@@ -122,23 +122,13 @@ namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
         }
 
         /// <summary>
-        /// Test Test-AzureRmLogicApp command to validate given workflow definition.
+        /// Test Test-AzLogicApp command to validate given workflow definition.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
         public void TestValidateLogicApp()
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-ValidateLogicApp");
-        }
-
-        /// <summary>
-        ///Test New-AzureLogicApp to create logic app for non-existing service plan. Constraint validation.
-        /// </summary>
-        [Fact]
-        [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestCreateLogicAppWithNonExistingAppServicePlan()
-        {
-            WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-CreateLogicAppWithNonExistingAppServicePlan");
         }
 
         /// <summary>
@@ -156,8 +146,8 @@ namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
         }
 
         /// <summary>
-        ///Test Set-AzureRmLogicApp command to update workflow with integration account.
-        ///Test Set-AzureRmLogicApp command to remove integration account from a workflow.
+        ///Test Set-AzLogicApp command to update workflow with integration account.
+        ///Test Set-AzLogicApp command to remove integration account from a workflow.
         /// </summary>
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]

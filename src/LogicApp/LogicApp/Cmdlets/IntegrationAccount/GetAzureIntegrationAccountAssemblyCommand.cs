@@ -65,12 +65,12 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
         {
             base.ExecuteCmdlet();
 
-            if (ParameterSetName == ParameterSet.ByInputObject) {
-                var parsedResourceId = new ResourceIdentifier(InputObject.Id);
+            if (this.ParameterSetName == ParameterSet.ByInputObject) {
+                var parsedResourceId = new ResourceIdentifier(this.InputObject.Id);
                 this.ResourceGroupName = parsedResourceId.ResourceGroupName;
                 this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
                 this.Name = parsedResourceId.ResourceName;
-            } else if (ParameterSetName == ParameterSet.ByResourceId)
+            } else if (this.ParameterSetName == ParameterSet.ByResourceId)
             {
                 var parsedResourceId = new ResourceIdentifier(this.ResourceId);
                 this.ResourceGroupName = parsedResourceId.ResourceGroupName;

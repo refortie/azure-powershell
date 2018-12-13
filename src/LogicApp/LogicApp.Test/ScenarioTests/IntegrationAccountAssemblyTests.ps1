@@ -14,7 +14,7 @@
 
  <#
 .SYNOPSIS
-Test New-AzureRmIntegrationAccountAssembly command
+Test New-AzIntegrationAccountAssembly command
 #>
 function Test-CreateIntegrationAccountAssembly
 {
@@ -25,58 +25,58 @@ function Test-CreateIntegrationAccountAssembly
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$integrationAccountAssemblyName = "SampleAssemblyFilePath"
-	$resultByFilePath = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	$resultByFilePath = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
 	Assert-AreEqual $integrationAccountAssemblyName $resultByFilePath.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyFilePathInputObject"
-	$resultByFilePath = New-AzureRmIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	$resultByFilePath = New-AzIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
 	Assert-AreEqual $integrationAccountAssemblyName $resultByFilePath.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyFilePathId"
-	$resultByFilePath = New-AzureRmIntegrationAccountAssembly -ResourceId $resultByFilePath.Id -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	$resultByFilePath = New-AzIntegrationAccountAssembly -ResourceId $resultByFilePath.Id -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
 	Assert-AreEqual $integrationAccountAssemblyName $resultByFilePath.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyBytes"
-	$resultByBytes = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
+	$resultByBytes = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
 	Assert-AreEqual $integrationAccountAssemblyName $resultByBytes.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyBytesInputObject"
-	$resultByBytes = New-AzureRmIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
+	$resultByBytes = New-AzIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
 	Assert-AreEqual $integrationAccountAssemblyName $resultByBytes.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyBytesId"
-	$resultByBytes = New-AzureRmIntegrationAccountAssembly -ResourceId $resultByFilePath.Id -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
+	$resultByBytes = New-AzIntegrationAccountAssembly -ResourceId $resultByFilePath.Id -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
 	Assert-AreEqual $integrationAccountAssemblyName $resultByBytes.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyContentLink"
-	$resultByContentLink = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
+	$resultByContentLink = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyContentLinkInputObject"
-	$resultByContentLink = New-AzureRmIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
+	$resultByContentLink = New-AzIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyContentLinkId"
-	$resultByContentLink = New-AzureRmIntegrationAccountAssembly -ResourceId $resultByFilePath.Id -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
+	$resultByContentLink = New-AzIntegrationAccountAssembly -ResourceId $resultByFilePath.Id -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyInputObject"
-	$result = New-AzureRmIntegrationAccountAssembly -AssemblyName $integrationAccountAssemblyName -InputObject $resultByContentLink
+	$result = New-AzIntegrationAccountAssembly -AssemblyName $integrationAccountAssemblyName -InputObject $resultByContentLink
 	Assert-AreEqual $integrationAccountAssemblyName $result.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyId"
-	$result = New-AzureRmIntegrationAccountAssembly -AssemblyName $integrationAccountAssemblyName -ResourceId $resultByContentLink.Id
+	$result = New-AzIntegrationAccountAssembly -AssemblyName $integrationAccountAssemblyName -ResourceId $resultByContentLink.Id
 	Assert-AreEqual $integrationAccountAssemblyName $result.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyNoData"
-	Assert-ThrowsContains { New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName } "must have either 'content' or 'contentLink' property set."
+	Assert-ThrowsContains { New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName } "must have either 'content' or 'contentLink' property set."
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
  <#
 .SYNOPSIS
-Test Get-AzureRmIntegrationAccountAssembly command
+Test Get-AzIntegrationAccountAssembly command
 #>
 function Test-GetIntegrationAccountAssembly
 {
@@ -86,30 +86,30 @@ function Test-GetIntegrationAccountAssembly
  	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$integrationAccountAssemblyName = "SampleAssembly"
-	$integrationAccountAssembly = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
 	Assert-AreEqual $integrationAccountAssemblyName $integrationAccountAssembly.Name
 
- 	$resultByName = Get-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssembly.Name
+ 	$resultByName = Get-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssembly.Name
 	Assert-AreEqual $integrationAccountAssemblyName $resultByName.Name
 
-	$resultByResourceId = Get-AzureRmIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id
+	$resultByResourceId = Get-AzIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id
 	Assert-AreEqual $integrationAccountAssemblyName $resultByResourceId.Name
 
-	$resultByPipingResourceId = Get-AzureRmIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id | Get-AzureRmIntegrationAccountAssembly
+	$resultByPipingResourceId = Get-AzIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id | Get-AzIntegrationAccountAssembly
 	Assert-AreEqual $integrationAccountAssemblyName $resultByPipingResourceId.Name
 
-	$resultByInputObject = Get-AzureRmIntegrationAccountAssembly -InputObject $integrationAccountAssembly
+	$resultByInputObject = Get-AzIntegrationAccountAssembly -InputObject $integrationAccountAssembly
 	Assert-AreEqual $integrationAccountAssemblyName $resultByInputObject.Name
 
-	$resultByPipingInputObject = $integrationAccountAssembly | Get-AzureRmIntegrationAccountAssembly
+	$resultByPipingInputObject = $integrationAccountAssembly | Get-AzIntegrationAccountAssembly
 	Assert-AreEqual $integrationAccountAssemblyName $resultByPipingInputObject.Name
 
- 	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+ 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
  <#
 .SYNOPSIS
-Test Get-AzureRmIntegrationAccountAssembly command : List
+Test Get-AzIntegrationAccountAssembly command : List
 #>
 function Test-ListIntegrationAccountAssembly
 {
@@ -125,18 +125,18 @@ function Test-ListIntegrationAccountAssembly
 	{
 		$val++;
 		$integrationAccountAssemblyName = "Assembly-$val-" + (getAssetname)
-		$integrationAccountAssembly = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+		$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
 	}
 
-	$result =  Get-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
+	$result =  Get-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
 	Assert-True { $result.Count -eq 3 }
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
  <#
 .SYNOPSIS
-Test Remove-AzureRmIntegrationAccountAssembly command
+Test Remove-AzIntegrationAccountAssembly command
 #>
 function Test-RemoveIntegrationAccountAssembly
 {
@@ -146,24 +146,24 @@ function Test-RemoveIntegrationAccountAssembly
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$integrationAccountAssemblyName = "SampleAssembly"
-	$integrationAccountAssembly = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
-	Remove-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName
+	$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	Remove-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName
 
-	$integrationAccountAssembly = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
-	Remove-AzureRmIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id
+	$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	Remove-AzIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id
 
-	$integrationAccountAssembly = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
-	Remove-AzureRmIntegrationAccountAssembly -InputObject $integrationAccountAssembly
+	$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	Remove-AzIntegrationAccountAssembly -InputObject $integrationAccountAssembly
 
-	$integrationAccountAssembly = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
-	$integrationAccountAssembly | Remove-AzureRmIntegrationAccountAssembly
+	$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	$integrationAccountAssembly | Remove-AzIntegrationAccountAssembly
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
  <#
 .SYNOPSIS
-Test Set-AzureRmIntegrationAccountAssembly command
+Test Set-AzIntegrationAccountAssembly command
 #>
 function Test-UpdateIntegrationAccountAssembly
 {
@@ -174,45 +174,45 @@ function Test-UpdateIntegrationAccountAssembly
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$integrationAccountAssemblyName = "SampleAssemblyFilePath"
-	$integrationAccountAssembly = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
 	Assert-AreEqual $integrationAccountAssemblyName $integrationAccountAssembly.Name
 	
-	$resultByFilePath = Set-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	$resultByFilePath = Set-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
 	Assert-AreEqual $integrationAccountAssemblyName $resultByFilePath.Name
 
-	$resultByFilePath = Set-AzureRmIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyFilePath $localAssemblyFilePath
+	$resultByFilePath = Set-AzIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyFilePath $localAssemblyFilePath
 	Assert-AreEqual $integrationAccountAssemblyName $resultByFilePath.Name
 
-	$resultByFilePath = Set-AzureRmIntegrationAccountAssembly -ResourceId $resultByFilePath.Id -AssemblyFilePath $localAssemblyFilePath
+	$resultByFilePath = Set-AzIntegrationAccountAssembly -ResourceId $resultByFilePath.Id -AssemblyFilePath $localAssemblyFilePath
 	Assert-AreEqual $integrationAccountAssemblyName $resultByFilePath.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyBytes"
-	$integrationAccountAssembly = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
+	$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
 	Assert-AreEqual $integrationAccountAssemblyName $integrationAccountAssembly.Name
 
-	$resultByBytes = Set-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
+	$resultByBytes = Set-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
 	Assert-AreEqual $integrationAccountAssemblyName $resultByBytes.Name
 
-	$resultByBytes = Set-AzureRmIntegrationAccountAssembly -InputObject $integrationAccountAssembly -AssemblyData $assemblyContent
+	$resultByBytes = Set-AzIntegrationAccountAssembly -InputObject $integrationAccountAssembly -AssemblyData $assemblyContent
 	Assert-AreEqual $integrationAccountAssemblyName $resultByBytes.Name
 
-	$resultByBytes = Set-AzureRmIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id -AssemblyData $assemblyContent
+	$resultByBytes = Set-AzIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id -AssemblyData $assemblyContent
 	Assert-AreEqual $integrationAccountAssemblyName $resultByBytes.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyContentLink"
-	$integrationAccountAssembly = New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
+	$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
 	Assert-AreEqual $integrationAccountAssemblyName $integrationAccountAssembly.Name
 
-	$resultByContentLink = Set-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
+	$resultByContentLink = Set-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
 
-	$resultByContentLink = Set-AzureRmIntegrationAccountAssembly -InputObject $integrationAccountAssembly -ContentLink $resultByBytes.Properties.ContentLink.Uri
+	$resultByContentLink = Set-AzIntegrationAccountAssembly -InputObject $integrationAccountAssembly -ContentLink $resultByBytes.Properties.ContentLink.Uri
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
 
-	$resultByContentLink = Set-AzureRmIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id -ContentLink $resultByBytes.Properties.ContentLink.Uri
+	$resultByContentLink = Set-AzIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id -ContentLink $resultByBytes.Properties.ContentLink.Uri
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
 
-	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
  <#
@@ -227,7 +227,7 @@ function Test-EndToEndAssemblyPiping
 	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
 	
 	$integrationAccountAssemblyName = "SampleAssembly"
-	New-AzureRmIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath | Get-AzureRmIntegrationAccountAssembly | Set-AzureRmIntegrationAccountAssembly | Remove-AzureRmIntegrationAccountAssembly
+	New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath | Get-AzIntegrationAccountAssembly | Set-AzIntegrationAccountAssembly | Remove-AzIntegrationAccountAssembly
 
- 	Remove-AzureRmIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
+ 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }

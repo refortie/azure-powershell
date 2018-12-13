@@ -112,9 +112,9 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                 assemblyDefinition.Properties.ContentLink = this.IntegrationAccountClient.GetIntegrationAccountAssembly(this.ResourceGroupName, this.ParentName, parsedResourceId.ResourceName).Properties.ContentLink;
             }
 
-            if (ParameterSetName != ParameterSet.ByIntegrationAccount)
+            if (this.ParameterSetName != ParameterSet.ByIntegrationAccount)
             {
-                if (ParameterSetName == ParameterSet.ByContentLink)
+                if (this.ParameterSetName == ParameterSet.ByContentLink)
                 {
                     assemblyDefinition.Properties.ContentLink = new ContentLink
                     {
@@ -124,7 +124,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                 }
                 else
                 {
-                    if (ParameterSetName == ParameterSet.ByFilePath)
+                    if (this.ParameterSetName == ParameterSet.ByFilePath)
                     {
                         this.AssemblyData = CmdletHelper.GetBinaryContentFromFile(this.TryResolvePath(this.AssemblyFilePath));
                     }
