@@ -25,9 +25,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
     /// <summary>
     /// Removes the integration account assembly. 
     /// </summary>
-    [Cmdlet(VerbsCommon.Remove,
-        AzureRMConstants.AzureRMPrefix + "IntegrationAccountAssembly",
-        DefaultParameterSetName = ParameterSet.ByIntegrationAccount)]
+    [Cmdlet(VerbsCommon.Remove, AzureRMConstants.AzureRMPrefix + "IntegrationAccountAssembly", DefaultParameterSetName = ParameterSet.ByIntegrationAccount)]
     [OutputType(typeof(void))]
     public class RemoveAzureIntegrationAccountAssemblyCommand : LogicAppBaseCmdlet
     {

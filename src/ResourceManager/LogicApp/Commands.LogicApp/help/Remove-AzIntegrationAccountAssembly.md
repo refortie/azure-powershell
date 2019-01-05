@@ -105,7 +105,7 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceGroupName
-The integration account resource group name.
+The resource group name.
 
 ```yaml
 Type: System.String
@@ -139,9 +139,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### System.String
-
 ### Microsoft.Azure.Management.Logic.Models.AssemblyDefinition
+
+### System.String
 
 ## OUTPUTS
 
