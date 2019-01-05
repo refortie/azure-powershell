@@ -31,39 +31,28 @@ namespace Microsoft.Azure.Commands.LogicApp.Utilities
         /// </summary>
         public const string LogicAppWithDefinitionFile = "LogicAppWithDefinitionFileParameterSet";
 
-        /// <summary>
-        /// Parameter set to work via integration account
-        /// </summary>
-        /// <remarks>
-        /// This is the standard default parameter set (interactive) for integration accounts
-        /// </remarks>
         public const string ByIntegrationAccount = "ByIntegrationAccount";
-
-        /// <summary>
-        /// Parameter set to work via ARM resource id
-        /// </summary>
         public const string ByResourceId = "ByResourceId";
-
-        /// <summary>
-        /// Parameter set to work via a complete object
-        /// </summary>
         public const string ByInputObject = "ByInputObject";
 
-        /// <summary>
-        /// Parameter set to pull data from a local file path
-        /// </summary>
-        public const string ByFilePath = "ByFilePath";
+        public const string ByInputObjectAndContentLink = "ByInputObjectAndContentLink";
+        public const string ByResourceIdAndContentLink = "ByResourceIdAndContentLink";
+        public const string ByIntegrationAccountAndContentLink = "ByIntegrationAccountAndContentLink";
 
-        /// <summary>
-        /// Parameter set to use provided byte content
-        /// </summary>
-        public const string ByBytes = "ByBytes";
+        public const string ByInputObjectAndFileBytes = "ByInputObjectAndFileBytes";
+        public const string ByResourceIdAndFileBytes = "ByResourceIdAndFileBytes";
+        public const string ByIntegrationAccountAndFileBytes = "ByIntegrationAccountAndFileBytes";
 
-        /// <summary>
-        /// Parameter set to pull data from a provided remote location
-        /// </summary>
-        public const string ByContentLink = "ByContentLink";
+        public const string ByInputObjectAndFilePath = "ByInputObjectAndFilePath";
+        public const string ByResourceIdAndFilePath = "ByResourceIdAndFilePath";
+        public const string ByIntegrationAccountAndFilePath = "ByIntegrationAccountAndFilePath";
 
-        public const string ByJson = "ByJson";
+        public const string ByInputObjectAndJson = "ByInputObjectAndJson";
+        public const string ByResourceIdAndJson = "ByResourceIdAndJson";
+        public const string ByIntegrationAccountAndJson = "ByIntegrationAccountAndJson";
+
+        public const string ByInputObjectAndParameters = "ByInputObjectAndParameters";
+        public const string ByResourceIdAndParameters = "ByResourceIdAndParameters";
+        public const string ByIntegrationAccountAndParameters = "ByIntegrationAccountAndParameters";
     }
 }

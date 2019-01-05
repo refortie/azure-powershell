@@ -1,5 +1,5 @@
 ---
-external help file: Microsoft.Azure.Commands.LogicApp.dll-Help.xml
+external help file: Microsoft.Azure.PowerShell.Cmdlets.LogicApp.dll-Help.xml
 Module Name: Az.LogicApp
 online version:
 schema: 2.0.0
@@ -14,20 +14,20 @@ schema: 2.0.0
 
 ### ByIntegrationAccount (Default)
 ```
-Get-AzIntegrationAccountAssembly [-ResourceGroupName <String>] [-ParentName <String>] [-Name <String>]
+Get-AzIntegrationAccountAssembly -ResourceGroupName <String> -ParentName <String> [-Name <String>]
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByInputObject
 ```
-Get-AzIntegrationAccountAssembly [-ResourceGroupName <String>] [-ParentName <String>] [-Name <String>]
- -InputObject <AssemblyDefinition> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzIntegrationAccountAssembly [-Name <String>] -InputObject <IntegrationAccount>
+ [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByResourceId
 ```
-Get-AzIntegrationAccountAssembly [-ResourceGroupName <String>] [-ParentName <String>] [-Name <String>]
- -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzIntegrationAccountAssembly [-Name <String>] -ResourceId <String>
+ [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -50,7 +50,7 @@ The credentials, account, tenant, and subscription used for communication with A
 ```yaml
 Type: Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases: AzContext, AzureRmContext, AzureCredential
 
 Required: False
 Position: Named
@@ -63,7 +63,7 @@ Accept wildcard characters: False
 An integration account assembly.
 
 ```yaml
-Type: Microsoft.Azure.Management.Logic.Models.AssemblyDefinition
+Type: Microsoft.Azure.Management.Logic.Models.IntegrationAccount
 Parameter Sets: ByInputObject
 Aliases:
 
@@ -85,7 +85,7 @@ Aliases: AssemblyName, ResourceName
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -94,13 +94,13 @@ The integration account name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccount
 Aliases: IntegrationAccountName
 
-Required: False
+Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -109,13 +109,13 @@ The integration account resource group name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccount
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

@@ -29,7 +29,7 @@ function Test-CreateIntegrationAccountAssembly
 	Assert-AreEqual $integrationAccountAssemblyName $resultByFilePath.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyFilePathInputObject"
-	$resultByFilePath = New-AzIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
+	$resultByFilePath = New-AzIntegrationAccountAssembly -InputObject $integrationAccount -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
 	Assert-AreEqual $integrationAccountAssemblyName $resultByFilePath.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyFilePathId"
@@ -41,7 +41,7 @@ function Test-CreateIntegrationAccountAssembly
 	Assert-AreEqual $integrationAccountAssemblyName $resultByBytes.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyBytesInputObject"
-	$resultByBytes = New-AzIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
+	$resultByBytes = New-AzIntegrationAccountAssembly -InputObject $integrationAccount -AssemblyName $integrationAccountAssemblyName -AssemblyData $assemblyContent
 	Assert-AreEqual $integrationAccountAssemblyName $resultByBytes.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyBytesId"
@@ -53,23 +53,12 @@ function Test-CreateIntegrationAccountAssembly
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyContentLinkInputObject"
-	$resultByContentLink = New-AzIntegrationAccountAssembly -InputObject $resultByFilePath -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
+	$resultByContentLink = New-AzIntegrationAccountAssembly -InputObject $integrationAccount -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
 
 	$integrationAccountAssemblyName = "SampleAssemblyContentLinkId"
 	$resultByContentLink = New-AzIntegrationAccountAssembly -ResourceId $resultByFilePath.Id -AssemblyName $integrationAccountAssemblyName -ContentLink $resultByBytes.Properties.ContentLink.Uri
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
-
-	$integrationAccountAssemblyName = "SampleAssemblyInputObject"
-	$result = New-AzIntegrationAccountAssembly -AssemblyName $integrationAccountAssemblyName -InputObject $resultByContentLink
-	Assert-AreEqual $integrationAccountAssemblyName $result.Name
-
-	$integrationAccountAssemblyName = "SampleAssemblyId"
-	$result = New-AzIntegrationAccountAssembly -AssemblyName $integrationAccountAssemblyName -ResourceId $resultByContentLink.Id
-	Assert-AreEqual $integrationAccountAssemblyName $result.Name
-
-	$integrationAccountAssemblyName = "SampleAssemblyNoData"
-	Assert-ThrowsContains { New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName } "must have either 'content' or 'contentLink' property set."
 
 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
@@ -92,46 +81,25 @@ function Test-GetIntegrationAccountAssembly
  	$resultByName = Get-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssembly.Name
 	Assert-AreEqual $integrationAccountAssemblyName $resultByName.Name
 
-	$resultByResourceId = Get-AzIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id
+	$resultByResourceId = Get-AzIntegrationAccountAssembly -ResourceId $integrationAccount.Id -AssemblyName $integrationAccountAssemblyName
 	Assert-AreEqual $integrationAccountAssemblyName $resultByResourceId.Name
 
-	$resultByPipingResourceId = Get-AzIntegrationAccountAssembly -ResourceId $integrationAccountAssembly.Id | Get-AzIntegrationAccountAssembly
-	Assert-AreEqual $integrationAccountAssemblyName $resultByPipingResourceId.Name
+	$resultByResourceId = Get-AzIntegrationAccountAssembly -ResourceId $integrationAccount.Id
+	Assert-AreEqual 1 $resultByResourceId.Count
 
-	$resultByInputObject = Get-AzIntegrationAccountAssembly -InputObject $integrationAccountAssembly
+	$resultByInputObject = Get-AzIntegrationAccountAssembly -InputObject $integrationAccount -AssemblyName $integrationAccountAssemblyName
 	Assert-AreEqual $integrationAccountAssemblyName $resultByInputObject.Name
 
-	$resultByPipingInputObject = $integrationAccountAssembly | Get-AzIntegrationAccountAssembly
+	$resultByPipingInputObject = $integrationAccount | Get-AzIntegrationAccountAssembly -AssemblyName $integrationAccountAssemblyName
 	Assert-AreEqual $integrationAccountAssemblyName $resultByPipingInputObject.Name
 
+	$resultByInputObject = Get-AzIntegrationAccountAssembly -InputObject $integrationAccount
+	Assert-AreEqual 1 $resultByInputObject.Count
+
+	$resultByPipingInputObject = $integrationAccount | Get-AzIntegrationAccountAssembly
+	Assert-AreEqual 1 $resultByPipingInputObject.Count
+
  	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
-}
-
- <#
-.SYNOPSIS
-Test Get-AzIntegrationAccountAssembly command : List
-#>
-function Test-ListIntegrationAccountAssembly
-{
-	$localAssemblyFilePath = Join-Path $TestOutputRoot "\Resources\SampleAssembly.dll"
-	$resourceGroup = TestSetup-CreateResourceGroup
-	$integrationAccountName = "IA-" + (getAssetname)
-	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
-	
-	$integrationAccountAssemblyName = "SampleAssembly"
-	
-	$val=0
-	while($val -ne 3)
-	{
-		$val++;
-		$integrationAccountAssemblyName = "Assembly-$val-" + (getAssetname)
-		$integrationAccountAssembly = New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath
-	}
-
-	$result =  Get-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
-	Assert-True { $result.Count -eq 3 }
-
-	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
 
  <#
@@ -213,21 +181,4 @@ function Test-UpdateIntegrationAccountAssembly
 	Assert-AreEqual $integrationAccountAssemblyName $resultByContentLink.Name
 
 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
-}
-
- <#
-.SYNOPSIS
-Test end to end piping
-#>
-function Test-EndToEndAssemblyPiping
-{
-	$localAssemblyFilePath = Join-Path $TestOutputRoot "\Resources\SampleAssembly.dll"
- 	$resourceGroup = TestSetup-CreateResourceGroup
-	$integrationAccountName = "IA-" + (getAssetname)
-	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
-	
-	$integrationAccountAssemblyName = "SampleAssembly"
-	New-AzIntegrationAccountAssembly -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -AssemblyName $integrationAccountAssemblyName -AssemblyFilePath $localAssemblyFilePath | Get-AzIntegrationAccountAssembly | Set-AzIntegrationAccountAssembly | Remove-AzIntegrationAccountAssembly
-
- 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }

@@ -23,36 +23,36 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
     /// <summary>
     /// Gets the integration account assembly
     /// </summary>
-    [Cmdlet(VerbsCommon.Get,
-        AzureRMConstants.AzureRMPrefix + "IntegrationAccountAssembly",
-        DefaultParameterSetName = ParameterSet.ByIntegrationAccount)]
+    [Cmdlet(VerbsCommon.Get, AzureRMConstants.AzureRMPrefix + "IntegrationAccountAssembly", DefaultParameterSetName = ParameterSet.ByIntegrationAccount)]
     [OutputType(typeof(AssemblyDefinition))]
     public class GetAzureIntegrationAccountAssemblyCommand : LogicAppBaseCmdlet
     {
         #region Input Parameters
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account resource group name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.ResourceGroupHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccount)]
         [ResourceGroupCompleter]
         [ValidateNotNullOrEmpty]
         public string ResourceGroupName { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccount)]
         [ResourceNameCompleter("Microsoft.Logic/integrationAccounts", nameof(ResourceGroupName))]
         [ValidateNotNullOrEmpty]
         [Alias("IntegrationAccountName")]
         public string ParentName { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account assembly name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByInputObject)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByResourceId)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccount)]
         [ResourceNameCompleter("Microsoft.Logic/integrationAccounts/assemblies", nameof(ResourceGroupName), nameof(ParentName))]
         [ValidateNotNullOrEmpty]
         [Alias("AssemblyName", "ResourceName")]
         public string Name { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = "An integration account assembly.", ParameterSetName = ParameterSet.ByInputObject, ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObject, ValueFromPipeline = true)]
         [ValidateNotNullOrEmpty]
-        public AssemblyDefinition InputObject { get; set; }
+        public IntegrationAccount InputObject { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = "The integration account assembly resource id.", ParameterSetName = ParameterSet.ByResourceId, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceId, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]
         public string ResourceId { get; set; }
 
@@ -68,14 +68,12 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
             if (this.ParameterSetName == ParameterSet.ByInputObject) {
                 var parsedResourceId = new ResourceIdentifier(this.InputObject.Id);
                 this.ResourceGroupName = parsedResourceId.ResourceGroupName;
-                this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
-                this.Name = parsedResourceId.ResourceName;
+                this.ParentName = parsedResourceId.ResourceName;
             } else if (this.ParameterSetName == ParameterSet.ByResourceId)
             {
                 var parsedResourceId = new ResourceIdentifier(this.ResourceId);
                 this.ResourceGroupName = parsedResourceId.ResourceGroupName;
-                this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
-                this.Name = parsedResourceId.ResourceName;
+                this.ParentName = parsedResourceId.ResourceName;
             }
 
             if (string.IsNullOrWhiteSpace(this.Name))

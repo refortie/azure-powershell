@@ -70,25 +70,5 @@ namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-UpdateIntegrationAccountBatchConfiguration");
         }
-
-        /// <summary>
-        /// Test Get-AzIntegrationAccountBatchConfiguration command to get all the integration account batch configuration.
-        /// </summary>
-        [Fact]
-        [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestListBatchConfiguration()
-        {
-            WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-ListIntegrationAccountBatchConfiguration");
-        }
-
-        /// <summary>
-        /// Test end to end piping.
-        /// </summary>
-        [Fact]
-        [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestEndToEndAssemblyPiping()
-        {
-            WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-EndToEndBatchConfigurationPiping");
-        }
     }
 }

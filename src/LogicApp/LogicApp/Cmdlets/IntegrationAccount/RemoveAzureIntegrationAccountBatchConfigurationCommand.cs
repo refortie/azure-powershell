@@ -25,37 +25,37 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
     /// <summary>
     /// Removes the integration account batch configuration. 
     /// </summary>
-    [Cmdlet(VerbsCommon.Remove,
-    AzureRMConstants.AzureRMPrefix + "IntegrationAccountBatchConfiguration",
-    DefaultParameterSetName = ParameterSet.ByIntegrationAccount)]
+    [Cmdlet(VerbsCommon.Remove, AzureRMConstants.AzureRMPrefix + "IntegrationAccountBatchConfiguration", DefaultParameterSetName = ParameterSet.ByIntegrationAccount)]
     [OutputType(typeof(void))]
     public class RemoveAzureIntegrationAccountBatchConfigurationCommand : LogicAppBaseCmdlet
     {
 
-        #region Input Paramters
+        #region Input Parameters
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account resource group name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.ResourceGroupHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccount)]
         [ResourceGroupCompleter]
         [ValidateNotNullOrEmpty]
         public string ResourceGroupName { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccount)]
         [ResourceNameCompleter("Microsoft.Logic/integrationAccounts", nameof(ResourceGroupName))]
         [ValidateNotNullOrEmpty]
         [Alias("IntegrationAccountName")]
         public string ParentName { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByInputObject)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByResourceId)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccount)]
         [ResourceNameCompleter("Microsoft.Logic/integrationAccounts/batchConfigurations", nameof(ResourceGroupName), nameof(ParentName))]
         [ValidateNotNullOrEmpty]
         [Alias("BatchConfigurationName", "ResourceName")]
         public string Name { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = "An integration account batch configuration.", ParameterSetName = ParameterSet.ByInputObject, ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationInputObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObject, ValueFromPipeline = true)]
         [ValidateNotNullOrEmpty]
         public BatchConfiguration InputObject { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = "The integration account batch configuration resource id.", ParameterSetName = ParameterSet.ByResourceId, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceId, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]
         public string ResourceId { get; set; }
 

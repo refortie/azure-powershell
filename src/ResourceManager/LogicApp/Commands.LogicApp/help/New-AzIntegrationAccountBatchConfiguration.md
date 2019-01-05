@@ -1,5 +1,5 @@
 ---
-external help file: Microsoft.Azure.Commands.LogicApp.dll-Help.xml
+external help file: Microsoft.Azure.PowerShell.Cmdlets.LogicApp.dll-Help.xml
 Module Name: Az.LogicApp
 online version:
 schema: 2.0.0
@@ -12,30 +12,67 @@ schema: 2.0.0
 
 ## SYNTAX
 
-### ByIntegrationAccount (Default)
+### ByIntegrationAccountAndParameters (Default)
 ```
-New-AzIntegrationAccountBatchConfiguration [-ResourceGroupName <String>] [-ParentName <String>]
- [-Name <String>] [-BatchGroupName <String>] [-MessageCount <Int32>] [-BatchSize <Int32>]
- [-ScheduleInterval <Int32>] [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>]
- [-ScheduleStartTime <String>] [-Metadata <JObject>] [-InputObject <BatchConfiguration>] [-ResourceId <String>]
+New-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentName <String> -Name <String>
+ [-BatchGroupName <String>] [-MessageCount <Int32>] [-BatchSize <Int32>] [-ScheduleInterval <Int32>]
+ [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>] [-ScheduleStartTime <String>] [-Metadata <JObject>]
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
-### ByFilePath
+### ByIntegrationAccountAndJson
 ```
-New-AzIntegrationAccountBatchConfiguration [-ResourceGroupName <String>] [-ParentName <String>]
- [-Name <String>] -BatchConfigurationFilePath <String> [-BatchGroupName <String>] [-MessageCount <Int32>]
+New-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentName <String> -Name <String>
+ -BatchConfigurationDefinition <String> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
+```
+
+### ByIntegrationAccountAndFilePath
+```
+New-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentName <String> -Name <String>
+ -BatchConfigurationFilePath <String> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
+```
+
+### ByInputObjectAndJson
+```
+New-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationDefinition <String>
+ [-Metadata <JObject>] -InputObject <IntegrationAccount> [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
+```
+
+### ByInputObjectAndFilePath
+```
+New-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationFilePath <String>
+ [-Metadata <JObject>] -InputObject <IntegrationAccount> [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
+```
+
+### ByInputObjectAndParameters
+```
+New-AzIntegrationAccountBatchConfiguration -Name <String> [-BatchGroupName <String>] [-MessageCount <Int32>]
  [-BatchSize <Int32>] [-ScheduleInterval <Int32>] [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>]
- [-ScheduleStartTime <String>] [-Metadata <JObject>] [-InputObject <BatchConfiguration>] [-ResourceId <String>]
+ [-ScheduleStartTime <String>] [-Metadata <JObject>] -InputObject <IntegrationAccount>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
-### ByJson
+### ByResourceIdAndJson
 ```
-New-AzIntegrationAccountBatchConfiguration [-ResourceGroupName <String>] [-ParentName <String>]
- [-Name <String>] -BatchConfigurationDefinition <String> [-BatchGroupName <String>] [-MessageCount <Int32>]
+New-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationDefinition <String>
+ [-Metadata <JObject>] -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByResourceIdAndFilePath
+```
+New-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationFilePath <String>
+ [-Metadata <JObject>] -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByResourceIdAndParameters
+```
+New-AzIntegrationAccountBatchConfiguration -Name <String> [-BatchGroupName <String>] [-MessageCount <Int32>]
  [-BatchSize <Int32>] [-ScheduleInterval <Int32>] [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>]
- [-ScheduleStartTime <String>] [-Metadata <JObject>] [-InputObject <BatchConfiguration>] [-ResourceId <String>]
+ [-ScheduleStartTime <String>] [-Metadata <JObject>] -ResourceId <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
@@ -58,7 +95,7 @@ The integration account batch configuration definition.
 
 ```yaml
 Type: System.String
-Parameter Sets: ByJson
+Parameter Sets: ByIntegrationAccountAndJson, ByInputObjectAndJson, ByResourceIdAndJson
 Aliases:
 
 Required: True
@@ -73,7 +110,7 @@ The integration account batch configuration file path.
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFilePath
+Parameter Sets: ByIntegrationAccountAndFilePath, ByInputObjectAndFilePath, ByResourceIdAndFilePath
 Aliases:
 
 Required: True
@@ -88,7 +125,7 @@ The integration account batch configuration group name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByInputObjectAndParameters, ByResourceIdAndParameters
 Aliases:
 
 Required: False
@@ -103,7 +140,7 @@ The integration account batch configuration batch size.
 
 ```yaml
 Type: System.Int32
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByInputObjectAndParameters, ByResourceIdAndParameters
 Aliases:
 
 Required: False
@@ -119,7 +156,7 @@ The credentials, account, tenant, and subscription used for communication with A
 ```yaml
 Type: Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases: AzContext, AzureRmContext, AzureCredential
 
 Required: False
 Position: Named
@@ -132,11 +169,11 @@ Accept wildcard characters: False
 An integration account batch configuration.
 
 ```yaml
-Type: Microsoft.Azure.Management.Logic.Models.BatchConfiguration
-Parameter Sets: (All)
+Type: Microsoft.Azure.Management.Logic.Models.IntegrationAccount
+Parameter Sets: ByInputObjectAndJson, ByInputObjectAndFilePath, ByInputObjectAndParameters
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByValue)
@@ -148,7 +185,7 @@ The integration account batch configuration message count.
 
 ```yaml
 Type: System.Int32
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByInputObjectAndParameters, ByResourceIdAndParameters
 Aliases:
 
 Required: False
@@ -181,10 +218,10 @@ Type: System.String
 Parameter Sets: (All)
 Aliases: BatchConfigurationName, ResourceName
 
-Required: False
+Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -193,13 +230,13 @@ The integration account name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByIntegrationAccountAndJson, ByIntegrationAccountAndFilePath
 Aliases: IntegrationAccountName
 
-Required: False
+Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -208,13 +245,13 @@ The integration account resource group name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByIntegrationAccountAndJson, ByIntegrationAccountAndFilePath
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -223,10 +260,10 @@ The integration account batch configuration resource id.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByResourceIdAndJson, ByResourceIdAndFilePath, ByResourceIdAndParameters
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
@@ -238,7 +275,7 @@ The integration account batch configuration schedule frequency.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByInputObjectAndParameters, ByResourceIdAndParameters
 Aliases:
 Accepted values: Month, Week, Day, Hour, Minute, Second
 
@@ -254,7 +291,7 @@ The integration account batch configuration schedule interval.
 
 ```yaml
 Type: System.Int32
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByInputObjectAndParameters, ByResourceIdAndParameters
 Aliases:
 
 Required: False
@@ -269,7 +306,7 @@ The integration account batch configuration schedule start time.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByInputObjectAndParameters, ByResourceIdAndParameters
 Aliases:
 
 Required: False
@@ -284,7 +321,7 @@ The integration account batch configuration schedule time zone.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByInputObjectAndParameters, ByResourceIdAndParameters
 Aliases:
 
 Required: False

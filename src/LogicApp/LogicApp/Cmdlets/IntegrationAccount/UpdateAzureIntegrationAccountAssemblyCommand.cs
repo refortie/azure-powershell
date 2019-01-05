@@ -30,50 +30,66 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
     /// </summary>
     [Cmdlet(VerbsCommon.Set,
         AzureRMConstants.AzureRMPrefix + "IntegrationAccountAssembly",
-        DefaultParameterSetName = ParameterSet.ByIntegrationAccount)]
+        DefaultParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
     [OutputType(typeof(AssemblyDefinition))]
     public class UpdateAzureIntegrationAccountAssemblyCommand : LogicAppBaseCmdlet
     {
         #region Input Paramters
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account resource group name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.ResourceGroupHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndContentLink)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.ResourceGroupHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFileBytes)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.ResourceGroupHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
         [ResourceGroupCompleter]
         [ValidateNotNullOrEmpty]
         public string ResourceGroupName { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndContentLink)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFileBytes)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
         [ResourceNameCompleter("Microsoft.Logic/integrationAccounts", nameof(ResourceGroupName))]
         [ValidateNotNullOrEmpty]
         [Alias("IntegrationAccountName")]
         public string ParentName { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account assembly name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndContentLink)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFileBytes)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
         [ResourceNameCompleter("Microsoft.Logic/integrationAccounts/assemblies", nameof(ResourceGroupName), nameof(ParentName))]
         [ValidateNotNullOrEmpty]
         [Alias("AssemblyName", "ResourceName")]
         public string Name { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = "The integration account assembly file path.", ParameterSetName = ParameterSet.ByFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyFilePathHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyFilePathHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyFilePathHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
         [ValidateNotNullOrEmpty]
         public string AssemblyFilePath { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = "The integration account assembly byte data.", ParameterSetName = ParameterSet.ByBytes)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyFileDataHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFileBytes)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyFileDataHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFileBytes)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyFileDataHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFileBytes)]
         [ValidateNotNullOrEmpty]
         public byte[] AssemblyData { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = "A publicly accessible link to the integration account assembly data.", ParameterSetName = ParameterSet.ByContentLink)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyContentLinkHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndContentLink)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyContentLinkHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndContentLink)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyContentLinkHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndContentLink)]
         [ValidateNotNullOrEmpty]
         public string ContentLink { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account assembly metadata.", ValueFromPipelineByPropertyName = false)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.AssemblyMetadataHelpMessage)]
         [ValidateNotNullOrEmpty]
         public JObject Metadata { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "An integration account assembly.", ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyInputObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndContentLink, ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyInputObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFileBytes, ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyInputObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFilePath, ValueFromPipeline = true)]
         [ValidateNotNullOrEmpty]
         public AssemblyDefinition InputObject { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account assembly resource id.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndContentLink, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFileBytes, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFilePath, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]
         public string ResourceId { get; set; }
 
@@ -86,60 +102,68 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
         {
             base.ExecuteCmdlet();
 
-            AssemblyDefinition originalAssembly;
-
-            // If we have been given an object to work with, use that to prepopulate data so that we can override it later
-            if (this.InputObject != null)
+            switch (this.ParameterSetName)
             {
-                var parsedResourceId = new ResourceIdentifier(this.InputObject.Id);
-                this.ResourceGroupName = parsedResourceId.ResourceGroupName;
-                this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
-                this.Name = this.InputObject.Name;
-
-                originalAssembly = this.InputObject;
-            }
-            else if (this.ResourceId != null)
-            {
-                var parsedResourceId = new ResourceIdentifier(this.ResourceId);
-                this.ResourceGroupName = parsedResourceId.ResourceGroupName;
-                this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
-                this.Name = parsedResourceId.ResourceName;
-
-                originalAssembly = this.IntegrationAccountClient.GetIntegrationAccountAssembly(this.ResourceGroupName, this.ParentName, parsedResourceId.ResourceName);
-            } else
-            {
-                originalAssembly = this.IntegrationAccountClient.GetIntegrationAccountAssembly(this.ResourceGroupName, this.ParentName, this.Name);
-            }
-
-            var newAssembly = new AssemblyDefinition(
-                id: originalAssembly.Id,
-                name: originalAssembly.Name,
-                type: originalAssembly.Type,
-                location: originalAssembly.Location,
-                tags: originalAssembly.Tags,
-                properties: originalAssembly.Properties);
-            newAssembly.Properties.ContentType = "application/octet-stream";
-
-            // If we have been given content use that
-            if (this.ParameterSetName != ParameterSet.ByIntegrationAccount)
-            {
-                if (this.ParameterSetName == ParameterSet.ByContentLink)
+                case ParameterSet.ByInputObjectAndContentLink:
+                case ParameterSet.ByInputObjectAndFileBytes:
+                case ParameterSet.ByInputObjectAndFilePath:
                 {
-                    newAssembly.Properties.ContentLink = new ContentLink
+                    var parsedResourceId = new ResourceIdentifier(this.InputObject.Id);
+                    this.ResourceGroupName = parsedResourceId.ResourceGroupName;
+                    this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
+                    this.Name = parsedResourceId.ResourceName;
+                    break;
+                }
+                case ParameterSet.ByResourceIdAndContentLink:
+                case ParameterSet.ByResourceIdAndFileBytes:
+                case ParameterSet.ByResourceIdAndFilePath:
+                {
+                    var parsedResourceId = new ResourceIdentifier(this.ResourceId);
+                    this.ResourceGroupName = parsedResourceId.ResourceGroupName;
+                    this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
+                    this.Name = parsedResourceId.ResourceName;
+                    break;
+                }
+            }
+
+            var assemblyDefinition = new AssemblyDefinition
+            {
+                Properties = new AssemblyProperties
+                {
+                    ContentType = "application/octet-stream",
+                    Metadata = this.Metadata,
+                    AssemblyName = this.Name
+                }
+            };
+
+            switch (this.ParameterSetName)
+            {
+                case ParameterSet.ByInputObjectAndContentLink:
+                case ParameterSet.ByResourceIdAndContentLink:
+                case ParameterSet.ByIntegrationAccountAndContentLink:
+                {
+                    assemblyDefinition.Properties.ContentLink = new ContentLink
                     {
                         Uri = this.ContentLink
                     };
-                    newAssembly.Properties.Content = null;
+                    assemblyDefinition.Properties.Content = null;
+                    break;
                 }
-                else
+                case ParameterSet.ByInputObjectAndFileBytes:
+                case ParameterSet.ByResourceIdAndFileBytes:
+                case ParameterSet.ByIntegrationAccountAndFileBytes:
                 {
-                    if (this.ParameterSetName == ParameterSet.ByFilePath)
-                    {
-                        this.AssemblyData = CmdletHelper.GetBinaryContentFromFile(this.TryResolvePath(this.AssemblyFilePath));
-                    }
-
-                    newAssembly.Properties.Content = this.AssemblyData;
-                    newAssembly.Properties.ContentLink = null;
+                    assemblyDefinition.Properties.Content = this.AssemblyData;
+                    assemblyDefinition.Properties.ContentLink = null;
+                    break;
+                }
+                case ParameterSet.ByInputObjectAndFilePath:
+                case ParameterSet.ByResourceIdAndFilePath:
+                case ParameterSet.ByIntegrationAccountAndFilePath:
+                {
+                    assemblyDefinition.Properties.Content = CmdletHelper.GetBinaryContentFromFile(this.TryResolvePath(this.AssemblyFilePath));
+                    assemblyDefinition.Properties.ContentLink = null;
+                    break;
                 }
             }
 
@@ -148,7 +172,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                 this.Name,
                 () =>
                 {
-                    this.WriteObject(this.IntegrationAccountClient.UpdateIntegrationAccountAssembly(this.ResourceGroupName, this.ParentName, this.Name, newAssembly));
+                    this.WriteObject(this.IntegrationAccountClient.UpdateIntegrationAccountAssembly(this.ResourceGroupName, this.ParentName, this.Name, assemblyDefinition));
                 });
         }
     }

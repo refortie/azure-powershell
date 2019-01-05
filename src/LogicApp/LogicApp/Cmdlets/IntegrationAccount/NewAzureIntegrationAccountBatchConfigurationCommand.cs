@@ -28,77 +28,109 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
     /// <summary>
     /// Creates a new integration account batch configuration.
     /// </summary>
-    [Cmdlet(VerbsCommon.New,
-        AzureRMConstants.AzureRMPrefix + "IntegrationAccountBatchConfiguration",
-        DefaultParameterSetName = ParameterSet.ByIntegrationAccount)]
+    [Cmdlet(VerbsCommon.New, AzureRMConstants.AzureRMPrefix + "IntegrationAccountBatchConfiguration", DefaultParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
     [OutputType(typeof(BatchConfiguration))]
     public class NewAzureIntegrationAccountBatchConfigurationCommand : LogicAppBaseCmdlet
     {
         #region Input Parameters
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account resource group name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.ResourceGroupHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndJson)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.ResourceGroupHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.ResourceGroupHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ResourceGroupCompleter]
         [ValidateNotNullOrEmpty]
         public string ResourceGroupName { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndJson)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ResourceNameCompleter("Microsoft.Logic/integrationAccounts", nameof(ResourceGroupName))]
         [ValidateNotNullOrEmpty]
         [Alias("IntegrationAccountName")]
         public string ParentName { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration name.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndJson)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndJson)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndJson)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ResourceNameCompleter("Microsoft.Logic/integrationAccounts/batchConfigurations", nameof(ResourceGroupName), nameof(ParentName))]
         [ValidateNotNullOrEmpty]
         [Alias("BatchConfigurationName", "ResourceName")]
         public string Name { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = "The integration account batch configuration file path.", ParameterSetName = ParameterSet.ByFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationFilePathHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationFilePathHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFilePath)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationFilePathHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
         [ValidateNotNullOrEmpty]
         public string BatchConfigurationFilePath { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = "The integration account batch configuration definition.", ParameterSetName = ParameterSet.ByJson)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationDefinitionHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndJson)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationDefinitionHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndJson)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationDefinitionHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndJson)]
         [ValidateNotNullOrEmpty]
         public string BatchConfigurationDefinition { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration group name.")]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationBatchGroupNameHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationBatchGroupNameHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationBatchGroupNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ValidateNotNullOrEmpty]
         public string BatchGroupName { get; set; } = "DEFAULT";
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration message count.")]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationMessageCountHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationMessageCountHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationMessageCountHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ValidateNotNullOrEmpty]
         public int MessageCount { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration batch size.")]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationBatchSizeHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationBatchSizeHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationBatchSizeHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ValidateNotNullOrEmpty]
         public int BatchSize { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration schedule interval.")]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleIntervalHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleIntervalHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleIntervalHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ValidateNotNullOrEmpty]
         public int ScheduleInterval { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration schedule frequency.")]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleFrequencyHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleFrequencyHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleFrequencyHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ValidateNotNullOrEmpty]
         [ValidateSet("Month", "Week", "Day", "Hour", "Minute", "Second", IgnoreCase = true)]
         public string ScheduleFrequency { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration schedule time zone.")]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleTimeZoneHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleTimeZoneHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleTimeZoneHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ValidateNotNullOrEmpty]
         public string ScheduleTimeZone { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration schedule start time.")]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleStartTimeHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleStartTimeHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleStartTimeHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ValidateNotNullOrEmpty]
         public string ScheduleStartTime { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration metadata.", ValueFromPipelineByPropertyName = false)]
+        [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationMetadataHelpMessage)]
         [ValidateNotNullOrEmpty]
         public JObject Metadata { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "An integration account batch configuration.", ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndJson, ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFilePath, ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters, ValueFromPipeline = true)]
         [ValidateNotNullOrEmpty]
-        public BatchConfiguration InputObject { get; set; }
+        public IntegrationAccount InputObject { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "The integration account batch configuration resource id.", ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndJson, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFilePath, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]
         public string ResourceId { get; set; }
 
@@ -111,65 +143,84 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
         {
             base.ExecuteCmdlet();
 
+            switch(this.ParameterSetName)
+            {
+                case ParameterSet.ByInputObjectAndJson:
+                case ParameterSet.ByInputObjectAndFilePath:
+                case ParameterSet.ByInputObjectAndParameters:
+                {
+                    var parsedResourceId = new ResourceIdentifier(this.InputObject.Id);
+                    this.ResourceGroupName = parsedResourceId.ResourceGroupName;
+                    this.ParentName = parsedResourceId.ResourceName;
+                    break;
+                }
+                case ParameterSet.ByResourceIdAndJson:
+                case ParameterSet.ByResourceIdAndFilePath:
+                case ParameterSet.ByResourceIdAndParameters:
+                {
+                    var parsedResourceId = new ResourceIdentifier(this.ResourceId);
+                    this.ResourceGroupName = parsedResourceId.ResourceGroupName;
+                    this.ParentName = parsedResourceId.ResourceName;
+                    break;
+                }
+            }
+
             var batchConfiguration = new BatchConfiguration();
 
-            // If we have been given an object to work with, use that to prepopulate data so that we can override it later
-            if (this.InputObject != null)
+            switch (this.ParameterSetName)
             {
-                var parsedResourceId = new ResourceIdentifier(this.InputObject.Id);
-                this.ResourceGroupName = parsedResourceId.ResourceGroupName;
-                this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
-
-                batchConfiguration.Properties = this.InputObject.Properties;
-            }
-            else if (this.ResourceId != null)
-            {
-                var parsedResourceId = new ResourceIdentifier(this.ResourceId);
-                this.ResourceGroupName = parsedResourceId.ResourceGroupName;
-                this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
-
-                batchConfiguration.Properties = this.IntegrationAccountClient.GetIntegrationAccountBatchConfiguration(this.ResourceGroupName, this.ParentName, parsedResourceId.ResourceName).Properties;
-            }
-
-            if (this.ParameterSetName == ParameterSet.ByJson)
-            {
-                batchConfiguration.Properties = CmdletHelper.ConvertToBatchConfigurationProperties(this.BatchConfigurationDefinition);
-            } else if (this.ParameterSetName == ParameterSet.ByFilePath)
-            {
-                batchConfiguration.Properties = CmdletHelper.ConvertToBatchConfigurationProperties(CmdletHelper.GetStringContentFromFile(this.TryResolvePath(this.BatchConfigurationFilePath)));
-            } else
-            {
-                var releaseCriteria = new BatchReleaseCriteria();
-                if (this.MessageCount > 0)
+                case ParameterSet.ByInputObjectAndJson:
+                case ParameterSet.ByResourceIdAndJson:
+                case ParameterSet.ByIntegrationAccountAndJson:
                 {
-                    releaseCriteria.MessageCount = this.MessageCount;
+                    batchConfiguration.Properties = CmdletHelper.ConvertToBatchConfigurationProperties(this.BatchConfigurationDefinition);
+                    break;
                 }
-
-                if (this.BatchSize > 0)
+                case ParameterSet.ByInputObjectAndFilePath:
+                case ParameterSet.ByResourceIdAndFilePath:
+                case ParameterSet.ByIntegrationAccountAndFilePath:
                 {
-                    releaseCriteria.BatchSize = this.BatchSize;
+                    batchConfiguration.Properties = CmdletHelper.ConvertToBatchConfigurationProperties(CmdletHelper.GetStringContentFromFile(this.TryResolvePath(this.BatchConfigurationFilePath)));
+                    break;
                 }
-
-                if (this.ScheduleInterval > 0)
+                case ParameterSet.ByInputObjectAndParameters:
+                case ParameterSet.ByResourceIdAndParameters:
+                case ParameterSet.ByIntegrationAccountAndParameters:
                 {
-                    releaseCriteria.Recurrence = new WorkflowTriggerRecurrence
+                    var releaseCriteria = new BatchReleaseCriteria();
+                    if (this.MessageCount > 0)
                     {
-                        Interval = this.ScheduleInterval,
-                        Frequency = this.ScheduleFrequency,
-                        TimeZone = !string.IsNullOrWhiteSpace(this.ScheduleTimeZone) ? this.ScheduleTimeZone : null,
-                        StartTime = !string.IsNullOrWhiteSpace(this.ScheduleStartTime) ? this.ScheduleStartTime : null
+                        releaseCriteria.MessageCount = this.MessageCount;
+                    }
+
+                    if (this.BatchSize > 0)
+                    {
+                        releaseCriteria.BatchSize = this.BatchSize;
+                    }
+
+                    if (this.ScheduleInterval > 0)
+                    {
+                        releaseCriteria.Recurrence = new WorkflowTriggerRecurrence
+                        {
+                            Interval = this.ScheduleInterval,
+                            Frequency = this.ScheduleFrequency,
+                            TimeZone = !string.IsNullOrWhiteSpace(this.ScheduleTimeZone) ? this.ScheduleTimeZone : null,
+                            StartTime = !string.IsNullOrWhiteSpace(this.ScheduleStartTime) ? this.ScheduleStartTime : null
+                        };
+                    }
+
+                    batchConfiguration.Properties = new BatchConfigurationProperties
+                    {
+                        BatchGroupName = this.BatchGroupName,
+                        ReleaseCriteria = releaseCriteria
                     };
-                }
 
-                batchConfiguration.Properties = new BatchConfigurationProperties
-                {
-                    BatchGroupName = this.BatchGroupName,
-                    ReleaseCriteria = releaseCriteria
-                };
+                    if (!this.IsValidReleaseCriteria(releaseCriteria))
+                    {
+                        throw new PSArgumentException(string.Format(CultureInfo.InvariantCulture, Properties.Resource.BatchConfigurationParameterNeedsToBeSpecified));
+                    }
 
-                if (!this.IsValidReleaseCriteria(releaseCriteria))
-                {
-                    throw new PSArgumentException(string.Format(CultureInfo.InvariantCulture, Properties.Resource.BatchConfigurationParameterNeedsToBeSpecified));
+                    break;
                 }
             }
 

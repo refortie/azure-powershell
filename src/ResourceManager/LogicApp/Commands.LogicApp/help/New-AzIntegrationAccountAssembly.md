@@ -1,5 +1,5 @@
 ---
-external help file: Microsoft.Azure.Commands.LogicApp.dll-Help.xml
+external help file: Microsoft.Azure.PowerShell.Cmdlets.LogicApp.dll-Help.xml
 Module Name: Az.LogicApp
 online version:
 schema: 2.0.0
@@ -12,32 +12,59 @@ schema: 2.0.0
 
 ## SYNTAX
 
-### ByIntegrationAccount (Default)
+### ByIntegrationAccountAndFilePath (Default)
 ```
-New-AzIntegrationAccountAssembly [-ResourceGroupName <String>] [-ParentName <String>] [-Name <String>]
- [-Metadata <JObject>] [-InputObject <AssemblyDefinition>] [-ResourceId <String>]
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
-```
-
-### ByFilePath
-```
-New-AzIntegrationAccountAssembly [-ResourceGroupName <String>] [-ParentName <String>] [-Name <String>]
- -AssemblyFilePath <String> [-Metadata <JObject>] [-InputObject <AssemblyDefinition>] [-ResourceId <String>]
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+New-AzIntegrationAccountAssembly -ResourceGroupName <String> -ParentName <String> -Name <String>
+ -AssemblyFilePath <String> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
 ```
 
-### ByBytes
+### ByIntegrationAccountAndContentLink
 ```
-New-AzIntegrationAccountAssembly [-ResourceGroupName <String>] [-ParentName <String>] [-Name <String>]
- -AssemblyData <Byte[]> [-Metadata <JObject>] [-InputObject <AssemblyDefinition>] [-ResourceId <String>]
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+New-AzIntegrationAccountAssembly -ResourceGroupName <String> -ParentName <String> -Name <String>
+ -ContentLink <String> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
-### ByContentLink
+### ByIntegrationAccountAndFileBytes
 ```
-New-AzIntegrationAccountAssembly [-ResourceGroupName <String>] [-ParentName <String>] [-Name <String>]
- -ContentLink <String> [-Metadata <JObject>] [-InputObject <AssemblyDefinition>] [-ResourceId <String>]
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+New-AzIntegrationAccountAssembly -ResourceGroupName <String> -ParentName <String> -Name <String>
+ -AssemblyData <Byte[]> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByInputObjectAndContentLink
+```
+New-AzIntegrationAccountAssembly -Name <String> -ContentLink <String> [-Metadata <JObject>]
+ -InputObject <IntegrationAccount> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByResourceIdAndContentLink
+```
+New-AzIntegrationAccountAssembly -Name <String> -ContentLink <String> [-Metadata <JObject>]
+ -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByInputObjectAndFileBytes
+```
+New-AzIntegrationAccountAssembly -Name <String> -AssemblyData <Byte[]> [-Metadata <JObject>]
+ -InputObject <IntegrationAccount> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByResourceIdAndFileBytes
+```
+New-AzIntegrationAccountAssembly -Name <String> -AssemblyData <Byte[]> [-Metadata <JObject>]
+ -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByInputObjectAndFilePath
+```
+New-AzIntegrationAccountAssembly -Name <String> -AssemblyFilePath <String> [-Metadata <JObject>]
+ -InputObject <IntegrationAccount> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByResourceIdAndFilePath
+```
+New-AzIntegrationAccountAssembly -Name <String> -AssemblyFilePath <String> [-Metadata <JObject>]
+ -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -59,7 +86,7 @@ The integration account assembly byte data.
 
 ```yaml
 Type: System.Byte[]
-Parameter Sets: ByBytes
+Parameter Sets: ByIntegrationAccountAndFileBytes, ByInputObjectAndFileBytes, ByResourceIdAndFileBytes
 Aliases:
 
 Required: True
@@ -74,7 +101,7 @@ The integration account assembly file path.
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFilePath
+Parameter Sets: ByIntegrationAccountAndFilePath, ByInputObjectAndFilePath, ByResourceIdAndFilePath
 Aliases:
 
 Required: True
@@ -89,7 +116,7 @@ A publicly accessible link to the integration account assembly data.
 
 ```yaml
 Type: System.String
-Parameter Sets: ByContentLink
+Parameter Sets: ByIntegrationAccountAndContentLink, ByInputObjectAndContentLink, ByResourceIdAndContentLink
 Aliases:
 
 Required: True
@@ -105,7 +132,7 @@ The credentials, account, tenant, and subscription used for communication with A
 ```yaml
 Type: Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases: AzContext, AzureRmContext, AzureCredential
 
 Required: False
 Position: Named
@@ -118,11 +145,11 @@ Accept wildcard characters: False
 An integration account assembly.
 
 ```yaml
-Type: Microsoft.Azure.Management.Logic.Models.AssemblyDefinition
-Parameter Sets: (All)
+Type: Microsoft.Azure.Management.Logic.Models.IntegrationAccount
+Parameter Sets: ByInputObjectAndContentLink, ByInputObjectAndFileBytes, ByInputObjectAndFilePath
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByValue)
@@ -152,10 +179,10 @@ Type: System.String
 Parameter Sets: (All)
 Aliases: AssemblyName, ResourceName
 
-Required: False
+Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -164,13 +191,13 @@ The integration account name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndFilePath, ByIntegrationAccountAndContentLink, ByIntegrationAccountAndFileBytes
 Aliases: IntegrationAccountName
 
-Required: False
+Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -179,13 +206,13 @@ The integration account resource group name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndFilePath, ByIntegrationAccountAndContentLink, ByIntegrationAccountAndFileBytes
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -194,10 +221,10 @@ The integration account assembly resource id.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByResourceIdAndContentLink, ByResourceIdAndFileBytes, ByResourceIdAndFilePath
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)

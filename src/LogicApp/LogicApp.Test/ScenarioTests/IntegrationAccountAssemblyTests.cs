@@ -69,25 +69,5 @@ namespace Microsoft.Azure.Commands.LogicApp.Test.ScenarioTests
         {
             WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-UpdateIntegrationAccountAssembly");
         }
-
-        /// <summary>
-        /// Test Get-AzIntegrationAccountAssembly command to get all the integration account assembly.
-        /// </summary>
-        [Fact]
-        [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestListAssembly()
-        {
-            WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-ListIntegrationAccountAssembly");
-        }
-
-        /// <summary>
-        /// Test end to end piping.
-        /// </summary>
-        [Fact]
-        [Trait(Category.AcceptanceType, Category.CheckIn)]
-        public void TestEndToEndAssemblyPiping()
-        {
-            WorkflowController.NewInstance.RunPowerShellTest(this._logger, "Test-EndToEndAssemblyPiping");
-        }
     }
 }

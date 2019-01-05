@@ -29,11 +29,11 @@ function Test-CreateIntegrationAccountBatchConfiguration
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCJsonInOb"
-	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -InputObject $integrationAccountBatchConfiguration -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -InputObject $integrationAccount -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCJsonId"
-	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceId $integrationAccountBatchConfiguration.Id -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceId $integrationAccount.Id -BatchConfigurationName $batchConfigurationName -BatchConfigurationDefinition $batchConfigurationContent
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCFilePath"
@@ -41,11 +41,11 @@ function Test-CreateIntegrationAccountBatchConfiguration
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCFilePathInOb"
-	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -InputObject $integrationAccountBatchConfiguration -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -InputObject $integrationAccount -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCFilePathId"
-	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceId $integrationAccountBatchConfiguration.Id -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
+	$integrationAccountBatchConfiguration =  New-AzIntegrationAccountBatchConfiguration -ResourceId $integrationAccount.Id -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
 	Assert-AreEqual $batchConfigurationName $integrationAccountBatchConfiguration.Name
 
 	$batchConfigurationName = "BCParameters"
@@ -80,17 +80,23 @@ function Test-GetIntegrationAccountBatchConfiguration
 	$resultByName = Get-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $integrationAccountBatchConfiguration.Name
 	Assert-AreEqual $batchConfigurationName $resultByName.Name
 
-	$resultByResourceId = Get-AzIntegrationAccountBatchConfiguration -ResourceId $resultByName.Id
+	$resultByResourceId = Get-AzIntegrationAccountBatchConfiguration -ResourceId $integrationAccount.Id -BatchConfigurationName $batchConfigurationName
 	Assert-AreEqual $batchConfigurationName $resultByResourceId.Name
 
-	$resultByPipingResourceId = Get-AzIntegrationAccountBatchConfiguration -ResourceId $resultByName.Id | Get-AzIntegrationAccountBatchConfiguration
-	Assert-AreEqual $batchConfigurationName $resultByPipingResourceId.Name
+	$resultByResourceId = Get-AzIntegrationAccountBatchConfiguration -ResourceId $integrationAccount.Id
+	Assert-AreEqual 1 $resultByResourceId.Count
 
-	$resultByInputObject = Get-AzIntegrationAccountBatchConfiguration -InputObject $resultByName
+	$resultByInputObject = Get-AzIntegrationAccountBatchConfiguration -InputObject $integrationAccount -BatchConfigurationName $batchConfigurationName
 	Assert-AreEqual $batchConfigurationName $resultByInputObject.Name
 
-	$resultByPipingInputObject = $resultByName | Get-AzIntegrationAccountBatchConfiguration
+	$resultByPipingInputObject = $integrationAccount | Get-AzIntegrationAccountBatchConfiguration -BatchConfigurationName $batchConfigurationName
 	Assert-AreEqual $batchConfigurationName $resultByPipingInputObject.Name
+
+	$resultByInputObject = Get-AzIntegrationAccountBatchConfiguration -InputObject $integrationAccount
+	Assert-AreEqual 1 $resultByInputObject.Count
+
+	$resultByPipingInputObject = $integrationAccount | Get-AzIntegrationAccountBatchConfiguration
+	Assert-AreEqual 1 $resultByPipingInputObject.Count
 
 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
@@ -157,46 +163,4 @@ function Test-UpdateIntegrationAccountBatchConfiguration
 	Assert-ThrowsContains { Set-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName } "At least one release criteria must be provided."
 
 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
-}
-
-<#
-.SYNOPSIS
-Test Get-AzIntegrationAccountBatchConfiguration command : Paging test
-#>
-function Test-ListIntegrationAccountBatchConfiguration
-{
-	$batchConfigurationFilePath = Join-Path $TestOutputRoot "\Resources\SampleBatchConfiguration.json"
-	$resourceGroup = TestSetup-CreateResourceGroup
-	$integrationAccountName = "IA-" + (getAssetname)
-	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
-
-	$val=0
-	while($val -ne 3)
-	{
-		$val++;
-		$batchConfigurationName = "BC$val" + (getAssetname)
-		New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -BatchConfigurationName $batchConfigurationName -BatchConfigurationFilePath $batchConfigurationFilePath
-	}
-
-	$result =  Get-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName
-	Assert-True { $result.Count -eq 3 }
-
- 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
-}
-
-<#
-.SYNOPSIS
-Test end to end piping
-#>
-function Test-EndToEndBatchConfigurationPiping
-{
-	$batchConfigurationFilePath = Join-Path $TestOutputRoot "\Resources\SampleBatchConfiguration.json"
-	$resourceGroup = TestSetup-CreateResourceGroup
-	$integrationAccountName = "IA-" + (getAssetname)
-	$integrationAccount = TestSetup-CreateIntegrationAccount $resourceGroup.ResourceGroupName $integrationAccountName
-	
-	$batchConfigurationName = "BC" + (getAssetname)
-	New-AzIntegrationAccountBatchConfiguration -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Name $batchConfigurationName  -BatchConfigurationFilePath $batchConfigurationFilePath | Get-AzIntegrationAccountBatchConfiguration | Set-AzIntegrationAccountBatchConfiguration | Remove-AzIntegrationAccountBatchConfiguration
-
- 	Remove-AzIntegrationAccount -ResourceGroupName $resourceGroup.ResourceGroupName -IntegrationAccountName $integrationAccountName -Force
 }
