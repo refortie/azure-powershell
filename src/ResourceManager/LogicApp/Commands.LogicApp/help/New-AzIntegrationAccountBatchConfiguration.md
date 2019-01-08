@@ -16,35 +16,35 @@ schema: 2.0.0
 ```
 New-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentName <String> -Name <String>
  [-BatchGroupName <String>] [-MessageCount <Int32>] [-BatchSize <Int32>] [-ScheduleInterval <Int32>]
- [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>] [-ScheduleStartTime <String>] [-Metadata <JObject>]
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+ [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>] [-ScheduleStartTime <DateTime>]
+ [-Metadata <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByIntegrationAccountAndJson
 ```
 New-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentName <String> -Name <String>
- -BatchConfigurationDefinition <String> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>]
+ -BatchConfigurationDefinition <String> [-Metadata <Hashtable>] [-DefaultProfile <IAzureContextContainer>]
  [<CommonParameters>]
 ```
 
 ### ByIntegrationAccountAndFilePath
 ```
 New-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentName <String> -Name <String>
- -BatchConfigurationFilePath <String> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>]
+ -BatchConfigurationFilePath <String> [-Metadata <Hashtable>] [-DefaultProfile <IAzureContextContainer>]
  [<CommonParameters>]
 ```
 
 ### ByInputObjectAndJson
 ```
 New-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationDefinition <String>
- [-Metadata <JObject>] -InputObject <IntegrationAccount> [-DefaultProfile <IAzureContextContainer>]
+ [-Metadata <Hashtable>] -ParentObject <IntegrationAccount> [-DefaultProfile <IAzureContextContainer>]
  [<CommonParameters>]
 ```
 
 ### ByInputObjectAndFilePath
 ```
 New-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationFilePath <String>
- [-Metadata <JObject>] -InputObject <IntegrationAccount> [-DefaultProfile <IAzureContextContainer>]
+ [-Metadata <Hashtable>] -ParentObject <IntegrationAccount> [-DefaultProfile <IAzureContextContainer>]
  [<CommonParameters>]
 ```
 
@@ -52,27 +52,29 @@ New-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationFil
 ```
 New-AzIntegrationAccountBatchConfiguration -Name <String> [-BatchGroupName <String>] [-MessageCount <Int32>]
  [-BatchSize <Int32>] [-ScheduleInterval <Int32>] [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>]
- [-ScheduleStartTime <String>] [-Metadata <JObject>] -InputObject <IntegrationAccount>
+ [-ScheduleStartTime <DateTime>] [-Metadata <Hashtable>] -ParentObject <IntegrationAccount>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByResourceIdAndJson
 ```
 New-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationDefinition <String>
- [-Metadata <JObject>] -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+ [-Metadata <Hashtable>] -ParentResourceId <String> [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
 ```
 
 ### ByResourceIdAndFilePath
 ```
 New-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationFilePath <String>
- [-Metadata <JObject>] -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+ [-Metadata <Hashtable>] -ParentResourceId <String> [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
 ```
 
 ### ByResourceIdAndParameters
 ```
 New-AzIntegrationAccountBatchConfiguration -Name <String> [-BatchGroupName <String>] [-MessageCount <Int32>]
  [-BatchSize <Int32>] [-ScheduleInterval <Int32>] [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>]
- [-ScheduleStartTime <String>] [-Metadata <JObject>] -ResourceId <String>
+ [-ScheduleStartTime <DateTime>] [-Metadata <Hashtable>] -ParentResourceId <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
@@ -165,21 +167,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InputObject
-An integration account object.
-
-```yaml
-Type: Microsoft.Azure.Management.Logic.Models.IntegrationAccount
-Parameter Sets: ByInputObjectAndJson, ByInputObjectAndFilePath, ByInputObjectAndParameters
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
 ### -MessageCount
 The integration account batch configuration message count.
 
@@ -199,7 +186,7 @@ Accept wildcard characters: False
 The integration account batch configuration metadata.
 
 ```yaml
-Type: Newtonsoft.Json.Linq.JObject
+Type: System.Collections.Hashtable
 Parameter Sets: (All)
 Aliases:
 
@@ -240,6 +227,36 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ParentObject
+An integration account object.
+
+```yaml
+Type: Microsoft.Azure.Management.Logic.Models.IntegrationAccount
+Parameter Sets: ByInputObjectAndJson, ByInputObjectAndFilePath, ByInputObjectAndParameters
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -ParentResourceId
+The integration account batch configuration resource id.
+
+```yaml
+Type: System.String
+Parameter Sets: ByResourceIdAndJson, ByResourceIdAndFilePath, ByResourceIdAndParameters
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
 ### -ResourceGroupName
 The resource group name.
 
@@ -252,21 +269,6 @@ Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ResourceId
-The integration account batch configuration resource id.
-
-```yaml
-Type: System.String
-Parameter Sets: ByResourceIdAndJson, ByResourceIdAndFilePath, ByResourceIdAndParameters
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -305,7 +307,7 @@ Accept wildcard characters: False
 The integration account batch configuration schedule start time.
 
 ```yaml
-Type: System.String
+Type: System.Nullable`1[System.DateTime]
 Parameter Sets: ByIntegrationAccountAndParameters, ByInputObjectAndParameters, ByResourceIdAndParameters
 Aliases:
 

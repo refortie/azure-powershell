@@ -42,9 +42,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
         [Alias("IntegrationAccountName")]
         public string ParentName { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByInputObject)]
-        [Parameter(Mandatory = false, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByResourceId)]
-        [Parameter(Mandatory = false, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccount)]
+        [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccount)]
         [ResourceNameCompleter("Microsoft.Logic/integrationAccounts/assemblies", nameof(ResourceGroupName), nameof(ParentName))]
         [ValidateNotNullOrEmpty]
         [Alias("AssemblyName", "ResourceName")]

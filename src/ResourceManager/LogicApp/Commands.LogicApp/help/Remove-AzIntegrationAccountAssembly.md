@@ -14,20 +14,20 @@ schema: 2.0.0
 
 ### ByIntegrationAccount (Default)
 ```
-Remove-AzIntegrationAccountAssembly -ResourceGroupName <String> -ParentName <String> [-Name <String>]
+Remove-AzIntegrationAccountAssembly -ResourceGroupName <String> -ParentName <String> -Name <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByInputObject
 ```
-Remove-AzIntegrationAccountAssembly [-Name <String>] -InputObject <AssemblyDefinition>
+Remove-AzIntegrationAccountAssembly -InputObject <AssemblyDefinition>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByResourceId
 ```
-Remove-AzIntegrationAccountAssembly [-Name <String>] -ResourceId <String>
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Remove-AzIntegrationAccountAssembly -ResourceId <String> [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -79,10 +79,10 @@ The integration account assembly name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccount
 Aliases: AssemblyName, ResourceName
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False

@@ -20,7 +20,8 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
     using Microsoft.Azure.Management.Internal.Resources.Utilities.Models;
     using Microsoft.Azure.Management.Logic.Models;
     using Microsoft.WindowsAzure.Commands.Utilities.Common;
-    using Newtonsoft.Json.Linq;
+    using System;
+    using System.Collections;
     using System.Globalization;
     using System.Management.Automation;
 
@@ -115,11 +116,11 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
         [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleStartTimeHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
         [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleStartTimeHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ValidateNotNullOrEmpty]
-        public string ScheduleStartTime { get; set; }
+        public DateTime? ScheduleStartTime { get; set; }
 
         [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationMetadataHelpMessage)]
         [ValidateNotNullOrEmpty]
-        public JObject Metadata { get; set; }
+        public Hashtable Metadata { get; set; }
 
         [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationInputObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndJson, ValueFromPipeline = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationInputObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFilePath, ValueFromPipeline = true)]
@@ -204,14 +205,14 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                             Interval = this.ScheduleInterval,
                             Frequency = this.ScheduleFrequency,
                             TimeZone = !string.IsNullOrWhiteSpace(this.ScheduleTimeZone) ? this.ScheduleTimeZone : null,
-                            StartTime = !string.IsNullOrWhiteSpace(this.ScheduleStartTime) ? this.ScheduleStartTime : null
+                            StartTime = this.ScheduleStartTime?.ToShortDateString()
                         };
                     }
 
                     batchConfiguration.Properties = new BatchConfigurationProperties
                     {
                         BatchGroupName = this.BatchGroupName,
-                        ReleaseCriteria = releaseCriteria
+                        Metadata = this.Metadata
                     };
 
                     if (!this.IsValidReleaseCriteria(releaseCriteria))
@@ -222,6 +223,8 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                     break;
                 }
             }
+
+            batchConfiguration.Properties.Metadata = this.Metadata;
 
             this.ConfirmAction(
                 string.Format(CultureInfo.InvariantCulture, Properties.Resource.UpdateResourceMessage, "Microsoft.Logic/integrationAccounts/batchConfigurations", this.Name),

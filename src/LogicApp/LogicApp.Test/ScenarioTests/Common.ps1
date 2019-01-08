@@ -20,6 +20,11 @@ function CurrentApiVersion
 	return "2018-07-01-preview"
 }
 
+function SampleMetadata
+{
+	return @{ "key1" = "value1"; "key2" = "value2"; "key3" = "value3"; }
+}
+
 <#
 .SYNOPSIS
 Creates a resource group to use in tests

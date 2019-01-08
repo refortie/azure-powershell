@@ -20,13 +20,13 @@ Get-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentNa
 
 ### ByInputObject
 ```
-Get-AzIntegrationAccountBatchConfiguration [-Name <String>] -InputObject <IntegrationAccount>
+Get-AzIntegrationAccountBatchConfiguration [-Name <String>] -ParentObject <IntegrationAccount>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByResourceId
 ```
-Get-AzIntegrationAccountBatchConfiguration [-Name <String>] -ResourceId <String>
+Get-AzIntegrationAccountBatchConfiguration [-Name <String>] -ParentResourceId <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
@@ -56,21 +56,6 @@ Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -InputObject
-An integration account object.
-
-```yaml
-Type: Microsoft.Azure.Management.Logic.Models.IntegrationAccount
-Parameter Sets: ByInputObject
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -104,6 +89,36 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ParentObject
+An integration account object.
+
+```yaml
+Type: Microsoft.Azure.Management.Logic.Models.IntegrationAccount
+Parameter Sets: ByInputObject
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -ParentResourceId
+The integration account resource id.
+
+```yaml
+Type: System.String
+Parameter Sets: ByResourceId
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
 ### -ResourceGroupName
 The resource group name.
 
@@ -116,21 +131,6 @@ Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ResourceId
-The integration account resource id.
-
-```yaml
-Type: System.String
-Parameter Sets: ByResourceId
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 

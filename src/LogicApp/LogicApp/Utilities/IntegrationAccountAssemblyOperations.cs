@@ -37,7 +37,8 @@ namespace Microsoft.Azure.Commands.LogicApp.Utilities
         {
             if (!this.DoesIntegrationAccountAssemblyExist(resourceGroupName, integrationAccountName,integrationAccountAssemblyName))
             {
-                return this.LogicManagementClient.IntegrationAccountAssemblies.CreateOrUpdate(resourceGroupName, integrationAccountName, integrationAccountAssemblyName, integrationAccountAssembly);
+                var temp = this.LogicManagementClient.IntegrationAccountAssemblies.CreateOrUpdate(resourceGroupName, integrationAccountName, integrationAccountAssemblyName, integrationAccountAssembly);
+                return temp;
             }
             else
             {

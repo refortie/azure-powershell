@@ -15,55 +15,55 @@ schema: 2.0.0
 ### ByIntegrationAccountAndFilePath (Default)
 ```
 Set-AzIntegrationAccountAssembly -ResourceGroupName <String> -ParentName <String> -Name <String>
- -AssemblyFilePath <String> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>]
+ -AssemblyFilePath <String> [-Metadata <Hashtable>] [-DefaultProfile <IAzureContextContainer>]
  [<CommonParameters>]
 ```
 
 ### ByIntegrationAccountAndContentLink
 ```
 Set-AzIntegrationAccountAssembly -ResourceGroupName <String> -ParentName <String> -Name <String>
- -ContentLink <String> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+ -ContentLink <String> [-Metadata <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByIntegrationAccountAndFileBytes
 ```
 Set-AzIntegrationAccountAssembly -ResourceGroupName <String> -ParentName <String> -Name <String>
- -AssemblyData <Byte[]> [-Metadata <JObject>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+ -AssemblyData <Byte[]> [-Metadata <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByInputObjectAndFilePath
 ```
-Set-AzIntegrationAccountAssembly -AssemblyFilePath <String> [-Metadata <JObject>]
+Set-AzIntegrationAccountAssembly -AssemblyFilePath <String> [-Metadata <Hashtable>]
  -InputObject <AssemblyDefinition> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByResourceIdAndFilePath
 ```
-Set-AzIntegrationAccountAssembly -AssemblyFilePath <String> [-Metadata <JObject>] -ResourceId <String>
+Set-AzIntegrationAccountAssembly -AssemblyFilePath <String> [-Metadata <Hashtable>] -ResourceId <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByInputObjectAndFileBytes
 ```
-Set-AzIntegrationAccountAssembly -AssemblyData <Byte[]> [-Metadata <JObject>] -InputObject <AssemblyDefinition>
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Set-AzIntegrationAccountAssembly -AssemblyData <Byte[]> [-Metadata <Hashtable>]
+ -InputObject <AssemblyDefinition> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByResourceIdAndFileBytes
 ```
-Set-AzIntegrationAccountAssembly -AssemblyData <Byte[]> [-Metadata <JObject>] -ResourceId <String>
+Set-AzIntegrationAccountAssembly -AssemblyData <Byte[]> [-Metadata <Hashtable>] -ResourceId <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByInputObjectAndContentLink
 ```
-Set-AzIntegrationAccountAssembly -ContentLink <String> [-Metadata <JObject>] -InputObject <AssemblyDefinition>
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Set-AzIntegrationAccountAssembly -ContentLink <String> [-Metadata <Hashtable>]
+ -InputObject <AssemblyDefinition> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByResourceIdAndContentLink
 ```
-Set-AzIntegrationAccountAssembly -ContentLink <String> [-Metadata <JObject>] -ResourceId <String>
+Set-AzIntegrationAccountAssembly -ContentLink <String> [-Metadata <Hashtable>] -ResourceId <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
@@ -160,7 +160,7 @@ Accept wildcard characters: False
 The integration account assembly metadata.
 
 ```yaml
-Type: Newtonsoft.Json.Linq.JObject
+Type: System.Collections.Hashtable
 Parameter Sets: (All)
 Aliases:
 

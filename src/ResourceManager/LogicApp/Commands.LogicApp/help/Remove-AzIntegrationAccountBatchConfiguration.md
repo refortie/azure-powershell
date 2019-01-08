@@ -14,20 +14,20 @@ schema: 2.0.0
 
 ### ByIntegrationAccount (Default)
 ```
-Remove-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentName <String> [-Name <String>]
+Remove-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentName <String> -Name <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByInputObject
 ```
-Remove-AzIntegrationAccountBatchConfiguration [-Name <String>] -InputObject <BatchConfiguration>
+Remove-AzIntegrationAccountBatchConfiguration -InputObject <BatchConfiguration>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByResourceId
 ```
-Remove-AzIntegrationAccountBatchConfiguration [-Name <String>] -ResourceId <String>
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Remove-AzIntegrationAccountBatchConfiguration -ResourceId <String> [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -79,10 +79,10 @@ The integration account batch configuration name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccount
 Aliases: BatchConfigurationName, ResourceName
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False

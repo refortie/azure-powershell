@@ -7,7 +7,7 @@
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "2647074a-d743-4ee3-940a-97fbf9638a64"
+          "5de6a3d2-37c8-4216-b0cc-93ce7c80455e"
         ],
         "Accept-Language": [
           "en-US"
@@ -27,16 +27,16 @@
           "no-cache"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "11999"
+          "11997"
         ],
         "x-ms-request-id": [
-          "3f78557d-a6d6-4cc2-abf7-8315307d81bc"
+          "7cf49ea2-54d8-496f-8b1f-4886d9da248e"
         ],
         "x-ms-correlation-request-id": [
-          "3f78557d-a6d6-4cc2-abf7-8315307d81bc"
+          "7cf49ea2-54d8-496f-8b1f-4886d9da248e"
         ],
         "x-ms-routing-request-id": [
-          "WESTUS2:20190105T011705Z:3f78557d-a6d6-4cc2-abf7-8315307d81bc"
+          "WESTUS2:20190108T002256Z:7cf49ea2-54d8-496f-8b1f-4886d9da248e"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -45,7 +45,7 @@
           "nosniff"
         ],
         "Date": [
-          "Sat, 05 Jan 2019 01:17:04 GMT"
+          "Tue, 08 Jan 2019 00:22:55 GMT"
         ],
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -61,13 +61,13 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourcegroups/RG-ps4349?api-version=2016-09-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlZ3JvdXBzL1JHLXBzNDM0OT9hcGktdmVyc2lvbj0yMDE2LTA5LTAx",
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourcegroups/RG-ps539?api-version=2016-09-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlZ3JvdXBzL1JHLXBzNTM5P2FwaS12ZXJzaW9uPTIwMTYtMDktMDE=",
       "RequestMethod": "PUT",
       "RequestBody": "{\r\n  \"location\": \"West US\"\r\n}",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "ebff6ba4-a593-462e-a3be-206de671c51c"
+          "93c026be-674a-409f-8ecc-1ccc47bf4c4e"
         ],
         "Accept-Language": [
           "en-US"
@@ -93,16 +93,16 @@
           "no-cache"
         ],
         "x-ms-ratelimit-remaining-subscription-writes": [
-          "1199"
+          "1198"
         ],
         "x-ms-request-id": [
-          "49085d5c-f6d0-4b53-8c05-4b87fd38e1b3"
+          "2c5630ea-ecad-4dec-984d-938fa5b2ff54"
         ],
         "x-ms-correlation-request-id": [
-          "49085d5c-f6d0-4b53-8c05-4b87fd38e1b3"
+          "2c5630ea-ecad-4dec-984d-938fa5b2ff54"
         ],
         "x-ms-routing-request-id": [
-          "WESTUS2:20190105T011706Z:49085d5c-f6d0-4b53-8c05-4b87fd38e1b3"
+          "WESTUS2:20190108T002257Z:2c5630ea-ecad-4dec-984d-938fa5b2ff54"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -111,10 +111,10 @@
           "nosniff"
         ],
         "Date": [
-          "Sat, 05 Jan 2019 01:17:06 GMT"
+          "Tue, 08 Jan 2019 00:22:56 GMT"
         ],
         "Content-Length": [
-          "171"
+          "169"
         ],
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -123,17 +123,17 @@
           "-1"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps4349\",\r\n  \"name\": \"RG-ps4349\",\r\n  \"location\": \"westus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\"\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps539\",\r\n  \"name\": \"RG-ps539\",\r\n  \"location\": \"westus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\"\r\n  }\r\n}",
       "StatusCode": 201
     },
     {
-      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps4349/providers/Microsoft.Logic/workflows/09e81ac4-848a-428d-82a6-7d61953e3940?api-version=2018-07-01-preview",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNDM0OS9wcm92aWRlcnMvTWljcm9zb2Z0LkxvZ2ljL3dvcmtmbG93cy8wOWU4MWFjNC04NDhhLTQyOGQtODJhNi03ZDYxOTUzZTM5NDA/YXBpLXZlcnNpb249MjAxOC0wNy0wMS1wcmV2aWV3",
+      "RequestUri": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/RG-ps539/providers/Microsoft.Logic/workflows/09e81ac4-848a-428d-82a6-7d61953e3940?api-version=2018-07-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZjM0YjIyYTMtMjIwMi00ZmIxLWIwNDAtMTMzMmJkOTI4Yzg0L3Jlc291cmNlR3JvdXBzL1JHLXBzNTM5L3Byb3ZpZGVycy9NaWNyb3NvZnQuTG9naWMvd29ya2Zsb3dzLzA5ZTgxYWM0LTg0OGEtNDI4ZC04MmE2LTdkNjE5NTNlMzk0MD9hcGktdmVyc2lvbj0yMDE4LTA3LTAxLXByZXZpZXc=",
       "RequestMethod": "DELETE",
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "539160e0-c30a-48b1-a405-348750e895e6"
+          "d8481d54-c179-4deb-a69d-7eb4f8e4d9a4"
         ],
         "Accept-Language": [
           "en-US"
@@ -153,16 +153,16 @@
           "no-cache"
         ],
         "x-ms-ratelimit-remaining-subscription-deletes": [
-          "14997"
+          "14999"
         ],
         "x-ms-request-id": [
-          "963586df-ede2-4ad6-8d83-44aace048724"
+          "83fc9f2f-b06a-492e-8ae3-21cda761c930"
         ],
         "x-ms-correlation-request-id": [
-          "963586df-ede2-4ad6-8d83-44aace048724"
+          "83fc9f2f-b06a-492e-8ae3-21cda761c930"
         ],
         "x-ms-routing-request-id": [
-          "WESTUS2:20190105T011706Z:963586df-ede2-4ad6-8d83-44aace048724"
+          "WESTUS2:20190108T002257Z:83fc9f2f-b06a-492e-8ae3-21cda761c930"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -171,7 +171,7 @@
           "nosniff"
         ],
         "Date": [
-          "Sat, 05 Jan 2019 01:17:05 GMT"
+          "Tue, 08 Jan 2019 00:22:56 GMT"
         ],
         "Expires": [
           "-1"
@@ -183,7 +183,7 @@
   ],
   "Names": {
     "Test-RemoveNonExistingLogicApp": [
-      "ps4349"
+      "ps539"
     ]
   },
   "Variables": {

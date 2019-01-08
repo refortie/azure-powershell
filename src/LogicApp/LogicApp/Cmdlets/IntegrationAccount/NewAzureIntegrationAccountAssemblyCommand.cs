@@ -20,13 +20,14 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
     using Microsoft.Azure.Management.Internal.Resources.Utilities.Models;
     using Microsoft.Azure.Management.Logic.Models;
     using Microsoft.WindowsAzure.Commands.Utilities.Common;
-    using Newtonsoft.Json.Linq;
+    using System.Collections;
     using System.Management.Automation;
 
     /// <summary>
     /// Creates a new integration account assembly.
     /// </summary>
     [Cmdlet(VerbsCommon.New, AzureRMConstants.AzureRMPrefix + "IntegrationAccountAssembly", DefaultParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
+    [OutputType(typeof(AssemblyDefinition))]
     public class NewAzureIntegrationAccountAssemblyCommand : LogicAppBaseCmdlet
     {
         #region Input Parameters
@@ -80,19 +81,19 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
 
         [Parameter(Mandatory = false, HelpMessage = Constants.AssemblyMetadataHelpMessage)]
         [ValidateNotNullOrEmpty]
-        public JObject Metadata { get; set; }
+        public Hashtable Metadata { get; set; }
 
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndContentLink, ValueFromPipeline = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFileBytes, ValueFromPipeline = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFilePath, ValueFromPipeline = true)]
         [ValidateNotNullOrEmpty]
-        public IntegrationAccount InputObject { get; set; }
+        public IntegrationAccount ParentObject { get; set; }
 
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndContentLink, ValueFromPipelineByPropertyName = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFileBytes, ValueFromPipelineByPropertyName = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFilePath, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]
-        public string ResourceId { get; set; }
+        public string ParentResourceId { get; set; }
 
         #endregion Input Parameters
 
@@ -109,7 +110,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                 case ParameterSet.ByInputObjectAndFileBytes:
                 case ParameterSet.ByInputObjectAndFilePath:
                 {
-                    var parsedResourceId = new ResourceIdentifier(this.InputObject.Id);
+                    var parsedResourceId = new ResourceIdentifier(this.ParentObject.Id);
                     this.ResourceGroupName = parsedResourceId.ResourceGroupName;
                     this.ParentName = parsedResourceId.ResourceName;
                     break;
@@ -118,7 +119,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                 case ParameterSet.ByResourceIdAndFileBytes:
                 case ParameterSet.ByResourceIdAndFilePath:
                 {
-                    var parsedResourceId = new ResourceIdentifier(this.ResourceId);
+                    var parsedResourceId = new ResourceIdentifier(this.ParentResourceId);
                     this.ResourceGroupName = parsedResourceId.ResourceGroupName;
                     this.ParentName = parsedResourceId.ParentResource.Split('/')[1];
                     break;
@@ -129,9 +130,9 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
             {
                 Properties = new AssemblyProperties
                 {
+                    AssemblyName = this.Name,
                     ContentType = "application/octet-stream",
-                    Metadata = this.Metadata,
-                    AssemblyName = this.Name
+                    Metadata = this.Metadata
                 }
             };
 

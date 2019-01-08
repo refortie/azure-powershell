@@ -50,11 +50,11 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
 
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObject, ValueFromPipeline = true)]
         [ValidateNotNullOrEmpty]
-        public IntegrationAccount InputObject { get; set; }
+        public IntegrationAccount ParentObject { get; set; }
 
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceId, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]
-        public string ResourceId { get; set; }
+        public string ParentResourceId { get; set; }
 
         #endregion Input Parameters
 
@@ -67,13 +67,13 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
 
             if (this.ParameterSetName == ParameterSet.ByInputObject)
             {
-                var parsedResourceId = new ResourceIdentifier(this.InputObject.Id);
+                var parsedResourceId = new ResourceIdentifier(this.ParentObject.Id);
                 this.ResourceGroupName = parsedResourceId.ResourceGroupName;
                 this.ParentName = parsedResourceId.ResourceName;
             }
             else if (this.ParameterSetName == ParameterSet.ByResourceId)
             {
-                var parsedResourceId = new ResourceIdentifier(this.ResourceId);
+                var parsedResourceId = new ResourceIdentifier(this.ParentResourceId);
                 this.ResourceGroupName = parsedResourceId.ResourceGroupName;
                 this.ParentName = parsedResourceId.ResourceName;
             }

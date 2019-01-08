@@ -22,6 +22,8 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
     using Microsoft.WindowsAzure.Commands.Utilities.Common;
     using Newtonsoft.Json.Linq;
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.Management.Automation;
 
@@ -116,23 +118,23 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
         [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleStartTimeHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
         [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationScheduleStartTimeHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
         [ValidateNotNullOrEmpty]
-        public string ScheduleStartTime { get; set; }
+        public DateTime? ScheduleStartTime { get; set; }
 
         [Parameter(Mandatory = false, HelpMessage = Constants.BatchConfigurationMetadataHelpMessage)]
         [ValidateNotNullOrEmpty]
-        public JObject Metadata { get; set; }
+        public Hashtable Metadata { get; set; }
 
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndJson, ValueFromPipeline = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFilePath, ValueFromPipeline = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.IntegrationAccountObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters, ValueFromPipeline = true)]
         [ValidateNotNullOrEmpty]
-        public IntegrationAccount InputObject { get; set; }
+        public IntegrationAccount ParentObject { get; set; }
 
         [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndJson, ValueFromPipelineByPropertyName = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFilePath, ValueFromPipelineByPropertyName = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationResourceIdHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]
-        public string ResourceId { get; set; }
+        public string ParentResourceId { get; set; }
 
         #endregion Input Parameters
 
@@ -149,7 +151,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                 case ParameterSet.ByInputObjectAndFilePath:
                 case ParameterSet.ByInputObjectAndParameters:
                 {
-                    var parsedResourceId = new ResourceIdentifier(this.InputObject.Id);
+                    var parsedResourceId = new ResourceIdentifier(this.ParentObject.Id);
                     this.ResourceGroupName = parsedResourceId.ResourceGroupName;
                     this.ParentName = parsedResourceId.ResourceName;
                     break;
@@ -158,7 +160,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                 case ParameterSet.ByResourceIdAndFilePath:
                 case ParameterSet.ByResourceIdAndParameters:
                 {
-                    var parsedResourceId = new ResourceIdentifier(this.ResourceId);
+                    var parsedResourceId = new ResourceIdentifier(this.ParentResourceId);
                     this.ResourceGroupName = parsedResourceId.ResourceGroupName;
                     this.ParentName = parsedResourceId.ResourceName;
                     break;
@@ -205,7 +207,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                             Interval = this.ScheduleInterval,
                             Frequency = this.ScheduleFrequency,
                             TimeZone = !string.IsNullOrWhiteSpace(this.ScheduleTimeZone) ? this.ScheduleTimeZone : null,
-                            StartTime = !string.IsNullOrWhiteSpace(this.ScheduleStartTime) ? this.ScheduleStartTime : null
+                            StartTime = this.ScheduleStartTime?.ToShortDateString()
                         };
                     }
 
@@ -223,6 +225,8 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                     break;
                 }
             }
+
+            batchConfiguration.Properties.Metadata = this.Metadata;
 
             this.WriteObject(this.IntegrationAccountClient.CreateIntegrationAccountBatchConfiguration(this.ResourceGroupName, this.ParentName, this.Name, batchConfiguration));
         }

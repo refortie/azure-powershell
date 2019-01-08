@@ -20,17 +20,14 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
     using Microsoft.Azure.Management.Internal.Resources.Utilities.Models;
     using Microsoft.Azure.Management.Logic.Models;
     using Microsoft.WindowsAzure.Commands.Utilities.Common;
-    using Newtonsoft.Json.Linq;
+    using System.Collections;
     using System.Globalization;
-    using System.Linq;
     using System.Management.Automation;
 
     /// <summary>
     /// Updates the integration account assembly.
     /// </summary>
-    [Cmdlet(VerbsCommon.Set,
-        AzureRMConstants.AzureRMPrefix + "IntegrationAccountAssembly",
-        DefaultParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
+    [Cmdlet(VerbsCommon.Set, AzureRMConstants.AzureRMPrefix + "IntegrationAccountAssembly", DefaultParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
     [OutputType(typeof(AssemblyDefinition))]
     public class UpdateAzureIntegrationAccountAssemblyCommand : LogicAppBaseCmdlet
     {
@@ -79,7 +76,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
 
         [Parameter(Mandatory = false, HelpMessage = Constants.AssemblyMetadataHelpMessage)]
         [ValidateNotNullOrEmpty]
-        public JObject Metadata { get; set; }
+        public Hashtable Metadata { get; set; }
 
         [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyInputObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndContentLink, ValueFromPipeline = true)]
         [Parameter(Mandatory = true, HelpMessage = Constants.AssemblyInputObjectHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFileBytes, ValueFromPipeline = true)]
