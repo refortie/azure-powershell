@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-AzIntegrationAccountBatchConfiguration
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets an integration account batch configuration.
 
 ## SYNTAX
 
@@ -31,16 +31,23 @@ Get-AzIntegrationAccountBatchConfiguration [-Name <String>] -ParentResourceId <S
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The **Get-AzIntegrationAccountBatchConfiguration** cmdlet gets an batch configuration from an integration account.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Get a batch configuration by parameters
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-AzIntegrationAccountBatchConfiguration -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -BatchConfigurationName "sampleBatchConfiguration"
 ```
 
-{{ Add example description here }}
+Get a batch configuration named "sampleBatchConfiguration" located in the integration account "sampleIntegrationAccount" which is contained in the resource group "sampleResourceGroup".
+
+### Example 2: List all batch configurations in an integration account by parameters
+```powershell
+PS C:\> Get-AzIntegrationAccountBatchConfiguration -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount"
+```
+
+Get all batch configurations located in the integration account "sampleIntegrationAccount" which is contained in the resource group "sampleResourceGroup".
 
 ## PARAMETERS
 

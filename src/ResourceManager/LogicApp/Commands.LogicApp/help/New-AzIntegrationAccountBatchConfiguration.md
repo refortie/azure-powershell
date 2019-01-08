@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-AzIntegrationAccountBatchConfiguration
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates an integration account batch configuration.
 
 ## SYNTAX
 
@@ -79,16 +79,30 @@ New-AzIntegrationAccountBatchConfiguration -Name <String> [-BatchGroupName <Stri
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The **Get-AzIntegrationAccountBatchConfiguration** cmdlet creates a new batch configuration in an integration account.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Create new batch configuration using local file
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> New-AzIntegrationAccountBatchConfiguration -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -BatchConfigurationName "sampleBatchConfiguration" -BatchConfigurationFilePath $batchConfigurationFilePath
 ```
 
-{{ Add example description here }}
+Creates a new batch configuration using the local file located at the file path contained in "$batchConfigurationFilePath".
+
+### Example 2: Create new batch configuration using a JSON string
+```powershell
+PS C:\> New-AzIntegrationAccountBatchConfiguration -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -BatchConfigurationName "sampleBatchConfiguration" -BatchConfigurationDefinition $batchConfigurationContent
+```
+
+Creates a new batch configuration using the a JSON string contained in "$batchConfigurationContent".
+
+### Example 3: Create new batch configuration using parameters
+```powershell
+PS C:\> New-AzIntegrationAccountBatchConfiguration -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -BatchConfigurationName "sampleBatchConfiguration" -MessageCount 199 -BatchSize 5 -ScheduleInterval 1 -ScheduleFrequency "Month"
+```
+
+Creates a new batch configuration by manually providing all of the nessecary parameters.
 
 ## PARAMETERS
 

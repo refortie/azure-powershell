@@ -8,7 +8,7 @@ schema: 2.0.0
 # Remove-AzIntegrationAccountAssembly
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Removes an integration account assembly.
 
 ## SYNTAX
 
@@ -31,16 +31,16 @@ Remove-AzIntegrationAccountAssembly -ResourceId <String> [-DefaultProfile <IAzur
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The **Remove-AzIntegrationAccountAssembly** cmdlet removes an assembly from an integration account.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Remove an assembly by parameters
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Remove-AzIntegrationAccountAssembly -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -AssemblyName "sampleAssembly"
 ```
 
-{{ Add example description here }}
+Removes the assembly named "sampleAssembly" located in the integration account "sampleIntegrationAccount".
 
 ## PARAMETERS
 

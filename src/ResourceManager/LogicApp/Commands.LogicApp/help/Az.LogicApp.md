@@ -18,10 +18,10 @@ Gets integration accounts.
 Gets an integration account agreement.
 
 ### [Get-AzIntegrationAccountAssembly](Get-AzIntegrationAccountAssembly.md)
-{{Fill in the Synopsis}}
+Gets an integration account assembly.
 
 ### [Get-AzIntegrationAccountBatchConfiguration](Get-AzIntegrationAccountBatchConfiguration.md)
-{{Fill in the Synopsis}}
+Gets an integration account batch configuration.
 
 ### [Get-AzIntegrationAccountCallbackUrl](Get-AzIntegrationAccountCallbackUrl.md)
 Gets an integration account callback URL.
@@ -72,10 +72,10 @@ Creates an integration account.
 Creates an integration account agreement.
 
 ### [New-AzIntegrationAccountAssembly](New-AzIntegrationAccountAssembly.md)
-{{Fill in the Synopsis}}
+Creates an integration account assembly.
 
 ### [New-AzIntegrationAccountBatchConfiguration](New-AzIntegrationAccountBatchConfiguration.md)
-{{Fill in the Synopsis}}
+Creates an integration account batch configuration.
 
 ### [New-AzIntegrationAccountCertificate](New-AzIntegrationAccountCertificate.md)
 Creates an integration account certificate.
@@ -99,10 +99,10 @@ Removes an integration account.
 Removes an integration account agreement.
 
 ### [Remove-AzIntegrationAccountAssembly](Remove-AzIntegrationAccountAssembly.md)
-{{Fill in the Synopsis}}
+Removes an integration account assembly.
 
 ### [Remove-AzIntegrationAccountBatchConfiguration](Remove-AzIntegrationAccountBatchConfiguration.md)
-{{Fill in the Synopsis}}
+Removes an integration account batch configuration.
 
 ### [Remove-AzIntegrationAccountCertificate](Remove-AzIntegrationAccountCertificate.md)
 Removes an integration account certificate from a resource group.
@@ -129,10 +129,10 @@ Modifies an integration account.
 Modifies an integration account agreement.
 
 ### [Set-AzIntegrationAccountAssembly](Set-AzIntegrationAccountAssembly.md)
-{{Fill in the Synopsis}}
+Modifies an integration account assembly.
 
 ### [Set-AzIntegrationAccountBatchConfiguration](Set-AzIntegrationAccountBatchConfiguration.md)
-{{Fill in the Synopsis}}
+Modifies an integration account batch configuration.
 
 ### [Set-AzIntegrationAccountCertificate](Set-AzIntegrationAccountCertificate.md)
 Modifies an integration account certificate.

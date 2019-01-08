@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-AzIntegrationAccountAssembly
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets an integration account assembly.
 
 ## SYNTAX
 
@@ -31,16 +31,23 @@ Get-AzIntegrationAccountAssembly [-Name <String>] -ParentResourceId <String>
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The **Get-AzIntegrationAccountAssembly** cmdlet gets an assembly from an integration account.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Get an assembly by parameters
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-AzIntegrationAccountAssembly -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -AssemblyName "sampleAssembly"
 ```
 
-{{ Add example description here }}
+Get an assembly named "sampleAssembly" located in the integration account "sampleIntegrationAccount" which is contained in the resource group "sampleResourceGroup".
+
+### Example 2: List all assemblies in an integration account by parameters
+```powershell
+PS C:\> Get-AzIntegrationAccountAssembly -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount"
+```
+
+Get all assemblies located in the integration account "sampleIntegrationAccount" which is contained in the resource group "sampleResourceGroup".
 
 ## PARAMETERS
 

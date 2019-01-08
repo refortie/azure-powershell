@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-AzIntegrationAccountBatchConfiguration
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Modifies an integration account batch configuration.
 
 ## SYNTAX
 
@@ -75,16 +75,30 @@ Set-AzIntegrationAccountBatchConfiguration [-BatchGroupName <String>] [-MessageC
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The **Set-AzIntegrationAccountBatchConfiguration** cmdlet modifies an integration account batch configuration.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Modify a batch configuration using local file
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-AzIntegrationAccountBatchConfiguration -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -BatchConfigurationName "sampleBatchConfiguration" -BatchConfigurationFilePath $batchConfigurationFilePath
 ```
 
-{{ Add example description here }}
+Modify a batch configuration named "sampleBatchConfiguration" using the local file located at the file path contained in "$batchConfigurationFilePath".
+
+### Example 2: Modify a batch configuration using a JSON string
+```powershell
+PS C:\> Set-AzIntegrationAccountBatchConfiguration -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -BatchConfigurationName "sampleBatchConfiguration" -BatchConfigurationDefinition $batchConfigurationContent
+```
+
+Modify a batch configuration named "sampleBatchConfiguration" using the a JSON string contained in "$batchConfigurationContent".
+
+### Example 3: Modify a batch configuration using parameters
+```powershell
+PS C:\> Set-AzIntegrationAccountBatchConfiguration -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -BatchConfigurationName "sampleBatchConfiguration" -MessageCount 199 -BatchSize 5 -ScheduleInterval 1 -ScheduleFrequency "Month"
+```
+
+Modify a batch configuration named "sampleBatchConfiguration" by manually providing all of the nessecary parameters.
 
 ## PARAMETERS
 

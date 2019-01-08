@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-AzIntegrationAccountAssembly
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Modifies an integration account assembly.
 
 ## SYNTAX
 
@@ -68,16 +68,30 @@ Set-AzIntegrationAccountAssembly -ContentLink <String> [-Metadata <Hashtable>] -
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The **Set-AzIntegrationAccountAssembly** cmdlet modifies an integration account assembly.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Modify an assembly using local file
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-AzIntegrationAccountAssembly -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -AssemblyName "sampleAssembly" -AssemblyFilePath $localAssemblyFilePath
 ```
 
-{{ Add example description here }}
+Modifies the assembly named "sampleAssembly" using the local file located at the file path contained in "$localAssemblyFilePath".
+
+### Example 2: Modify an assembly using byte data
+```powershell
+PS C:\> Set-AzIntegrationAccountAssembly -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -AssemblyName "sampleAssembly" -AssemblyData $assemblyContent
+```
+
+Modifies the assembly named "sampleAssembly" using the a byte array contained in "$assemblyContent".
+
+### Example 3: Modify an assembly using a content link
+```powershell
+PS C:\> Set-AzIntegrationAccountAssembly -ResourceGroupName "sampleResourceGroup" -IntegrationAccountName "sampleIntegrationAccount" -AssemblyName "sampleAssembly" -ContentLink $assemblyUrl
+```
+
+Modifies the assembly named "sampleAssembly" using the a byte data located at the URL "$assemblyUrl". This is the suggested method for creating large sized assemblies.
 
 ## PARAMETERS
 
