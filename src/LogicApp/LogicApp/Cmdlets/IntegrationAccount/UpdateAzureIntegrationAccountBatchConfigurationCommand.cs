@@ -49,12 +49,6 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
         [Alias("IntegrationAccountName")]
         public string ParentName { get; set; }
 
-        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndJson)]
-        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndFilePath)]
-        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByInputObjectAndParameters)]
-        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndJson)]
-        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndFilePath)]
-        [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByResourceIdAndParameters)]
         [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndJson)]
         [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndFilePath)]
         [Parameter(Mandatory = true, HelpMessage = Constants.BatchConfigurationNameHelpMessage, ParameterSetName = ParameterSet.ByIntegrationAccountAndParameters)]
@@ -212,7 +206,7 @@ namespace Microsoft.Azure.Commands.LogicApp.Cmdlets
                     batchConfiguration.Properties = new BatchConfigurationProperties
                     {
                         BatchGroupName = this.BatchGroupName,
-                        Metadata = this.Metadata
+                        ReleaseCriteria = releaseCriteria
                     };
 
                     if (!this.IsValidReleaseCriteria(releaseCriteria))

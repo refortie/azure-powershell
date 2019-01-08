@@ -34,43 +34,41 @@ Set-AzIntegrationAccountBatchConfiguration -ResourceGroupName <String> -ParentNa
  [<CommonParameters>]
 ```
 
-### ByInputObjectAndJson
-```
-Set-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationDefinition <String>
- [-Metadata <Hashtable>] -InputObject <BatchConfiguration> [-DefaultProfile <IAzureContextContainer>]
- [<CommonParameters>]
-```
-
 ### ByInputObjectAndFilePath
 ```
-Set-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationFilePath <String>
- [-Metadata <Hashtable>] -InputObject <BatchConfiguration> [-DefaultProfile <IAzureContextContainer>]
- [<CommonParameters>]
+Set-AzIntegrationAccountBatchConfiguration -BatchConfigurationFilePath <String> [-Metadata <Hashtable>]
+ -InputObject <BatchConfiguration> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByResourceIdAndFilePath
+```
+Set-AzIntegrationAccountBatchConfiguration -BatchConfigurationFilePath <String> [-Metadata <Hashtable>]
+ -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByInputObjectAndJson
+```
+Set-AzIntegrationAccountBatchConfiguration -BatchConfigurationDefinition <String> [-Metadata <Hashtable>]
+ -InputObject <BatchConfiguration> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ByResourceIdAndJson
+```
+Set-AzIntegrationAccountBatchConfiguration -BatchConfigurationDefinition <String> [-Metadata <Hashtable>]
+ -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ByInputObjectAndParameters
 ```
-Set-AzIntegrationAccountBatchConfiguration -Name <String> [-BatchGroupName <String>] [-MessageCount <Int32>]
+Set-AzIntegrationAccountBatchConfiguration [-BatchGroupName <String>] [-MessageCount <Int32>]
  [-BatchSize <Int32>] [-ScheduleInterval <Int32>] [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>]
  [-ScheduleStartTime <DateTime>] [-Metadata <Hashtable>] -InputObject <BatchConfiguration>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
-### ByResourceIdAndJson
-```
-Set-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationDefinition <String>
- [-Metadata <Hashtable>] -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
-```
-
-### ByResourceIdAndFilePath
-```
-Set-AzIntegrationAccountBatchConfiguration -Name <String> -BatchConfigurationFilePath <String>
- [-Metadata <Hashtable>] -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
-```
-
 ### ByResourceIdAndParameters
 ```
-Set-AzIntegrationAccountBatchConfiguration -Name <String> [-BatchGroupName <String>] [-MessageCount <Int32>]
+Set-AzIntegrationAccountBatchConfiguration [-BatchGroupName <String>] [-MessageCount <Int32>]
  [-BatchSize <Int32>] [-ScheduleInterval <Int32>] [-ScheduleFrequency <String>] [-ScheduleTimeZone <String>]
  [-ScheduleStartTime <DateTime>] [-Metadata <Hashtable>] -ResourceId <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
@@ -170,7 +168,7 @@ An integration account batch configuration.
 
 ```yaml
 Type: Microsoft.Azure.Management.Logic.Models.BatchConfiguration
-Parameter Sets: ByInputObjectAndJson, ByInputObjectAndFilePath, ByInputObjectAndParameters
+Parameter Sets: ByInputObjectAndFilePath, ByInputObjectAndJson, ByInputObjectAndParameters
 Aliases:
 
 Required: True
@@ -215,7 +213,7 @@ The integration account batch configuration name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ByIntegrationAccountAndParameters, ByIntegrationAccountAndJson, ByIntegrationAccountAndFilePath
 Aliases: BatchConfigurationName, ResourceName
 
 Required: True
@@ -260,7 +258,7 @@ The integration account batch configuration resource id.
 
 ```yaml
 Type: System.String
-Parameter Sets: ByResourceIdAndJson, ByResourceIdAndFilePath, ByResourceIdAndParameters
+Parameter Sets: ByResourceIdAndFilePath, ByResourceIdAndJson, ByResourceIdAndParameters
 Aliases:
 
 Required: True
